@@ -1,0 +1,11 @@
+{% extends 'header.html' %}
+{% block content %}
+
+    {% load staticfiles %}
+   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+
+<h1>WRONG CREDENTIALS!!!<small>(or you have not logged in yet)</small></h1><br/>
+<br>
+<p>CLICK <a href="/log_in/">HERE</a> TO LOGIN AGAIN</p>
+
+{% endblock %}
