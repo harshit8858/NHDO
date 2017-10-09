@@ -19,10 +19,9 @@
 	  </style>
 </head>
 <body class="body" style="">
-<nav class="navbar navbar-light" style="background-color: #66a3ff;height:60px;" >
+<nav class="navbar navbar-light" style="background-color:#66a3ff;height:55px;" >
 	<div class="container">
 		<div class="navbar-header">
-
 		</div>
         <br>
 		<ul class="nav navbar-nav navbar-left">
@@ -34,17 +33,29 @@
 
 		<ul class="nav navbar-nav navbar-right">
 			{% if user.is_authenticated %}
-				<span style="color:black;padding-right:60px;font-size:30px" align="right" class="glyphicon glyphicon-user">{{ request.user.first_name }}</span>
+				<span style="color:black;font-size:30px;font-family:serif" >{{ request.user.first_name }}</span>
 			{% else %}
 				<li><a href="{% url 'log_in' %}" style="color:#003300"><span class="glyphicon glyphicon-log-in">LogIn</span></a></li>
 			{% endif %}
-
-			<li><a href="{% url 'signup' %}" style="color:#003300"><span class="glyphicon glyphicon-new-window">Register</span></a></li>
-
+			<li>
+				<a href="{% url 'signup' %}" style="color:#003300"><span class="glyphicon glyphicon-new-window">Register</span></a>
+			</li>
 			{% if user.is_authenticated %}
-				<li><a href="/logout/" style="color:#003300"><span class="glyphicon glyphicon-log-out">Logout</span></a></li>
+				<li>
+					<a href="/logout/" style="color:#003300"><span class="glyphicon glyphicon-log-out">Logout</span></a>
+				</li>
 			{% endif %}
-
+			{% if request.user.profile.profile_pic %}
+			<li>
+				<div style="margin-top:0px">
+					<img src="{{request.user.profile.profile_pic.url}}" align="middle" class="img-circle" width="60px" height="60px"/>
+				</div>
+			</li>
+			{% else %}
+			<li>
+				<span style="color:black;font-size:30px" class="glyphicon glyphicon-user"></span>
+			</li>
+			{% endif %}
 		</ul>
 
 		<ul class="nav navbar-nav navbar-right">
@@ -59,14 +70,14 @@
 	{% endblock %}
 </div>
 
-<hr width="700px" />
+<hr/>
 
 <footer>
 	<div class="last-div footer">
 		<div class="container">
 			<div class="row">
-				<div class="copyright">
-					Footer!
+				<div class="copyright" align="right">
+					@Harshit_Verma(8858414441)
 				</div>
 			</div>
 		</div>

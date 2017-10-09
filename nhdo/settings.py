@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',  #added
+    # 'django.contrib.sites',  #added
     'nhdo_main',
     'captcha',
     'nhdo_reset',
@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'towel',
     'dashboard',
     # 'social_auth',
-    'pinax.referrals',
 ]
 
 SITE_ID = 1
@@ -91,7 +90,6 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'pinax.referrals.middleware.SessionJumpingMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 

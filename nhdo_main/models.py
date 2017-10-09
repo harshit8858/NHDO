@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from pinax.referrals.models import Referral
+# from pinax.referrals.models import Referral
 
 
 GENDER = (
@@ -13,8 +13,8 @@ GENDER = (
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    referal_id = models.CharField(max_length=10)
+    user = models.OneToOneField(User, unique=True, on_delete=models.CASCADE)
+    referal_id = models.IntegerField(null=True, blank=True)
     pan_number = models.IntegerField(null=True, blank=True)
     gender = models.CharField(max_length=10, choices=GENDER)
     birth_date = models.DateField(null=True, blank=True)
@@ -23,20 +23,33 @@ class Profile(models.Model):
     pincode = models.IntegerField(null=True, blank=True)
     state = models.CharField(max_length=20)
     mobile_number = models.IntegerField(null=True, blank=True)
-    # email_id = models.EmailField()
     profile_pic = models.FileField(upload_to='images', blank=True, null=True)
-
-    referral = models.CharField(max_length=30)
+    count = models.IntegerField(null=True, blank=True, default=0)
+    count1 = models.IntegerField(null=True, blank=True, default=0)
+    count2 = models.IntegerField(null=True, blank=True, default=0)
+    count3 = models.IntegerField(null=True, blank=True, default=0)
+    money = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True, default=0)
+    total = models.IntegerField(default=0, null=True, blank=True)
 
     def __str__(self):
         return str(self.user)
 
 
-class YourReferal(models.Model):
-    referal_no = models.CharField(max_length=20)
+class Referral(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    count = models.IntegerField(default=0, null=True, blank=True)
+    check = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.referal_no
+        return str(self.user)
+
+
+# class YourReferal(models.Model):
+#     user = models.OneToOneField(User, on_delete=models.CASCADE)
+#     referal_no = models.CharField(max_length=20)
+#
+#     def __str__(self):
+#         return self.referal_no
 
 
 @receiver(post_save, sender=User)
@@ -51,6 +64,7 @@ class Contact(models.Model):
     number = models.IntegerField()
     email = models.EmailField()
     query = models.TextField(max_length=200)
+    done = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
