@@ -1,0 +1,38 @@
+{% extends 'nhdo_main/header.html' %}
+
+{%block content %}
+
+<b><u>Your referral Level</u>:</b><br/>
+<table>
+    {% for i in x %}
+        <tr>
+            {% ifequal ref.mobile_number i.referal_id %}
+            <!--{% ifequal ref.-->
+                <li>{{ i.user.first_name }} {{ i.user.last_name }}-{{ i.user.email }}-{{ i.user.profile.mobile_number }}-{{ i.user.profile.dob }}--(Rs.100)<br/></li>
+                <tr>
+                    {% for j in x %}
+                        {% ifequal i.user.profile.mobile_number j.referal_id %}
+                            <li>{{ j.user.first_name }} {{ j.user.last_name }}-{{ j.user.email }}-{{ j.user.profile.mobile_number }}-{{ j.user.profile.dob }}--(Rs.50)</li>
+                            <tr>
+                                {% for k in x %}
+                                    {% ifequal j.user.profile.mobile_number k.referal_id %}
+                                        <li>{{ k.user.first_name }} {{ k.user.last_name }}-{{ k.user.email }}-{{ k.user.profile.mobile_number }}-{{ k.user.profile.dob }}--(Rs.25)</li>
+                                        <tr>
+                                            {% for l in x %}
+                                                {% ifequal k.user.profile.mobile_number l.referal_id %}
+                                                    <li>{{ l.user.first_name }} {{ l.user.last_name }}-{{ l.user.email }}-{{ l.user.profile.mobile_number }}-{{ l.user.profile.dob }}--(Rs.12.5)</li>
+                                                {% endifequal %}
+                                            {% endfor %}
+                                        </tr>
+                                    {% endifequal %}
+                                {% endfor %}
+                            </tr>
+                        {% endifequal %}
+                    {% endfor %}
+                </tr>
+            {% endifequal %}
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
