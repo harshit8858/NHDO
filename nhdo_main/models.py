@@ -14,6 +14,7 @@ GENDER = (
 
 class Profile(models.Model):
     user = models.OneToOneField(User, unique=True, on_delete=models.CASCADE)
+    your = models.ManyToManyField(User, blank=True, null=True, related_name='your_team')
     referal_id = models.IntegerField(null=True, blank=True)
     pan_number = models.IntegerField(null=True, blank=True)
     gender = models.CharField(max_length=10, choices=GENDER)

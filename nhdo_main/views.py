@@ -77,6 +77,7 @@ def signup(request):
 
 
 def your_referral(request):
+    home(request)
     referral = Profile.objects.get(user=request.user)
     # x = Profile.objects.all()
     # y = Profile.objects.values_list('referal_id', flat=True)
@@ -115,7 +116,7 @@ def your_referral(request):
     #                                 referral.count3 = referral.count3 + 1
     #                                 # print(referral.count3)
     #                                 referral.save()
-    return render(request, 'your_referral.html',{'referral':referral.mobile_number, 'count':referral.count, 'count1':referral.count1, 'count2':referral.count2, 'count3':referral.count3})
+    return render(request, 'your_referral.html',{'referral':referral})
 #     referral = Profile.objects.get(user=request.user)
 #     # print(referral)
 #     # print(referral.referal_id)
@@ -194,6 +195,7 @@ def your_referral(request):
 
 
 def your_referrar(request):
+    home(request)
     referrar = Profile.objects.get(user=request.user)
     x = Profile.objects.all()
     # y = Profile.objects.values_list('referal_id', flat=True)
@@ -237,7 +239,7 @@ def your_referrar(request):
     #     referrar.save()
 
     # return render(request, 'your_referrar.html', {'referrar':referrar, 'x':x, 'y':y, 'a':a, 'b':b, 'c':c, 'money':referrar.money})
-    return render(request, 'your_referrar.html', {'referrar':referrar, 'x':x, 'money':referrar.money})
+    return render(request, 'your_referrar.html', {'referrar':referrar, 'x':x})
 
 
 def auth_check(request):
@@ -267,40 +269,62 @@ def log_in(request):
 
 def home(request):
     if request.user.is_authenticated():
-        referral = Profile.objects.get(user=request.user)
+        info = Profile.objects.get(user=request.user)
         x = Profile.objects.all()
         y = Profile.objects.values_list('referal_id', flat=True)
-        referral.count = 0
-        referral.count1 = 0
-        referral.count2 = 0
-        referral.count3 = 0
-        referral.money = 0
+        info.count = 0
+        info.count1 = 0
+        info.count2 = 0
+        info.count3 = 0
+        info.money = 0
         for i in x:
-            if referral.mobile_number == i.referal_id:
-                referral.money = referral.money + 100
-                referral.count = referral.count + 1
+            if info.mobile_number == i.referal_id:
+                info.money = info.money + 100
+                info.count = info.count + 1
                 for j in x:
                     if i.user.profile.mobile_number == j.referal_id:
-                        referral.money = referral.money + 50
-                        referral.count1 = referral.count1 + 1
+                        info.money = info.money + 50
+                        info.count1 = info.count1 + 1
                         for k in x:
                             if j.user.profile.mobile_number == k.referal_id:
-                                referral.money = referral.money + 25
-                                referral.count2 = referral.count2 + 1
+                                info.money = info.money + 25
+                                info.count2 = info.count2 + 1
                                 for l in x:
                                     if k.user.profile.mobile_number == l.referal_id:
-                                        referral.money = referral.money + 12.5
-                                        referral.count3 = referral.count3 + 1
-        referral.total = referral.count + referral.count1 + referral.count2 + referral.count3
-        referral.save()
-        # print(referral.count)
-        # print(referral.count1)
-        # print(referral.count2)
-        # print(referral.count3)
-        # print(referral.money)
+                                        info.money = info.money + 12.5
+                                        info.count3 = info.count3 + 1
+        info.total = info.count + info.count1 + info.count2 + info.count3
+        info.save()
+        # print(info.count)
+        # print(info.count1)
+        # print(info.count2)
+        # print(info.count3)
+        # print(info.money)
         return render(request, 'home.html')
     else:
         return render(request, 'invalid.html')
+
+
+def referral_level(request):
+    level = Profile.objects.get(user=request.user)
+    x = Profile.objects.all()
+    return render(request, 'referral_level.html', {'x':x, 'level':level})
+
+
+def summary(request):
+    summary = Profile.objects.get(user=request.user)
+    x = Profile.objects.all()
+    direct_income = summary.count * 100
+    level1_income = summary.count1 * 50
+    level2_income = summary.count2 * 25
+    level3_income = summary.count3 * 12.5
+    total = direct_income + level1_income + level2_income + level3_income
+    return render(request, 'summary.html', {'summary':summary,
+                                            'direct_income':direct_income,
+                                            'level1_income':level1_income,
+                                            'level2_income':level2_income,
+                                            'level3_income': level3_income,
+                                            'total':total})
 
 
 def about(request):

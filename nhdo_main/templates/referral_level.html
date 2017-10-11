@@ -1,0 +1,42 @@
+{% extends 'header.html' %}
+
+{% block content %}
+
+    <b><u>Referral Level</u>:</b><br/>
+    <table>
+        {% for i in x %}
+                <tr>
+                {% ifequal level.mobile_number i.referal_id %}
+                    {{ i.user.first_name }} {{ i.user.last_name }}-{{ i.user.profile.mobile_number }}-{{ i.user.email }}-(Rs.100)--Direct<br/>
+                        {% for j in x %}
+                            <tr>
+                            {% ifequal i.user.profile.mobile_number j.referal_id %}
+                                {{ j.user.first_name }} {{ j.user.last_name }}-{{ i.user.profile.mobile_number }}-{{ j.user.email }}-(Rs.50)--Level1<br/>
+                                    {% for k in x %}
+                                        <tr>
+                                        {% ifequal j.user.profile.mobile_number k.referal_id %}
+                                            {{ k.user.first_name }} {{ k.user.last_name }}-{{ i.user.profile.mobile_number }}-{{ k.user.email }}-(Rs.25)--Level2<br/>
+                                                {% for l in x %}
+                                                    <tr>
+                                                    {% ifequal k.user.profile.mobile_number l.referal_id %}
+                                                        {{ l.user.first_name }} {{ l.user.last_name }}-{{ i.user.profile.mobile_number }}-{{ l.user.email }}-(Rs.12.5)--Level3<br/>
+                                                    {% endifequal %}
+                                                    </tr>
+                                                {% endfor %}
+                                        {% endifequal %}
+                                        </tr>
+                                    {% endfor %}
+                            {% endifequal %}
+                            </tr>
+                        {% endfor %}
+                {% endifequal %}
+                </tr>
+        {% endfor %}
+    </table>
+
+
+<br/><hr width="100px" align="left">
+<h1><u>Your Earning</u>: {{ money }}</h1>
+<br/><hr width="100px" align="left">
+
+{% endblock %}

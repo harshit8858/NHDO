@@ -2,14 +2,15 @@
 
 {% block content %}
 
-    <b><u>Your Referal Code</u></b>:<i> {{ referral }}</i><br/><br/>
+    <b><u>Your Referal Code</u></b>:<i> {{ referral.mobile_number }}</i><br/><br/>
 
     <h3><u>Your Referal Responses</u>:</h3>
 
-    <b><u>Direct</u></b>:<i> {{ count }}</i><br/>
-    <b><u>Level 1</u></b>:<i> {{ count1 }}</i><br/>
-    <b><u>Level 2</u></b>:<i> {{ count2 }}</i><br/>
-    <b><u>Level 3</u></b>:<i> {{ count3 }}</i><br/>
+    <b><u>Direct</u></b>:<i> {{ referral.count }}</i><br/>
+    <b><u>Level 1</u></b>:<i> {{ referral.count1 }}</i><br/>
+    <b><u>Level 2</u></b>:<i> {{ referral.count2 }}</i><br/>
+    <b><u>Level 3</u></b>:<i> {{ referral.count3 }}</i><br/><br/>
+    <b><u>Total</u></b>:<i> {{ referral.total }}</i><br/>
 
     <hr/>
 

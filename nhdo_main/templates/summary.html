@@ -1,0 +1,12 @@
+{% extends 'header.html' %}
+
+{% block content %}
+
+Direct:{{ summary.count }}X 100 = {{ direct_income }}<br/>
+Level1:{{ summary.count1 }}X 50 = {{ level1_income }}<br/>
+Level2:{{ summary.count2 }}X 25 = {{ level2_income }}<br/>
+Level3:{{ summary.count3 }}X 12.5 = {{ level3_income }}<br/>
+Total = Rs.{{ total }}
+
+
+{% endblock %}
