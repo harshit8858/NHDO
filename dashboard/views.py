@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 
 def dashboard(request):
     p = Profile.objects.all()
-    return render(request, 'dashboard.html', {'info':p})
+    return render(request, 'dashboard/dashboard.html', {'info':p})
 
 
 def edit_profile(request,d):
@@ -19,7 +19,7 @@ def edit_profile(request,d):
             return redirect('dashboard')
     else:
         form = EditForm(instance=n)
-    return render(request, 'edit_profile.html', {'form':form})
+    return render(request, 'dashboard/edit_profile.html', {'form':form})
 
 
 def edit_profile1(request,d):
@@ -31,11 +31,11 @@ def edit_profile1(request,d):
             return redirect('dashboard')
     else:
         form = EditForm1(instance=n)
-    return render(request, 'edit_profile.html', {'form':form})
+    return render(request, 'dashboard/edit_profile.html', {'form':form})
 
 
 def list_epin(request):
-    return render(request, 'list_epins.html', )
+    return render(request, 'dashboard/list_epins.html', )
 
 
 def upgrade_account(request):
@@ -48,12 +48,12 @@ def upgrade_account(request):
             return redirect('dashboard')
     else:
         form = Epin_upgradeForm()
-    return render(request, 'upgrade_account.html', {'form':form})
+    return render(request, 'dashboard/upgrade_account.html', {'form':form})
 
 
 def update_kyc(request):
     i = kyc.objects.all()
-    return render(request, 'update_kyc.html', {'pic':i})
+    return render(request, 'dashboard/update_kyc.html', {'pic':i})
 
 
 def add_kyc(request):
@@ -66,7 +66,7 @@ def add_kyc(request):
             return redirect('update_kyc')
     else:
         form = KycForm()
-    return render(request, 'add_kyc.html', {'form':form})
+    return render(request, 'dashboard/add_kyc.html', {'form':form})
 
 
 def edit_kyc(request,d):
@@ -80,40 +80,40 @@ def edit_kyc(request,d):
             return redirect('update_kyc')
     else:
         form = KycForm(instance=n)
-    return render(request, 'edit_kyc.html', {'form':form})
+    return render(request, 'dashboard/edit_kyc.html', {'form':form})
 
 
 def welcome_letter(request):
-    return render(request, 'welcome_letter.html', )
+    return render(request, 'dashboard/welcome_letter.html', )
 
 
 def distributer_agreement(request):
-    return render(request, 'distributer_agreement.html', )
+    return render(request, 'dashboard/distributer_agreement.html', )
 
 
 def geneology_team(request):
-    return render(request, 'geneology_team.html', )
+    return render(request, 'dashboard/geneology_team.html', )
 
 
 def referal_team(request):
-    return render(request, 'referal_team.html', )
+    return render(request, 'dashboard/referal_team.html', )
 
 
 def downline_team(request):
-    return render(request, 'downline_team.html', )
+    return render(request, 'dashboard/downline_team.html', )
 
 
 def direct_bonus(request):
-    return render(request, 'direct_bonus.html', )
+    return render(request, 'dashboard/direct_bonus.html', )
 
 
 def summary(request):
-    return render(request, 'summary.html', )
+    return render(request, 'dashboard/summary.html', )
 
 
 def ac_statement(request):
-    return render(request, 'ac_statement.html', )
+    return render(request, 'dashboard/ac_statement.html', )
 
 
 def compose(request):
-    return render(request, 'compose.html', )
+    return render(request, 'dashboard/compose.html', )

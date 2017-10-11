@@ -1,4 +1,5 @@
-{% extends 'header.html' %}
+{% extends 'nhdo_main/header.html' %}
+
 {% block content %}
 
 <hr/>
@@ -28,11 +29,5 @@
 <br/>
 <a href="{% url 'compose' %}" class="btn btn-success">Compose</a>
 <hr />
-
-<form method="post" >
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn">Submit</button>
-</form>
 
 {% endblock %}

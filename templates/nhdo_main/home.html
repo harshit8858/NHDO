@@ -1,7 +1,21 @@
-{% extends 'header.html' %}
-
+{% extends 'nhdo_main/header.html' %}
 {% block content %}
 
+{{ request.user }} is logged in<br>
+
+
+
+<a href="{% url 'change_password' %}" class="btn btn-info">Change Password</a>
+<br/>
+<a href="/newsletter/" class="btn btn-default">Subscribe</a>
+<hr/><hr/>
+<a href="{% url 'your_referral' %}" class="btn btn-default">Your Referral</a>
+<br/>
+<a href="{% url 'your_referrar' %}" class="btn btn-default">Your Referrar</a>
+<br/>
+<a href="{% url 'referral_level' %}" class="btn btn-default">Referral Level</a>
+<br/>
+<a href="{% url 'summary' %}" class="btn btn-default">Summary</a>
 <hr/>
 <a href="{% url 'dashboard' %}" class="btn btn-success">Dashboard</a>
 <br/>

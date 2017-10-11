@@ -20,7 +20,7 @@ def index(request):
     # email = EmailMessage('title', 'body', to=['dk291996@gmail.com'])
     # abc = email.send()
     # print (abc)
-    return render(request, 'index.html')
+    return render(request, 'nhdo_main/index.html')
 
 
 # def signup(request):
@@ -73,10 +73,11 @@ def signup(request):
             return redirect('index')
     else:
         form = SignUpForm()
-    return render(request, 'signup.html', {'form':form})
+    return render(request, 'nhdo_main/signup.html', {'form':form})
 
 
 def your_referral(request):
+    home(request)
     referral = Profile.objects.get(user=request.user)
     # x = Profile.objects.all()
     # y = Profile.objects.values_list('referal_id', flat=True)
@@ -115,7 +116,11 @@ def your_referral(request):
     #                                 referral.count3 = referral.count3 + 1
     #                                 # print(referral.count3)
     #                                 referral.save()
-    return render(request, 'your_referral.html',{'referral':referral.mobile_number, 'count':referral.count, 'count1':referral.count1, 'count2':referral.count2, 'count3':referral.count3})
+    return render(request, 'nhdo_main/your_referral.html',{'referral':referral.mobile_number,
+                                                           'count':referral.count,
+                                                           'count1':referral.count1,
+                                                           'count2':referral.count2,
+                                                           'count3':referral.count3})
 #     referral = Profile.objects.get(user=request.user)
 #     # print(referral)
 #     # print(referral.referal_id)
@@ -194,6 +199,7 @@ def your_referral(request):
 
 
 def your_referrar(request):
+    home(request)
     referrar = Profile.objects.get(user=request.user)
     x = Profile.objects.all()
     # y = Profile.objects.values_list('referal_id', flat=True)
@@ -237,7 +243,7 @@ def your_referrar(request):
     #     referrar.save()
 
     # return render(request, 'your_referrar.html', {'referrar':referrar, 'x':x, 'y':y, 'a':a, 'b':b, 'c':c, 'money':referrar.money})
-    return render(request, 'your_referrar.html', {'referrar':referrar, 'x':x, 'money':referrar.money})
+    return render(request, 'nhdo_main/your_referrar.html', {'referrar':referrar, 'x':x, 'money':referrar.money})
 
 
 def auth_check(request):
@@ -258,11 +264,11 @@ def logout(request):
 
 
 def invalid(request):
-    return render(request, 'invalid.html')
+    return render(request, 'nhdo_main/invalid.html')
 
 
 def log_in(request):
-    return render(request, 'login.html')
+    return render(request, 'nhdo_main/login.html')
 
 
 def home(request):
@@ -298,21 +304,43 @@ def home(request):
         # print(referral.count2)
         # print(referral.count3)
         # print(referral.money)
-        return render(request, 'home.html')
+        return render(request, 'nhdo_main/home.html')
     else:
-        return render(request, 'invalid.html')
+        return render(request, 'nhdo_main/invalid.html')
+
+
+def summary(request):
+    summary = Profile.objects.get(user=request.user)
+    direct_income = summary.count * 100
+    level1_income = summary.count1 * 50
+    level2_income = summary.count2 * 25
+    level3_income = summary.count3 * 12.5
+    total = direct_income + level1_income + level2_income + level3_income
+
+    return render(request, 'nhdo_main/summary.html', {'summary':summary,
+                                            'direct_income':direct_income,
+                                            'level1_income':level1_income,
+                                            'level2_income': level2_income,
+                                            'level3_income': level3_income,
+                                            'total':total})
+
+
+def referral_level(request):
+    ref = Profile.objects.get(user=request.user)
+    x = Profile.objects.all()
+    return render(request, 'nhdo_main/referral_level.html', {'ref':ref, 'x':x})
 
 
 def about(request):
-    return render(request, 'about.html')
+    return render(request, 'nhdo_main/about.html')
 
 
 def project(request):
-    return render(request, 'project.html')
+    return render(request, 'nhdo_main/project.html')
 
 
 def gallery(request):
-    return render(request, 'gallery.html')
+    return render(request, 'nhdo_main/gallery.html')
 
 
 def contact(request):
@@ -324,7 +352,7 @@ def contact(request):
             return redirect('index')
     else:
         form = ContactForm()
-    return render(request, 'contact.html', {'form':form})
+    return render(request, 'nhdo_main/contact.html', {'form':form})
 
 
 def change_password(request):
@@ -340,7 +368,7 @@ def change_password(request):
 
     else:
         form = PasswordChangeForm(user=request.user)
-    return render(request, 'change_password.html', {'form': form})
+    return render(request, 'nhdo_main/change_password.html', {'form': form})
 
 
 # def captcha(request):
