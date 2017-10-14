@@ -6,8 +6,8 @@ from .forms import SignUpForm
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
-from .forms import ContactForm, ReferralForm
-from .models import Profile, Referral
+from .forms import ContactForm
+from .models import Profile
 from django.contrib.auth.forms import PasswordChangeForm
 # from django.core.mail import EmailMessage
 # from pinax.referrals.models import Referral
