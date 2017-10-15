@@ -2,35 +2,6 @@
 
 {% block content %}
 
-<hr/>
-<a href="{% url 'dashboard' %}" class="btn btn-success">Dashboard</a>
-<br/>
-<a href="{% url 'list_epin' %}" class="btn btn-success">List Epin</a>
-<br/>
-<a href="{% url 'upgrade_account' %}" class="btn btn-success">Upgrade Account</a>
-<br/>
-<a href="{% url 'update_kyc' %}" class="btn btn-success">Update KYC</a>
-<br/>
-<a href="{% url 'welcome_letter' %}" class="btn btn-success">Welcome Letter</a>
-<br/>
-<a href="{% url 'distributer_agreement' %}" class="btn btn-success">Distributer Agreement</a>
-<br/>
-<a href="{% url 'geneology_team' %}" class="btn btn-success">Geneology Team</a>
-<br/>
-<a href="{% url 'referal_team' %}" class="btn btn-success">Referal Level</a>
-<br/>
-<a href="{% url 'downline_team' %}" class="btn btn-success">My Downline Team</a>
-<br/>
-<a href="{% url 'direct_bonus' %}" class="btn btn-success">Direct Bonus</a>
-<br/>
-<a href="{% url 'summary' %}" class="btn btn-success">Summary</a>
-<br/>
-<a href="{% url 'ac_statement' %}" class="btn btn-success">A/C Statement</a>
-<br/>
-<a href="{% url 'compose' %}" class="btn btn-success">Compose</a>
-<hr />
-
-
 <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {% for field in form %}

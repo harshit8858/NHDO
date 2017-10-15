@@ -309,22 +309,6 @@ def home(request):
         return render(request, 'nhdo_main/invalid.html')
 
 
-def summary(request):
-    summary = Profile.objects.get(user=request.user)
-    direct_income = summary.count * 100
-    level1_income = summary.count1 * 50
-    level2_income = summary.count2 * 25
-    level3_income = summary.count3 * 12.5
-    total = direct_income + level1_income + level2_income + level3_income
-
-    return render(request, 'nhdo_main/summary.html', {'summary':summary,
-                                            'direct_income':direct_income,
-                                            'level1_income':level1_income,
-                                            'level2_income': level2_income,
-                                            'level3_income': level3_income,
-                                            'total':total})
-
-
 def referral_level(request):
     ref = Profile.objects.get(user=request.user)
     x = Profile.objects.all()

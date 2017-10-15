@@ -1,5 +1,5 @@
 from django.conf.urls import url, include
-from .views import index, signup, invalid, logout, log_in, auth_check, home, about, project, gallery, contact, change_password, your_referral, your_referrar, summary, referral_level
+from .views import index, signup, invalid, logout, log_in, auth_check, home, about, project, gallery, contact, change_password, your_referral, your_referrar, referral_level
 
 from .models import Subscription
 
@@ -26,7 +26,6 @@ urlpatterns = [
     url(r'your_referral/$', your_referral, name='your_referral'),
     url(r'your_referrar/$', your_referrar, name='your_referrar'),
     url(r'referral_level/$', referral_level, name='referral_level'),
-    url(r'summary/$', summary, name='summary'),
 
     url(r'^captcha/', include('captcha.urls')),
 

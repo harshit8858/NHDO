@@ -2,6 +2,7 @@
 
 {% block content %}
 
+<a href="{% url 'change_password' %}" class="btn btn-info">Change Password</a>
 <hr/>
 <a href="{% url 'dashboard' %}" class="btn btn-success">Dashboard</a>
 <br/>
@@ -15,11 +16,11 @@
 <br/>
 <a href="{% url 'distributer_agreement' %}" class="btn btn-success">Distributer Agreement</a>
 <br/>
-<a href="{% url 'geneology_team' %}" class="btn btn-success">Geneology Team</a>
+<a href="{% url 'referal_team' %}" class="btn btn-success">Referal Team</a>
 <br/>
-<a href="{% url 'referal_team' %}" class="btn btn-success">Referal Level</a>
+<a href="{% url 'referal_counts' %}" class="btn btn-success">Referal count(s)</a>
 <br/>
-<a href="{% url 'downline_team' %}" class="btn btn-success">My Downline Team</a>
+<a href="{% url 'referal_level' %}" class="btn btn-success">Referal Level</a>
 <br/>
 <a href="{% url 'direct_bonus' %}" class="btn btn-success">Direct Bonus</a>
 <br/>
@@ -29,5 +30,65 @@
 <br/>
 <a href="{% url 'compose' %}" class="btn btn-success">Compose</a>
 <hr />
+
+
+    <b><u>Your Referrar</u>:</b><br/>
+    {% for i in x %}
+        <ul>
+            {% ifequal referrar.mobile_number i.referal_id %}
+            <!--{% ifequal referrar.-->
+                <li>{{ i.user.first_name }} {{ i.user.last_name }}-(Rs.100)<br/></li>
+                <ul>
+                    {% for j in x %}
+                        {% ifequal i.user.profile.mobile_number j.referal_id %}
+                            <li>{{ j.user.first_name }} {{ j.user.last_name }}-(Rs.50)</li>
+                            <ul>
+                                {% for k in x %}
+                                    {% ifequal j.user.profile.mobile_number k.referal_id %}
+                                        <li>{{ k.user.first_name }} {{ k.user.last_name }}-(Rs.25)</li>
+                                        <ul>
+                                            {% for l in x %}
+                                                {% ifequal k.user.profile.mobile_number l.referal_id %}
+                                                    <li>{{ l.user.first_name }} {{ l.user.last_name }}-(Rs.12.5)</li>
+                                                {% endifequal %}
+                                            {% endfor %}
+                                        </ul>
+                                    {% endifequal %}
+                                {% endfor %}
+                            </ul>
+                        {% endifequal %}
+                    {% endfor %}
+                </ul>
+            {% endifequal %}
+        </ul>
+    {% endfor %}
+
+
+    <!--<b><u>Your Referrar</u>:</b><br/>-->
+    <!--{% for i in x %}-->
+        <!--<ul>-->
+            <!--{% ifequal referrar.mobile_number i.referal_id %}-->
+                <!--<li>{{ a }} (Rs.100)<br/></li>-->
+                <!--<ul>-->
+                    <!--{% for j in x %}-->
+                        <!--{% ifequal i.user.profile.mobile_number j.referal_id %}-->
+                            <!--<li>{{ b }} (Rs.50)</li>-->
+                            <!--<ul>-->
+                                <!--{% for k in x %}-->
+                                    <!--{% ifequal j.user.profile.mobile_number k.referal_id %}-->
+                                        <!--<li>{{ c }} (Rs.25)</li>-->
+                                    <!--{% endifequal %}-->
+                                <!--{% endfor %}-->
+                            <!--</ul>-->
+                        <!--{% endifequal %}-->
+                    <!--{% endfor %}-->
+                <!--</ul>-->
+            <!--{% endifequal %}-->
+        <!--</ul>-->
+    <!--{% endfor %}-->
+
+<br/><hr width="100px" align="left">
+<h1><u>Your Earning</u>: {{ money }}</h1>
+<br/><hr width="100px" align="left">
 
 {% endblock %}
