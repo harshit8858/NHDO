@@ -37,12 +37,13 @@
 			{% else %}
 				<li><a href="{% url 'log_in' %}" style="color:#003300"><span class="glyphicon glyphicon-log-in">LogIn</span></a></li>
 			{% endif %}
-			<li>
-				<a href="{% url 'signup' %}" style="color:#003300"><span class="glyphicon glyphicon-new-window">Register</span></a>
-			</li>
 			{% if user.is_authenticated %}
 				<li>
 					<a href="/logout/" style="color:#003300"><span class="glyphicon glyphicon-log-out">Logout</span></a>
+				</li>
+			{% else %}
+				<li>
+					<a href="{% url 'signup' %}" style="color:#003300"><span class="glyphicon glyphicon-new-window">Register</span></a>
 				</li>
 			{% endif %}
 			{% if request.user.profile.profile_pic %}
