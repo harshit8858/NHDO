@@ -3,6 +3,7 @@
 {% block content %}
 
 
+<a href="{% url 'change_password' %}" class="btn btn-info">Change Password</a>
 <hr/>
 <a href="{% url 'dashboard' %}" class="btn btn-success">Dashboard</a>
 <br/>
@@ -16,11 +17,11 @@
 <br/>
 <a href="{% url 'distributer_agreement' %}" class="btn btn-success">Distributer Agreement</a>
 <br/>
-<a href="{% url 'geneology_team' %}" class="btn btn-success">Geneology Team</a>
+<a href="{% url 'referal_team' %}" class="btn btn-success">Referal Team</a>
 <br/>
-<a href="{% url 'referal_team' %}" class="btn btn-success">Referal Level</a>
+<a href="{% url 'referal_counts' %}" class="btn btn-success">Referal count(s)</a>
 <br/>
-<a href="{% url 'downline_team' %}" class="btn btn-success">My Downline Team</a>
+<a href="{% url 'referal_level' %}" class="btn btn-success">Referal Level</a>
 <br/>
 <a href="{% url 'direct_bonus' %}" class="btn btn-success">Direct Bonus</a>
 <br/>

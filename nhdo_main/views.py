@@ -6,8 +6,8 @@ from .forms import SignUpForm
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
-from .forms import ContactForm, ReferralForm
-from .models import Profile, Referral
+from .forms import ContactForm
+from .models import Profile
 from django.contrib.auth.forms import PasswordChangeForm
 # from django.core.mail import EmailMessage
 # from pinax.referrals.models import Referral
@@ -307,22 +307,6 @@ def home(request):
         return render(request, 'nhdo_main/home.html')
     else:
         return render(request, 'nhdo_main/invalid.html')
-
-
-def summary(request):
-    summary = Profile.objects.get(user=request.user)
-    direct_income = summary.count * 100
-    level1_income = summary.count1 * 50
-    level2_income = summary.count2 * 25
-    level3_income = summary.count3 * 12.5
-    total = direct_income + level1_income + level2_income + level3_income
-
-    return render(request, 'nhdo_main/summary.html', {'summary':summary,
-                                            'direct_income':direct_income,
-                                            'level1_income':level1_income,
-                                            'level2_income': level2_income,
-                                            'level3_income': level3_income,
-                                            'total':total})
 
 
 def referral_level(request):
