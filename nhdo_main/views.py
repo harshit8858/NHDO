@@ -46,7 +46,7 @@ def signup(request):
             user.refresh_from_db()  # load the profile instance created by the signal
             user.profile.birth_date = form.cleaned_data.get('birth_date')
             user.profile.gender = form.cleaned_data.get('gender')
-            user.profile.first_name = form.cleaned_data.get('firts_name')
+            user.profile.first_name = form.cleaned_data.get('first_name')
             user.profile.last_name = form.cleaned_data.get('last_name')
             user.profile.address = form.cleaned_data.get('address')
             user.profile.pan_number = form.cleaned_data.get('pan_number')
@@ -56,8 +56,6 @@ def signup(request):
             user.profile.state = form.cleaned_data.get('state')
             user.profile.profile_pic = form.cleaned_data.get('profile_pic')
             user.profile.referal_id = form.cleaned_data.get('referal_id')
-            if form.cleaned_data.get('referal_id') == None:
-                user.profile.referal_id = 1234567890
             user.profile.mobile_number = form.cleaned_data.get('mobile_number')
             user.save()
             # referral = Referral.create(

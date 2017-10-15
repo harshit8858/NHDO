@@ -35,19 +35,12 @@ class Profile(models.Model):
         return str(self.user)
 
 
-# class YourReferal(models.Model):
-#     user = models.OneToOneField(User, on_delete=models.CASCADE)
-#     referal_no = models.CharField(max_length=20)
-#
-#     def __str__(self):
-#         return self.referal_no
-
-
 @receiver(post_save, sender=User)
 def update_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
     instance.profile.save()
+
 
 class Contact(models.Model):
     name = models.CharField(max_length=20)
