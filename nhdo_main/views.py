@@ -57,6 +57,13 @@ def signup(request):
             user.profile.profile_pic = form.cleaned_data.get('profile_pic')
             user.profile.referal_id = form.cleaned_data.get('referal_id')
             user.profile.mobile_number = form.cleaned_data.get('mobile_number')
+            # print(form.cleaned_data.get('mobile_number'))
+            # print(form.cleaned_data.get('referal_id'))
+            # if int(form.cleaned_data.get('mobile_number')) == int(form.cleaned_data.get('referal_id')):
+            #     print('if')
+            #     raise `ValidationError("Mobile Number AND Referal ID cannot be Same!")
+            # else:
+            #     print('else')
             user.save()
             # referral = Referral.create(
             #     user=user,
