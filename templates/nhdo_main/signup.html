@@ -1,7 +1,13 @@
 {% extends 'nhdo_main/header.html' %}
 {% block content %}
 
-    <h2>Sign up</h2>
+<h2>Sign up</h2>
+<hr/>
+
+<h4>NOTE:</h4>
+1.If the form is not submiting after clicking the submit button, then you must have same referal_id and mobile_number(which is not possible), Change it.<br/>
+2.If you have no referal_id,then type 0 in it.
+<hr/>
 
     <form method="post">
         {% csrf_token %}

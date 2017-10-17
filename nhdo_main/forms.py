@@ -57,6 +57,12 @@ class SignUpForm(UserCreationForm):
             return m_num
         raise forms.ValidationError('Mobile Number already exist...Try Again!')
 
+    def clean(self):
+        if 'mobile_number' in  self.cleaned_data and 'referal_id' in self.cleaned_data:
+            if int(self.cleaned_data['referal_id']) == int(self.cleaned_data['mobile_number']):
+                raise forms.ValidationError('Mobile Number AND Referal ID cannot be Same!')
+            return self.cleaned_data
+
     class Meta:
         model = User
         fields = ('referal_id',

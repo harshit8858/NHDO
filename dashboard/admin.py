@@ -1,5 +1,16 @@
 from django.contrib import admin
 from .models import Epin, kyc
 
+
 admin.site.register(Epin)
-admin.site.register(kyc)
+
+
+class kycAdmin(admin.ModelAdmin):
+    list_display = ('user', 'pan')
+
+    def get_list_filter(self, request):        #1
+        if request.user.is_superuser:
+            return ['user']
+        else:
+            return []
+admin.site.register(kyc, kycAdmin)
