@@ -290,7 +290,3 @@ def summary(request):
 
 def ac_statement(request):
     return render(request, 'dashboard/ac_statement.html', )
-
-
-def compose(request):
-    return render(request, 'dashboard/compose.html', )

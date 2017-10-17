@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from .views import dashboard, edit_profile, edit_profile1, list_epin, update_kyc, add_kyc, edit_kyc, upgrade_account, welcome_letter, direct_bonus, distributer_agreement, referal_level, compose, referal_team, summary, ac_statement, referal_counts
+from .views import dashboard, edit_profile, edit_profile1, list_epin, update_kyc, add_kyc, edit_kyc, upgrade_account, welcome_letter, direct_bonus, distributer_agreement, referal_level, referal_team, summary, ac_statement, referal_counts
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -21,6 +21,5 @@ urlpatterns = [
     url(r'^direct_bonus/', direct_bonus, name="direct_bonus"),
     url(r'^summary/', summary, name="summary"),
     url(r'^ac_statement/', ac_statement, name="ac_statement"),
-    url(r'^compose/', compose, name="compose"),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
