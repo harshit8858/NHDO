@@ -25,7 +25,6 @@
         <img src="{{i.profile_pic.url}}" width="10%px" height="200px" /><br><br>
         {% endif %}<br/>
         <a href="{% url 'edit_profile' i.id %}" class="btn btn-info">Edit Other Info.</a>
-        <a href="{% url 'edit1_profile' i.id %}" class="btn btn-info">Edit Name & Email</a>
         <hr />
 
     {% endifequal %}

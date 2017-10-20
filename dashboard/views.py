@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from nhdo_main.models import Profile
-from .forms import EditForm, Epin_upgradeForm, KycForm, EditForm1
+from .forms import EditForm, EditForm1, Epin_upgradeForm, KycForm
 from .models import Epin, kyc
 from django.contrib.auth.models import User
 from nhdo_main.views import home
@@ -26,13 +26,13 @@ def edit_profile(request,d):
 def edit_profile1(request,d):
     n = User.objects.get(id=d)
     if request.method == 'POST':
-        form = EditForm1(request.POST,request.FILES,instance=n)
+        form = EditForm1(request.POST, instance=n)
         if form.is_valid():
             form.save()
             return redirect('dashboard')
     else:
         form = EditForm1(instance=n)
-    return render(request, 'dashboard/edit_profile.html', {'form':form})
+    return render(request, 'dashboard/edit_profile1.html', {'form':form})
 
 
 def list_epin(request):

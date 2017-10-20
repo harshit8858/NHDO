@@ -7,7 +7,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^$', dashboard, name="dashboard"),
     url(r'^edit_profile/(\d+)/', edit_profile, name="edit_profile"),
-    url(r'^edit1_profile/(\d+)/', edit_profile1, name="edit1_profile"),
+    url(r'^edit_profile1/(\d+)/', edit_profile1, name="edit_profile1"),
     url(r'^list_epin/', list_epin, name="list_epin"),
     url(r'^upgrade_account/', upgrade_account, name="upgrade_account"),
     url(r'^update_kyc/', update_kyc, name="update_kyc"),
