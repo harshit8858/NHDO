@@ -53,8 +53,9 @@ def upgrade_account(request):
 
 
 def update_kyc(request):
+    u = User.objects.all()
     i = kyc.objects.all()
-    return render(request, 'dashboard/update_kyc.html', {'pic':i})
+    return render(request, 'dashboard/update_kyc.html', {'pic':i,'u':u})
 
 
 def add_kyc(request):

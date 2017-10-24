@@ -30,49 +30,46 @@
 <a href="{% url 'ac_statement' %}" class="btn btn-success">A/C Statement</a>
 <hr />
 
-{% if pic %}
-{% else %}
-    <a href="{% url 'add_kyc' %}" class="btn btn-default">Add</a>
-{% endif %}
 <br />
 <hr />
-{% for i in  pic %}
+{% for i in pic %}
     {% ifequal i.user request.user %}
+            <b>DP</b>:{% if i.dp %}
+                <img src="{{i.dp.url}}" width="10%px" height="200px" /><br><br>
+            {% endif %}
+            <br />
+            <b>Passport</b>:{% if i.passport %}
+                <img src="{{i.passport.url}}" width="10%px" height="200px" /><br><br>
+            {% endif %}
+            <br />
+            <b>Pan Card</b>:{% if i.pan %}
+                <img src="{{i.pan.url}}" width="10%px" height="200px" /><br><br>
+            {% endif %}
+            <br />
+            <b>Aadhar Card</b>:{% if i.aadhar %}
+                <img src="{{i.aadhar.url}}" width="10%px" height="200px" /><br><br>
+            {% endif %}
+            <br />
+            <b>Voter ID</b>:{% if i.voter %}
+                <img src="{{i.voter.url}}" width="10%px" height="200px" /><br><br>
+            {% endif %}
+            <br />
+            <b>Cancelled Cheque</b>:{% if i.cancelled_cheque %}
+                <img src="{{i.cancelled_cheque.url}}" width="10%px" height="200px" /><br><br>
+            {% endif %}
+            <br />
+            <b>Passbook</b>:{% if i.passbook %}
+                <img src="{{i.passbook.url}}" width="10%px" height="200px" /><br><br>
+            {% endif %}
+            <br />
 
-        <b>DP</b>:{% if i.dp %}
-            <img src="{{i.dp.url}}" width="10%px" height="200px" /><br><br>
-        {% endif %}
-        <br />
-        <b>Passport</b>:{% if i.passport %}
-            <img src="{{i.passport.url}}" width="10%px" height="200px" /><br><br>
-        {% endif %}
-        <br />
-        <b>Pan Card</b>:{% if i.pan %}
-            <img src="{{i.pan.url}}" width="10%px" height="200px" /><br><br>
-        {% endif %}
-        <br />
-        <b>Aadhar Card</b>:{% if i.aadhar %}
-            <img src="{{i.aadhar.url}}" width="10%px" height="200px" /><br><br>
-        {% endif %}
-        <br />
-        <b>Voter ID</b>:{% if i.voter %}
-            <img src="{{i.voter.url}}" width="10%px" height="200px" /><br><br>
-        {% endif %}
-        <br />
-        <b>Cancelled Cheque</b>:{% if i.cancelled_cheque %}
-            <img src="{{i.cancelled_cheque.url}}" width="10%px" height="200px" /><br><br>
-        {% endif %}
-        <br />
-        <b>Passbook</b>:{% if i.passbook %}
-            <img src="{{i.passbook.url}}" width="10%px" height="200px" /><br><br>
-        {% endif %}
-        <br />
-
-        <a href="{% url 'edit_kyc' i.id %}" class="btn btn-default">Edit</a>
-        <hr />
-
+            <a href="{% url 'edit_kyc' i.id %}" class="btn btn-default">Edit</a>
+            <hr />
     {% endifequal %}
 {% endfor %}
 
+<a href="{% url 'add_kyc' %}" class="btn btn-default">Add</a>(If you have'nt already!)
 
+<hr />
+<hr />
 {% endblock %}
