@@ -42,6 +42,14 @@ def update_user_profile(sender, instance, created, **kwargs):
     instance.profile.save()
 
 
+class Your_referal(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    your_referal = models.CharField(max_length=20)
+
+    def __str__(self):
+        return str(self.user)
+
+
 class Contact(models.Model):
     name = models.CharField(max_length=20)
     address = models.CharField(max_length=40)

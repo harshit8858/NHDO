@@ -7,7 +7,7 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
 from .forms import ContactForm
-from .models import Profile
+from .models import Profile, Your_referal
 from django.contrib.auth.forms import PasswordChangeForm
 # from django.core.mail import EmailMessage
 # from pinax.referrals.models import Referral
@@ -57,6 +57,7 @@ def signup(request):
             user.profile.profile_pic = form.cleaned_data.get('profile_pic')
             user.profile.referal_id = form.cleaned_data.get('referal_id')
             user.profile.mobile_number = form.cleaned_data.get('mobile_number')
+            # user.your_referal.your_referal = 'sdgsjd'
             # print(form.cleaned_data.get('mobile_number'))
             # print(form.cleaned_data.get('referal_id'))
             # if int(form.cleaned_data.get('mobile_number')) == int(form.cleaned_data.get('referal_id')):

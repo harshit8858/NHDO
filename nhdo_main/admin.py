@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Profile, Contact, Subscription
+from .models import Profile, Contact, Subscription, Your_referal
 
 
 class ProfileAdmin(admin.ModelAdmin):
@@ -11,6 +11,17 @@ class ProfileAdmin(admin.ModelAdmin):
         else:
             return []
 admin.site.register(Profile, ProfileAdmin)
+
+
+class Your_referalAdmin(admin.ModelAdmin):
+    list_display = ('user', 'your_referal')
+
+    def get_list_filter(self, request):
+        if request.user.is_superuser:
+            return ['user', 'your_referal']
+        else:
+            return[]
+admin.site.register(Your_referal, Your_referalAdmin)
 
 
 class ContactAdmin(admin.ModelAdmin):
