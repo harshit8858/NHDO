@@ -185,10 +185,13 @@ def referal_counts(request):
     #                                 # print(referral.count3)
     #                                 referral.save()
     return render(request, 'dashboard/referal_counts.html', {'referral': referral.mobile_number,
-                                                            'count': referral.count,
                                                             'count1': referral.count1,
                                                             'count2': referral.count2,
-                                                            'count3': referral.count3})
+                                                            'count3': referral.count3,
+                                                            'count4': referral.count4,
+                                                            'count5': referral.count5,
+                                                            'count6': referral.count6,
+                                                            'total': referral.total})
     #     referral = Profile.objects.get(user=request.user)
     #     # print(referral)
     #     # print(referral.referal_id)
@@ -280,18 +283,13 @@ def direct_bonus(request):
 def summary(request):
     home(request)
     summary = Profile.objects.get(user=request.user)
-    direct_income = summary.count * 100
-    level1_income = summary.count1 * 50
-    level2_income = summary.count2 * 25
-    level3_income = summary.count3 * 12.5
+    direct_income = summary.count1 * 100
+    level1_income = summary.count2 * 50
+    level2_income = summary.count3 * 25
+    level3_income = summary.count4 * 12.5
     total = direct_income + level1_income + level2_income + level3_income
 
-    return render(request, 'dashboard/summary.html', {'summary': summary,
-                                                      'direct_income': direct_income,
-                                                      'level1_income': level1_income,
-                                                      'level2_income': level2_income,
-                                                      'level3_income': level3_income,
-                                                      'total': total})
+    return render(request, 'dashboard/summary.html')
 
 
 def ac_statement(request):
