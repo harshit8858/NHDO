@@ -32,33 +32,46 @@
 
     <b><u>Your Referrar</u>:</b><br/>
     {% for i in x %}
+        {% ifequal referrar.your_referal i.referal_id %}
         <ul>
-            {% ifequal referrar.mobile_number i.referal_id %}
-            <!--{% ifequal referrar.-->
-                <li>{{ i.user.first_name }} {{ i.user.last_name }}-(Rs.100)<br/></li>
+            <li>{{ i.user.first_name }} {{ i.user.last_name }}-(Rs.100)<br/></li>
+            {% for j in x %}
+                {% ifequal i.user.profile.your_referal j.referal_id %}
                 <ul>
-                    {% for j in x %}
-                        {% ifequal i.user.profile.mobile_number j.referal_id %}
-                            <li>{{ j.user.first_name }} {{ j.user.last_name }}-(Rs.50)</li>
-                            <ul>
-                                {% for k in x %}
-                                    {% ifequal j.user.profile.mobile_number k.referal_id %}
-                                        <li>{{ k.user.first_name }} {{ k.user.last_name }}-(Rs.25)</li>
+                    <li>{{ j.user.first_name }} {{ j.user.last_name }}-(Rs.50)</li>
+                    {% for k in x %}
+                        {% ifequal j.user.profile.your_referal k.referal_id %}
+                        <ul>
+                            <li>{{ k.user.first_name }} {{ k.user.last_name }}-(Rs.25)</li>
+                            {% for l in x %}
+                                {% ifequal k.user.profile.your_referal l.referal_id %}
+                                <ul>
+                                    <li>{{ l.user.first_name }} {{ l.user.last_name }}-(Rs.12.5)</li>
+                                    {% for m in x %}
+                                        {% ifequal l.user.profile.your_referal m.referal_id %}
                                         <ul>
-                                            {% for l in x %}
-                                                {% ifequal k.user.profile.mobile_number l.referal_id %}
-                                                    <li>{{ l.user.first_name }} {{ l.user.last_name }}-(Rs.12.5)</li>
+                                            <li>{{ m.user.first_name }} {{ m.user.last_name }}-(Rs.12.5)</li>
+                                            {% for n in x %}
+                                                {% ifequal m.user.profile.your_referal n.referal_id %}
+                                                <ul>
+                                                    <li>{{ n.user.first_name }} {{ n.user.last_name }}-(Rs.12.5)</li>
+                                                </ul>
                                                 {% endifequal %}
                                             {% endfor %}
-                                        </ul>
-                                    {% endifequal %}
-                                {% endfor %}
+                                            </ul>
+                                        {% endifequal %}
+                                    {% endfor %}
+                                    </ul>
+                                {% endifequal %}
+                            {% endfor %}
                             </ul>
                         {% endifequal %}
                     {% endfor %}
-                </ul>
-            {% endifequal %}
-        </ul>
+                    </ul>
+                {% endifequal %}
+            {% endfor %}
+            </ul>
+        {% endifequal %}
     {% endfor %}
 
 

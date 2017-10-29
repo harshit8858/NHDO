@@ -7,6 +7,7 @@ from nhdo_main.views import home
 
 
 def dashboard(request):
+    home(request)
     p = Profile.objects.all()
     return render(request, 'dashboard/dashboard.html', {'info':p})
 
@@ -36,10 +37,12 @@ def edit_profile1(request,d):
 
 
 def list_epin(request):
+    home(request)
     return render(request, 'dashboard/list_epins.html', )
 
 
 def upgrade_account(request):
+    home(request)
     if request.method == 'POST':
         form = Epin_upgradeForm(request.POST)
         if form.is_valid():
@@ -264,6 +267,7 @@ def referal_counts(request):
 
 
 def referal_level(request):
+    home(request)
     ref = Profile.objects.get(user=request.user)
     x = Profile.objects.all()
     return render(request, 'dashboard/referal_level.html', {'ref':ref, 'x':x})
@@ -274,6 +278,7 @@ def direct_bonus(request):
 
 
 def summary(request):
+    home(request)
     summary = Profile.objects.get(user=request.user)
     direct_income = summary.count * 100
     level1_income = summary.count1 * 50
@@ -290,4 +295,5 @@ def summary(request):
 
 
 def ac_statement(request):
+    home(request)
     return render(request, 'dashboard/ac_statement.html', )
