@@ -7,7 +7,7 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
 from .forms import ContactForm
-from .models import Profile, Your_referal
+from .models import Profile
 from django.contrib.auth.forms import PasswordChangeForm
 # from django.core.mail import EmailMessage
 # from pinax.referrals.models import Referral
@@ -57,7 +57,6 @@ def signup(request):
             user.profile.profile_pic = form.cleaned_data.get('profile_pic')
             user.profile.referal_id = form.cleaned_data.get('referal_id')
             user.profile.mobile_number = form.cleaned_data.get('mobile_number')
-            # user.your_referal.your_referal = 'sdgsjd'
             # print(form.cleaned_data.get('mobile_number'))
             # print(form.cleaned_data.get('referal_id'))
             # if int(form.cleaned_data.get('mobile_number')) == int(form.cleaned_data.get('referal_id')):
@@ -281,29 +280,31 @@ def home(request):
     if request.user.is_authenticated():
         referral = Profile.objects.get(user=request.user)
         x = Profile.objects.all()
-        y = Profile.objects.values_list('referal_id', flat=True)
+        # y = Profile.objects.values_list('referal_id', flat=True)
         referral.count = 0
         referral.count1 = 0
         referral.count2 = 0
         referral.count3 = 0
         referral.money = 0
         for i in x:
-            if referral.mobile_number == i.referal_id:
+            if referral.your_referal == i.referal_id:
                 referral.money = referral.money + 100
                 referral.count = referral.count + 1
                 for j in x:
-                    if i.user.profile.mobile_number == j.referal_id:
+                    if i.user.profile.your_referal == j.referal_id:
                         referral.money = referral.money + 50
                         referral.count1 = referral.count1 + 1
                         for k in x:
-                            if j.user.profile.mobile_number == k.referal_id:
+                            if j.user.profile.your_referal == k.referal_id:
                                 referral.money = referral.money + 25
                                 referral.count2 = referral.count2 + 1
                                 for l in x:
-                                    if k.user.profile.mobile_number == l.referal_id:
+                                    if k.user.profile.your_referal == l.referal_id:
                                         referral.money = referral.money + 12.5
                                         referral.count3 = referral.count3 + 1
         referral.total = referral.count + referral.count1 + referral.count2 + referral.count3
+        # print(request.user.first_name)
+        referral.your_referal = 'FFI/WSHG/RMD/' + request.user.first_name
         referral.save()
         # print(referral.count)
         # print(referral.count1)

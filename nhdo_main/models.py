@@ -14,7 +14,7 @@ GENDER = (
 
 class Profile(models.Model):
     user = models.OneToOneField(User, unique=True, on_delete=models.CASCADE)
-    referal_id = models.IntegerField(null=True, blank=True)
+    referal_id = models.CharField(max_length=40, null=True, blank=True)
     pan_number = models.IntegerField(null=True, blank=True)
     gender = models.CharField(max_length=10, choices=GENDER)
     birth_date = models.DateField()
@@ -30,6 +30,7 @@ class Profile(models.Model):
     count3 = models.IntegerField(null=True, blank=True, default=0)
     money = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True, default=0)
     total = models.IntegerField(default=0, null=True, blank=True)
+    your_referal = models.CharField(max_length=40, default='none')
 
     def __str__(self):
         return str(self.user)
@@ -42,12 +43,12 @@ def update_user_profile(sender, instance, created, **kwargs):
     instance.profile.save()
 
 
-class Your_referal(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    your_referal = models.CharField(max_length=20)
-
-    def __str__(self):
-        return str(self.user)
+# class Your_referal(models.Model):
+#     user = models.OneToOneField(User, on_delete=models.CASCADE)
+#     your_referal = models.CharField(max_length=20)
+#
+#     def __str__(self):
+#         return str(self.user)
 
 
 class Contact(models.Model):
