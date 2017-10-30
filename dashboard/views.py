@@ -283,13 +283,15 @@ def direct_bonus(request):
 def summary(request):
     home(request)
     summary = Profile.objects.get(user=request.user)
-    direct_income = summary.count1 * 100
     level1_income = summary.count2 * 50
-    level2_income = summary.count3 * 25
-    level3_income = summary.count4 * 12.5
-    total = direct_income + level1_income + level2_income + level3_income
+    level2_income = summary.count2 * 20
+    level3_income = summary.count3 * 25
+    level4_income = summary.count4 * 12.5
+    level5_income = summary.count2 * 50
+    level6_income = summary.count2 * 50
+    total = + level1_income + level2_income + level3_income + level4_income + level5_income + level6_income
 
-    return render(request, 'dashboard/summary.html')
+    return render(request, 'dashboard/summary.html', {'total':total})
 
 
 def ac_statement(request):
