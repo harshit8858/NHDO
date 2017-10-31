@@ -1,4 +1,4 @@
-{% extends 'nhdo_main/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 
@@ -6,11 +6,31 @@
 
     <h3><u>Your Referal Responses</u>:</h3>
 
-    <b><u>Direct</u></b>:<i> {{ count }}</i><br/>
     <b><u>Level 1</u></b>:<i> {{ count1 }}</i><br/>
     <b><u>Level 2</u></b>:<i> {{ count2 }}</i><br/>
     <b><u>Level 3</u></b>:<i> {{ count3 }}</i><br/>
+    <b><u>Level 4</u></b>:<i> {{ count4 }}</i><br/>
+    <b><u>Level 5</u></b>:<i> {{ count4 }}</i><br/>
+    <b><u>Level 6</u></b>:<i> {{ count4 }}</i><br/>
+    <b><u>Total</u></b>:<i> {{ total }}</i><br/>
 
     <hr/>
+
+<b>Level Reached</b>:
+    {% if level == 0 %}
+        Zero
+    {% elif level == 1 %}
+        One
+    {% elif level == 2 %}
+        Two
+    {% elif level == 3 %}
+        Three
+    {% elif level == 4 %}
+        Four
+    {% elif level == 5 %}
+        Five
+    {% elif level == 6 %}
+        Six
+    {% endif %}
 
 {% endblock %}

@@ -184,11 +184,30 @@ def referal_counts(request):
     #                                 referral.count3 = referral.count3 + 1
     #                                 # print(referral.count3)
     #                                 referral.save()
-    return render(request, 'dashboard/referal_counts.html', {'referral': referral.mobile_number,
-                                                            'count': referral.count,
+    if referral.count1 < 3:
+        referral.level_reached = 0
+    elif referral.count1 > 3:
+        referral.level_reached = 1
+    elif referral.count2 > 625:
+        referral.level_reached = 2
+    elif referral.count3 > 15626:
+        referral.level_reached = 3
+    elif referral.count4 > 390625:
+        referral.level_reached = 4
+    elif referral.count5 > 9765625:
+        referral.level_reached = 5
+    elif referral.count1 > 244140625:
+        referral.level_reached = 6
+
+    return render(request, 'dashboard/referal_counts.html', {'referral': referral.your_referal,
                                                             'count1': referral.count1,
                                                             'count2': referral.count2,
-                                                            'count3': referral.count3})
+                                                            'count3': referral.count3,
+                                                            'count4': referral.count4,
+                                                            'count5': referral.count5,
+                                                            'count6': referral.count6,
+                                                            'total': referral.total,
+                                                            'level':referral.level_reached})
     #     referral = Profile.objects.get(user=request.user)
     #     # print(referral)
     #     # print(referral.referal_id)
@@ -280,18 +299,15 @@ def direct_bonus(request):
 def summary(request):
     home(request)
     summary = Profile.objects.get(user=request.user)
-    direct_income = summary.count * 100
-    level1_income = summary.count1 * 50
-    level2_income = summary.count2 * 25
-    level3_income = summary.count3 * 12.5
-    total = direct_income + level1_income + level2_income + level3_income
+    level1_income = summary.count2 * 50
+    level2_income = summary.count2 * 20
+    level3_income = summary.count3 * 25
+    level4_income = summary.count4 * 12.5
+    level5_income = summary.count2 * 50
+    level6_income = summary.count2 * 50
+    total = + level1_income + level2_income + level3_income + level4_income + level5_income + level6_income
 
-    return render(request, 'dashboard/summary.html', {'summary': summary,
-                                                      'direct_income': direct_income,
-                                                      'level1_income': level1_income,
-                                                      'level2_income': level2_income,
-                                                      'level3_income': level3_income,
-                                                      'total': total})
+    return render(request, 'dashboard/summary.html', {'total':total})
 
 
 def ac_statement(request):
