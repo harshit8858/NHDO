@@ -184,14 +184,30 @@ def referal_counts(request):
     #                                 referral.count3 = referral.count3 + 1
     #                                 # print(referral.count3)
     #                                 referral.save()
-    return render(request, 'dashboard/referal_counts.html', {'referral': referral.mobile_number,
+    if referral.count1 < 3:
+        referral.level_reached = 0
+    elif referral.count1 > 3:
+        referral.level_reached = 1
+    elif referral.count2 > 625:
+        referral.level_reached = 2
+    elif referral.count3 > 15626:
+        referral.level_reached = 3
+    elif referral.count4 > 390625:
+        referral.level_reached = 4
+    elif referral.count5 > 9765625:
+        referral.level_reached = 5
+    elif referral.count1 > 244140625:
+        referral.level_reached = 6
+
+    return render(request, 'dashboard/referal_counts.html', {'referral': referral.your_referal,
                                                             'count1': referral.count1,
                                                             'count2': referral.count2,
                                                             'count3': referral.count3,
                                                             'count4': referral.count4,
                                                             'count5': referral.count5,
                                                             'count6': referral.count6,
-                                                            'total': referral.total})
+                                                            'total': referral.total,
+                                                            'level':referral.level_reached})
     #     referral = Profile.objects.get(user=request.user)
     #     # print(referral)
     #     # print(referral.referal_id)
