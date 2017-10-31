@@ -3,7 +3,7 @@ from .models import Profile, Contact, Subscription
 
 
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('user', 'mobile_number', 'your_referal', 'referal_id')
+    list_display = ('user', 'mobile_number', 'your_referal', 'referal_id', 'level_reached')
 
     def get_list_filter(self, request):        #1
         if request.user.is_superuser:

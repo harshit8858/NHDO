@@ -5,7 +5,7 @@ from .models import Epin, kyc, Welcome
 admin.site.register(Epin)
 
 class kycAdmin(admin.ModelAdmin):
-    list_display = ('user', 'pan')
+    list_display = ('user', 'aadhar')
 
     def get_list_filter(self, request):        #1
         if request.user.is_superuser:
