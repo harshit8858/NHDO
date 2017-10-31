@@ -61,7 +61,6 @@ class Epin_upgradeForm(forms.ModelForm):
 # class KycForm(UserCreationForm):
 class KycForm(forms.ModelForm):
     # username = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder':'Username', 'class':'form-control', 'style':'width:200px'}))
-    dp = forms.FileField(required=True)
     passport = forms.FileField(required=True)
     pan = forms.FileField(required=True)
     aadhar = forms.FileField(required=True)
@@ -71,6 +70,6 @@ class KycForm(forms.ModelForm):
 
     class Meta:
         model = kyc
-        fields = ['dp', 'passport', 'pan', 'aadhar', 'voter', 'cancelled_cheque', 'passbook']
+        fields = ['passport', 'pan', 'aadhar', 'voter', 'cancelled_cheque', 'passbook']
 
 

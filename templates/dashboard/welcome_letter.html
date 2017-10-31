@@ -29,4 +29,15 @@
 <a href="{% url 'ac_statement' %}" class="btn btn-success">A/C Statement</a>
 <hr />
 
+{% for i in wel %}
+    {% if i.image %}
+        <img src="{{ i.image.url }}" />
+    {% endif %}
+    <br />
+    {% if i.letter %}
+        <a href="{{ i.letter.url }}">Download Welcome Letter</a>
+    {% endif %}
+{% endfor %}
+
+
 {% endblock %}
