@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from nhdo_main.models import Profile
 from .forms import EditForm, EditForm1, Epin_upgradeForm, KycForm
-from .models import Epin, kyc
+from .models import Epin, kyc, Welcome
 from django.contrib.auth.models import User
 from nhdo_main.views import home
 
@@ -89,7 +89,8 @@ def edit_kyc(request,d):
 
 
 def welcome_letter(request):
-    return render(request, 'dashboard/welcome_letter.html', )
+    wel = Welcome.objects.all()
+    return render(request, 'dashboard/welcome_letter.html',{'wel':wel})
 
 
 def distributer_agreement(request):
@@ -198,6 +199,7 @@ def referal_counts(request):
         referral.level_reached = 5
     elif referral.count1 > 244140625:
         referral.level_reached = 6
+    referral.save()
 
     return render(request, 'dashboard/referal_counts.html', {'referral': referral.your_referal,
                                                             'count1': referral.count1,

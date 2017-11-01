@@ -23,7 +23,7 @@ class Profile(models.Model):
     pincode = models.IntegerField(null=True, blank=True)
     state = models.CharField(max_length=20, null=True, blank=True)
     mobile_number = models.IntegerField(null=True, blank=True)
-    profile_pic = models.FileField(upload_to='images', blank=True, null=True)
+    profile_pic = models.FileField(upload_to='profile_pic/images', blank=True, null=True)
     count1 = models.IntegerField(null=True, blank=True, default=0)
     count2 = models.IntegerField(null=True, blank=True, default=0)
     count3 = models.IntegerField(null=True, blank=True, default=0)

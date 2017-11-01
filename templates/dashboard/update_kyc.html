@@ -34,10 +34,6 @@
 <hr />
 {% for i in pic %}
     {% ifequal i.user request.user %}
-            <b>DP</b>:{% if i.dp %}
-                <img src="{{i.dp.url}}" width="10%px" height="200px" /><br><br>
-            {% endif %}
-            <br />
             <b>Passport</b>:{% if i.passport %}
                 <img src="{{i.passport.url}}" width="10%px" height="200px" /><br><br>
             {% endif %}
