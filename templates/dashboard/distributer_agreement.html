@@ -29,4 +29,8 @@
 <a href="{% url 'ac_statement' %}" class="btn btn-success">A/C Statement</a>
 <hr />
 
+{% for i in d_a %}
+    <a href="{{ i.d_a.url }}">Distributor Agreement</a>
+{% endfor %}
+
 {% endblock %}

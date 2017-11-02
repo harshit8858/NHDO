@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from nhdo_main.models import Profile
 from .forms import EditForm, EditForm1, Epin_upgradeForm, KycForm
-from .models import Epin, kyc, Welcome
+from .models import Epin, kyc, Welcome, Distributor_agreement
 from django.contrib.auth.models import User
 from nhdo_main.views import home
 
@@ -94,7 +94,8 @@ def welcome_letter(request):
 
 
 def distributer_agreement(request):
-    return render(request, 'dashboard/distributer_agreement.html', )
+    d_a = Distributor_agreement.objects.all()
+    return render(request, 'dashboard/distributer_agreement.html', {'d_a':d_a})
 
 
 def referal_team(request):
@@ -291,7 +292,7 @@ def referal_level(request):
     home(request)
     ref = Profile.objects.get(user=request.user)
     x = Profile.objects.all()
-    return render(request, 'dashboard/referal_level.html', {'ref':ref, 'x':x})
+    return render(request, 'dashboard/referal_level.html', {'referrar':ref, 'x':x})
 
 
 def direct_bonus(request):

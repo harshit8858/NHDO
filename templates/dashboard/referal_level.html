@@ -26,38 +26,51 @@
 <a href="{% url 'ac_statement' %}" class="btn btn-success">A/C Statement</a>
 <hr />
 
-<b><u>Your referral Level</u>:</b><br/>
+<b><u><h3>Your referral Level</h3></u>({{ referrar.user.first_name }} {{ referrar.user.last_name }}-{{ referrar.user.email }}-{{ referrar.user.profile.your_referal }}-{{ referrar.user.profile.dob }}--{{ referrar.user.profile.level_reached }})</b>
+<br/>
+<br/>
 <table>
     {% for i in x %}
-        <tr>
-            {% ifequal ref.your_referal i.referal_id %}
-            <!--{% ifequal ref.-->
-                <li>{{ i.user.first_name }} {{ i.user.last_name }}-{{ i.user.email }}-{{ i.user.profile.your_referal }}-{{ i.user.profile.dob }}--(Rs.100)<br/></li>
+        {% ifequal referrar.your_referal i.referal_id %}
+                {{ i.user.first_name }} {{ i.user.last_name }}-{{ i.user.email }}-{{ i.user.profile.your_referal }}-{{ i.user.profile.dob }}--{{ i.user.profile.level_reached }}     <br/>
+                {% for j in x %}
+                {% ifequal i.user.profile.your_referal j.referal_id %}
                 <tr>
-                    {% for j in x %}
-                        {% ifequal i.user.profile.your_referal j.referal_id %}
-                            <li>{{ j.user.first_name }} {{ j.user.last_name }}-{{ j.user.email }}-{{ j.user.profile.your_referal }}-{{ j.user.profile.dob }}--(Rs.50)</li>
-                            <tr>
-                                {% for k in x %}
-                                    {% ifequal j.user.profile.your_referal k.referal_id %}
-                                        <li>{{ k.user.first_name }} {{ k.user.last_name }}-{{ k.user.email }}-{{ k.user.profile.your_referal }}-{{ k.user.profile.dob }}--(Rs.25)</li>
+                    {{ j.user.first_name }} {{ j.user.last_name }}-{{ j.user.email }}-{{ j.user.profile.your_referal }}-{{ j.user.profile.dob }}--{{ j.user.profile.level_reached }}<br/>
+                    {% for k in x %}
+                        {% ifequal j.user.profile.your_referal k.referal_id %}
+                        <tr>
+                            {{ k.user.first_name }} {{ k.user.last_name }}-{{ k.user.email }}-{{ k.user.profile.your_referal }}-{{ k.user.profile.dob }}--{{ k.user.profile.level_reached }}<br/>
+                            {% for l in x %}
+                                {% ifequal k.user.profile.your_referal l.referal_id %}
+                                <tr>
+                                    {{ l.user.first_name }} {{ l.user.last_name }}-{{ l.user.email }}-{{ l.user.profile.your_referal }}-{{ l.user.profile.dob }}--{{ l.user.profile.level_reached }}<br/>
+                                    {% for m in x %}
+                                        {% ifequal l.user.profile.your_referal m.referal_id %}
                                         <tr>
-                                            {% for l in x %}
-                                                {% ifequal k.user.profile.your_referal l.referal_id %}
-                                                    <li>{{ l.user.first_name }} {{ l.user.last_name }}-{{ l.user.email }}-{{ l.user.profile.your_referal }}-{{ l.user.profile.dob }}--(Rs.12.5)</li>
+                                            {{ m.user.first_name }} {{ m.user.last_name }}-{{ m.user.email }}-{{ m.user.profile.your_referal }}-{{ m.user.profile.dob }}--{{ m.user.profile.level_reached }}<br/>
+                                            {% for n in x %}
+                                                {% ifequal m.user.profile.your_referal n.referal_id %}
+                                                <tr>
+                                                    {{ n.user.first_name }} {{ n.user.last_name }}-{{ n.user.email }}-{{ n.user.profile.your_referal }}-{{ n.user.profile.dob }}--{{ n.user.profile.level_reached }}<br/>
+                                                </tr>
                                                 {% endifequal %}
                                             {% endfor %}
-                                        </tr>
-                                    {% endifequal %}
-                                {% endfor %}
+                                            </tr>
+                                        {% endifequal %}
+                                    {% endfor %}
+                                    </tr>
+                                {% endifequal %}
+                            {% endfor %}
                             </tr>
                         {% endifequal %}
                     {% endfor %}
-                </tr>
-            {% endifequal %}
-        </tr>
+                    </tr>
+                {% endifequal %}
+            {% endfor %}
+            </tr>
+        {% endifequal %}
     {% endfor %}
 </table>
-
 
 {% endblock %}
