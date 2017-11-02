@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Epin, kyc, Welcome
+from .models import Epin, kyc, Welcome, Distributor_agreement
 
 
 admin.site.register(Epin)
@@ -15,3 +15,5 @@ class kycAdmin(admin.ModelAdmin):
 admin.site.register(kyc, kycAdmin)
 
 admin.site.register(Welcome)
+
+admin.site.register(Distributor_agreement)

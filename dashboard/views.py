@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from nhdo_main.models import Profile
 from .forms import EditForm, EditForm1, Epin_upgradeForm, KycForm
-from .models import Epin, kyc, Welcome
+from .models import Epin, kyc, Welcome, Distributor_agreement
 from django.contrib.auth.models import User
 from nhdo_main.views import home
 
@@ -22,37 +22,6 @@ def edit_profile(request,d):
     else:
         form = EditForm(instance=n)
     return render(request, 'dashboard/edit_profile.html', {'form':form})
-
-
-def edit_profile1(request,d):
-    n = User.objects.get(id=d)
-    if request.method == 'POST':
-        form = EditForm1(request.POST, instance=n)
-        if form.is_valid():
-            form.save()
-            return redirect('dashboard')
-    else:
-        form = EditForm1(instance=n)
-    return render(request, 'dashboard/edit_profile1.html', {'form':form})
-
-
-def list_epin(request):
-    home(request)
-    return render(request, 'dashboard/list_epins.html', )
-
-
-def upgrade_account(request):
-    home(request)
-    if request.method == 'POST':
-        form = Epin_upgradeForm(request.POST)
-        if form.is_valid():
-            f = form.save(commit=False)
-            f.user = request.user
-            f.save()
-            return redirect('dashboard')
-    else:
-        form = Epin_upgradeForm()
-    return render(request, 'dashboard/upgrade_account.html', {'form':form})
 
 
 def update_kyc(request):
@@ -94,7 +63,8 @@ def welcome_letter(request):
 
 
 def distributer_agreement(request):
-    return render(request, 'dashboard/distributer_agreement.html', )
+    d_a = Distributor_agreement.objects.all()
+    return render(request, 'dashboard/distributer_agreement.html', {'d_a':d_a})
 
 
 def referal_team(request):
@@ -291,7 +261,7 @@ def referal_level(request):
     home(request)
     ref = Profile.objects.get(user=request.user)
     x = Profile.objects.all()
-    return render(request, 'dashboard/referal_level.html', {'ref':ref, 'x':x})
+    return render(request, 'dashboard/referal_level.html', {'referrar':ref, 'x':x})
 
 
 def direct_bonus(request):

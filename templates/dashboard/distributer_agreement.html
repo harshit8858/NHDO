@@ -6,10 +6,6 @@
 <hr/>
 <a href="{% url 'dashboard' %}" class="btn btn-success">Dashboard</a>
 <br/>
-<a href="{% url 'list_epin' %}" class="btn btn-success">List Epin</a>
-<br/>
-<a href="{% url 'upgrade_account' %}" class="btn btn-success">Upgrade Account</a>
-<br/>
 <a href="{% url 'update_kyc' %}" class="btn btn-success">Update KYC</a>
 <br/>
 <a href="{% url 'welcome_letter' %}" class="btn btn-success">Welcome Letter</a>
@@ -28,5 +24,9 @@
 <br/>
 <a href="{% url 'ac_statement' %}" class="btn btn-success">A/C Statement</a>
 <hr />
+
+{% for i in d_a %}
+    <a href="{{ i.d_a.url }}">Distributor Agreement</a>
+{% endfor %}
 
 {% endblock %}

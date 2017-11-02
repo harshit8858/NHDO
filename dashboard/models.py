@@ -39,3 +39,7 @@ class kyc(models.Model):
 class Welcome(models.Model):
     letter =  models.FileField(upload_to='welcome', null=True, blank=True)
     image = models.FileField(upload_to='welcome', null=True, blank=True)
+
+
+class Distributor_agreement(models.Model):
+    d_a = models.FileField(upload_to='distributors_agreement', null=True, blank=True)
