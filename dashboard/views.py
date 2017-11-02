@@ -24,37 +24,6 @@ def edit_profile(request,d):
     return render(request, 'dashboard/edit_profile.html', {'form':form})
 
 
-def edit_profile1(request,d):
-    n = User.objects.get(id=d)
-    if request.method == 'POST':
-        form = EditForm1(request.POST, instance=n)
-        if form.is_valid():
-            form.save()
-            return redirect('dashboard')
-    else:
-        form = EditForm1(instance=n)
-    return render(request, 'dashboard/edit_profile1.html', {'form':form})
-
-
-def list_epin(request):
-    home(request)
-    return render(request, 'dashboard/list_epins.html', )
-
-
-def upgrade_account(request):
-    home(request)
-    if request.method == 'POST':
-        form = Epin_upgradeForm(request.POST)
-        if form.is_valid():
-            f = form.save(commit=False)
-            f.user = request.user
-            f.save()
-            return redirect('dashboard')
-    else:
-        form = Epin_upgradeForm()
-    return render(request, 'dashboard/upgrade_account.html', {'form':form})
-
-
 def update_kyc(request):
     u = User.objects.all()
     i = kyc.objects.all()

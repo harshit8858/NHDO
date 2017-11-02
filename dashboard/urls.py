@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from .views import dashboard, edit_profile, edit_profile1, list_epin, update_kyc, add_kyc, edit_kyc, upgrade_account, welcome_letter, direct_bonus, distributer_agreement, referal_level, referal_team, summary, ac_statement, referal_counts
+from .views import dashboard, edit_profile, update_kyc, add_kyc, edit_kyc, welcome_letter, direct_bonus, distributer_agreement, referal_level, referal_team, summary, ac_statement, referal_counts
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -7,9 +7,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^$', dashboard, name="dashboard"),
     url(r'^edit_profile/(\d+)/', edit_profile, name="edit_profile"),
-    url(r'^edit_profile1/(\d+)/', edit_profile1, name="edit_profile1"),
-    url(r'^list_epin/', list_epin, name="list_epin"),
-    url(r'^upgrade_account/', upgrade_account, name="upgrade_account"),
     url(r'^update_kyc/', update_kyc, name="update_kyc"),
     url(r'^add_kyc/', add_kyc, name="add_kyc"),
     url(r'^edit_kyc/(\d+)/', edit_kyc, name="edit_kyc"),
