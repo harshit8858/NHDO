@@ -347,9 +347,10 @@ def home(request):
         # print(referral.count2)
         # print(referral.count3)
         # print(referral.money)
-        return render(request, 'nhdo_main/home.html')
+        p = Profile.objects.all()
+        return render(request, 'dashboard/dashboard.html', {'info':p})
     else:
-        return render(request, 'nhdo_main/invalid.html')
+        return render(request, 'nhdo_main/index.html')
 
 
 def referral_level(request):
