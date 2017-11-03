@@ -10,24 +10,60 @@
 3.You cannot change these later on: <ul><li>First Name,Last Name</li>  <li>Email</li>  <li>Mobile Number</li></ul>
 <hr/>
 
-    <form method="post">
-        {% csrf_token %}
-        {% for field in form %}
-            <p>
-                {{ field.label_tag }}
-                {{ field }}
-                {% if field.help_text %}
-                    <small style="color: grey">{{ field.help_text }}</small>
-                {% endif %}
+    <!--<form method="post">-->
+        <!--{% csrf_token %}-->
+        <!--{% for field in form %}-->
+            <!--<p>-->
+                <!--{{ field.label_tag }}-->
+                <!--{{ field }}-->
+                <!--{% if field.help_text %}-->
+                    <!--<small style="color: grey">{{ field.help_text }}</small>-->
+                <!--{% endif %}-->
 
-                {% for error in field.errors %}
-                  <p style="color: red">{{ error }}</p>
-                {% endfor %}
-            </p>
-        {% endfor %}
-        <button type="submit" class="btn btn-success">Sign up</button>
+                <!--{% for error in field.errors %}-->
+                  <!--<p style="color: red">{{ error }}</p>-->
+                <!--{% endfor %}-->
+            <!--</p>-->
+        <!--{% endfor %}-->
+        <!--<button type="submit" class="btn btn-success">Sign up</button>-->
 
-    </form>
+    <!--</form>-->
+
+
+ <div class="container">
+        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-0 col-sm-8 col-sm-offset-2">
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Sign Up</div>
+                    </div>
+
+                    <div style="padding-top:30px" class="panel-body" >
+
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+
+                        <form method="post">
+                            {% csrf_token %}
+                            {% for field in form %}
+                                <p>
+                                    {{ field.label_tag }}
+                                    {{ field }}
+                                    {% if field.help_text %}
+                                        <small style="color: grey">{{ field.help_text }}</small>
+                                    {% endif %}
+
+                                    {% for error in field.errors %}
+                                      <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </p>
+                            {% endfor %}
+                            <button type="submit" class="btn btn-success">Sign up</button>
+
+                        </form>
+
+                        </div>
+                    </div>
+        </div>
+ </div>
 
 
 <script>

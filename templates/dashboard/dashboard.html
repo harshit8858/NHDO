@@ -22,10 +22,10 @@
         <hr />
         <b>Profile Pic:</b>
         {% if i.profile_pic %}
-        <img src="{{i.profile_pic.url}}" width="10%px" height="200px" /><br><br>
+        <img src="{{i.profile_pic.url}}" width="200px" height="200px" /><br><br>
         {% endif %}<br/>
         <a href="{% url 'edit_profile' i.id %}" class="btn btn-info">Edit Details</a>
-        <hr />
+        <hr class="colorgraph" />
 
     {% endifequal %}
 {% endfor %}
