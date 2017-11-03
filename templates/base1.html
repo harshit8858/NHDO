@@ -107,7 +107,8 @@
 		}
 
 		.profile-usermenu ul li.active {
-		  border-bottom: none;
+			background-color: #fafcfd;
+		    color: #555555;
 		}
 
 		.profile-usermenu ul li.active a {
@@ -245,7 +246,7 @@
 <nav class="navbar navbar-inverse" style="border-radius:0px; height: 50%; background-color:black;">
             <div class="container-fluid">
                 <ul class="nav navbar-nav">
-                        <li><a href="{% url 'home' %}"><i class="fa fa-lg fa-home"></i></a></li>
+						<li><a href="{% url 'home' %}"><i class="fa fa-lg fa-home"></i></a></li>
                         {% if user.is_authenticated %}
                             <span style="color:White;font-size:30px;font-family:serif" >{{ request.user.first_name }}</span>
                         {% else %}
@@ -388,15 +389,15 @@
 			<div class="profile-sidebar">
 				<!-- SIDEBAR USERPIC -->
 				<div class="profile-userpic">
-					<img src="http://keenthemes.com/preview/metronic/theme/assets/admin/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
+					<center>
+						{% if request.user.profile.profile_pic %}
+							<div class="profile-userpic"> <img src="{{request.user.profile.profile_pic.url}}" align="middle" class="img-circle" width="120px" height="120px"/></div>
+						{% endif %}
+					</center>
 				</div>
 				<!-- END SIDEBAR USERPIC -->
 				<!-- SIDEBAR USER TITLE -->
-				<center>
-				{% if request.user.profile.profile_pic %}
-					<div class="profile-userpic"> <img src="{{request.user.profile.profile_pic.url}}" align="middle" class="img-circle" width="120px" height="120px"/></div>
-				{% endif %}
-				</center>
+
 				<div class="profile-usertitle">
 					<div class="profile-usertitle-name">
 						<span style="font-size:20px"> {{ request.user.first_name }} {{ request.user.last_name }}</span>
@@ -406,7 +407,7 @@
 						<span style="font-size:10px"> {{ request.user.profile.your_referal }}</span>
 					</div>
 				</div>
-				
+
 				<!-- END SIDEBAR USER TITLE -->
 				<!-- SIDEBAR BUTTONS -->
 				<!-- END SIDEBAR BUTTONS -->
