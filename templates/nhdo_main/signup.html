@@ -1,15 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h2>Sign up</h2>
-<hr/>
-
-<h4>NOTE:</h4>
-1.If the form is not submiting after clicking the submit button, then you must have same referal_id and mobile_number(which is not possible), Change it.<br/>
-2.If you have no referal_id,then type 0 in it.<br/>
-3.You cannot change these later on: <ul><li>First Name,Last Name</li>  <li>Email</li>  <li>Mobile Number</li></ul>
-<hr/>
-
     <!--<form method="post">-->
         <!--{% csrf_token %}-->
         <!--{% for field in form %}-->
@@ -26,15 +17,13 @@
             <!--</p>-->
         <!--{% endfor %}-->
         <!--<button type="submit" class="btn btn-success">Sign up</button>-->
-
     <!--</form>-->
 
-
- <div class="container">
-        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-0 col-sm-8 col-sm-offset-2">
-            <div class="panel panel-info" >
+ <div class="container col-sm-8" style="">
+        <div id="loginbox" style="margin-top:px;">
+            <div class="panel panel-info">
                     <div class="panel-heading">
-                        <div class="panel-title">Sign Up</div>
+                        <div class="panel-title"><h1>Sign Up</h1></div>
                     </div>
 
                     <div style="padding-top:30px" class="panel-body" >
@@ -65,6 +54,16 @@
         </div>
  </div>
 
+
+<div class="panel panel-danger col-sm-4">
+    <div class="panel-heading"><h1>Note</h1></div>
+    <div class="panel-body">
+        <b><ol>
+            <li>If you have no referal_id,then type 0 in it.</li>
+            <li>You cannot change these later on: <ul><li>First Name,Last Name</li>  <li>Email</li>  <li>Mobile Number</li></ul></li>
+        </ol></b>
+    </div>
+</div>
 
 <script>
 $('.js-captcha-refresh').click(function(){

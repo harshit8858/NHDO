@@ -22,9 +22,15 @@ GENDER = (
     ('OTHER', 'other'),
 )
 
+STATUS = (
+    ('SINGLE', 'single'),
+    ('MARRIED', 'married'),
+)
+
 class SignUpForm(UserCreationForm):
     birth_date = forms.DateField(help_text='Required. Format: YYYY-MM-DD', widget=forms.TextInput(attrs={'placeholder':'DOB', 'class':'form-control', 'style':'width:200px'}))
     gender = forms.ChoiceField(choices=GENDER, required=True, widget=forms.Select(attrs={'class':'dropdown-item', 'style':'width:200px'}))
+    status = forms.ChoiceField(choices=STATUS, required=True, widget=forms.Select(attrs={'class':'dropdown-item', 'style':'width:200px'}))
     referal_id = forms.CharField(help_text='(make sure you enter it right because this cannot be changed later)',required=False,  widget=forms.TextInput(attrs={'placeholder':'Referal_id', 'class':'form-control', 'style':'width:200px'}))
     pan_number = forms.IntegerField(required=True, max_value=9999999999, widget=forms.NumberInput(attrs={'placeholder':'Pan Number', 'class':'form-control', 'style':'width:200px'}))
     address = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder':'Address', 'class':'form-control', 'style':'width:200px'}))
@@ -66,6 +72,7 @@ class SignUpForm(UserCreationForm):
                   'pan_number',
                   'gender',
                   'birth_date',
+                  'status',
                   'address',
                   'city',
                   'pincode',

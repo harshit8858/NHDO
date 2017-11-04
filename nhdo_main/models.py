@@ -12,11 +12,18 @@ GENDER = (
 )
 
 
+STATUS = (
+    ('SINGLE', 'single'),
+    ('MARRIED', 'married'),
+)
+
+
 class Profile(models.Model):
     user = models.OneToOneField(User, unique=True, on_delete=models.CASCADE)
     referal_id = models.CharField(max_length=40, null=True, blank=True)
     pan_number = models.IntegerField(null=True, blank=True)
     gender = models.CharField(max_length=10, choices=GENDER)
+    status = models.CharField(max_length=10, choices=STATUS, default='single')
     birth_date = models.DateField(null=True, blank=True)
     address = models.CharField(max_length=30, null=True, blank=True)
     city = models.CharField(max_length=20, null=True, blank=True)

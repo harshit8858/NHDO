@@ -8,24 +8,26 @@
       <div class="panel-body">
         {% for i in  info %}
             {% ifequal i.user request.user %}
-
-                <b>Username</b>: {{ i.user }}<br />
-                <b>ReferalID</b>: {{ i.referal_id }}<br />
-                <b>Name</b>: {{ i.user.first_name }} {{ i.user.last_name }}<br />
-                <b>Pan</b>: {{ i.pan_number }}<br />
-                <b>Sex</b>: {{ i.gender }}<br />
-                <b>DOB</b>: {{ i.birth_date }}<br />
-                <b>Address</b>: {{ i.address }}, {{ i.city }}, {{ i.state }}-{{ i.pincode }}<br />
-                <b>Mobile</b>: {{ i.mobile_number }}<br />
-                <b>Status</b>: {{ i.status }}<br /><br />
-                <hr />
-                <b>Profile Pic:</b>
-                {% if i.profile_pic %}
-                <img src="{{i.profile_pic.url}}" width="200px" height="200px" /><br><br>
-                {% endif %}<br/>
+            <table class="table" border="2px" style="font-size:20px">
+                <tr class="warning"><th>Username:</th><td>{{ i.user.username }}</td></tr>
+                <tr class="danger"><th>Referal ID:</th><td>{{ i.referal_id }}</td></tr>
+                <tr class="warning"><th>Name:</th><td>{{ i.user.first_name }} {{ i.user.last_name }}</td></tr>
+                <tr class="danger"><th>Pan Number:</th><td>{{ i.pan_number }}</td></tr>
+                <tr class="warning"><th>Sex:</th><td>{{ i.gender }}</td></tr>
+                <tr class="danger"><th>DOB:</th><td>{{ i.birth_date }}</td></tr>
+                <tr class="warning"><th>Address:</th><td>{{ i.address }}, {{ i.city }}, {{ i.state }}-{{ i.pincode }}</td></tr>
+                <tr class="danger"><th>Mobile:</th><td>{{ i.mobile_number }}</td></tr>
+                <tr class="warning"><th>Status:</th><td>{{ i.status }}</td></tr>
+                <tr class="danger">
+                    <th>Profile Pic:</th>
+                    <td>
+                        {% if i.profile_pic %}
+                        <img src="{{i.profile_pic.url}}" class="img-thumbnail" width="400px" height="400" /><br><br>
+                        {% endif %}
+                    </td>
+                </tr>
                 <a href="{% url 'edit_profile' i.id %}" class="btn btn-info">Edit Details</a>
-                <hr class="colorgraph" />
-
+            </table>
             {% endifequal %}
         {% endfor %}
 
