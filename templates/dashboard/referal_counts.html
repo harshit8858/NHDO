@@ -1,60 +1,90 @@
-{% extends 'base1.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 
-    <b><u>Your Referal Code</u></b>:<i> {{ referral }}</i><br/><br/>
+<div class="panel panel-warning"1>
+      <div class="panel-heading" style="height:60px;">
+          <h3><b><u>Your Referal Code</u></b>:<i> <kbd>{{ referral }}</kbd></i><br/><br/></h3>
+      </div>
+    </div>
 
-    <h3><u>Your Referal Responses</u>:</h3>
 
-    <b><u>Level 1</u></b>:<i> {{ count1 }}
-    {% if count1 > 3 %}
-    (Done at 25)
-    {% endif %}</i><br/>
+<div class="panel panel-primary">
+      <div class="panel-heading"><h1>Your Referal Responses:</h1></div>
+      <div class="panel-body">
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-info">
+                <h2><b><u>Level 1</u></b>:<i> {{ count1 }}
+                {% if count1 > 3 %}
+                (Done at 25)
+                {% endif %}</i><br/></h2>
+            </li>
+            <li class="list-group-item list-group-item-success">
+                <h2><b><u>Level 2</u></b>:<i> {{ count2 }}
+                {% if count2 > 625 %}
+                (Done at 625)
+                {% endif %}</i><br/></h2>
+            </li>
+            <li class="list-group-item list-group-item-warning">
+                <h2><b><u>Level 3</u></b>:<i> {{ count3 }}
+                {% if count3 > 15625 %}
+                (Done at 15625)
+                {% endif %}</i><br/></h2>
+            </li>
+            <li class="list-group-item list-group-item-danger">
+                <h2><b><u>Level 4</u></b>:<i> {{ count4 }}
+                {% if count4 > 390625 %}
+                (Done at 390625)
+                {% endif %}</i><br/></h2>
+            </li>
+            <li class="list-group-item list-group-item-default">
+                <h2><b><u>Level 5</u></b>:<i> {{ count5 }}
+                {% if count5 > 9765625 %}
+                (Done at 9765625)
+                {% endif %}</i><br/></h2>
+            </li>
+            <li class="list-group-item list-group-item-default">
+                <h2><b><u>Level 6</u></b>:<i> {{ count6 }}
+                {% if count6 > 244140625 %}
+                (Done at 244140625)
+                {% endif %}</i><br/></h2>
+            </li>
+          </ul>
+      </div>
+    </div>
 
-    <b><u>Level 2</u></b>:<i> {{ count2 }}
-    {% if count2 > 625 %}
-    (Done at 625)
-    {% endif %}</i><br/>
 
-    <b><u>Level 3</u></b>:<i> {{ count3 }}
-    {% if count3 > 15625 %}
-    (Done at 15625)
-    {% endif %}</i><br/>
 
-    <b><u>Level 4</u></b>:<i> {{ count4 }}
-    {% if count4 > 390625 %}
-    (Done at 390625)
-    {% endif %}</i><br/>
+<div class="panel panel-primary">
+      <div class="panel-heading"><h1>Total Members</h1></div>
+      <div class="panel-body">
+          <h1><b>{{ total }}</b></h1>
+      </div>
+    </div>
 
-    <b><u>Level 5</u></b>:<i> {{ count4 }}
-    {% if count5 > 9765625 %}
-    (Done at 9765625)
-    {% endif %}</i><br/>
 
-    <b><u>Level 6</u></b>:<i> {{ count4 }}
-    {% if count6 > 244140625 %}
-    (Done at 244140625)
-    {% endif %}</i><br/>
+<div class="panel panel-primary">
+      <div class="panel-heading"><h1>Level Reached</h1></div>
+      <div class="panel-body">
+    <h1><b>
+            {% if level == 0 %}
+                Zero
+            {% elif level == 1 %}
+                One
+            {% elif level == 2 %}
+                Two
+            {% elif level == 3 %}
+                Three
+            {% elif level == 4 %}
+                Four
+            {% elif level == 5 %}
+                Five
+            {% elif level == 6 %}
+                Six
+            {% endif %}
+    </b></h1>
+      </div>
+    </div>
 
-    <b><u>Total</u></b>:<i> {{ total }}</i><br/>
-
-    <hr/>
-
-<b>Level Reached</b>:
-    {% if level == 0 %}
-        Zero
-    {% elif level == 1 %}
-        One
-    {% elif level == 2 %}
-        Two
-    {% elif level == 3 %}
-        Three
-    {% elif level == 4 %}
-        Four
-    {% elif level == 5 %}
-        Five
-    {% elif level == 6 %}
-        Six
-    {% endif %}
 
 {% endblock %}

@@ -1,34 +1,131 @@
-{% extends 'base1.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 
 
 
-    <b><u>Your Referrar</u>:</b><br/>
-    {% for i in x %}
+    <!--<b><u>Your Referrar</u>:</b><br/>-->
+    <!--{% for i in x %}-->
+        <!--{% ifequal referrar.your_referal i.referal_id %}-->
+        <!--<ul>-->
+            <!--<li>{{ i.user.first_name }} {{ i.user.last_name }}-(Rs.100)<br/></li>-->
+            <!--{% for j in x %}-->
+                <!--{% ifequal i.user.profile.your_referal j.referal_id %}-->
+                <!--<ul>-->
+                    <!--<li>{{ j.user.first_name }} {{ j.user.last_name }}-(Rs.50)</li>-->
+                    <!--{% for k in x %}-->
+                        <!--{% ifequal j.user.profile.your_referal k.referal_id %}-->
+                        <!--<ul>-->
+                            <!--<li>{{ k.user.first_name }} {{ k.user.last_name }}-(Rs.25)</li>-->
+                            <!--{% for l in x %}-->
+                                <!--{% ifequal k.user.profile.your_referal l.referal_id %}-->
+                                <!--<ul>-->
+                                    <!--<li>{{ l.user.first_name }} {{ l.user.last_name }}-(Rs.12.5)</li>-->
+                                    <!--{% for m in x %}-->
+                                        <!--{% ifequal l.user.profile.your_referal m.referal_id %}-->
+                                        <!--<ul>-->
+                                            <!--<li>{{ m.user.first_name }} {{ m.user.last_name }}-(Rs.12.5)</li>-->
+                                            <!--{% for n in x %}-->
+                                                <!--{% ifequal m.user.profile.your_referal n.referal_id %}-->
+                                                <!--<ul>-->
+                                                    <!--<li>{{ n.user.first_name }} {{ n.user.last_name }}-(Rs.12.5)</li>-->
+                                                <!--</ul>-->
+                                                <!--{% endifequal %}-->
+                                            <!--{% endfor %}-->
+                                            <!--</ul>-->
+                                        <!--{% endifequal %}-->
+                                    <!--{% endfor %}-->
+                                    <!--</ul>-->
+                                <!--{% endifequal %}-->
+                            <!--{% endfor %}-->
+                            <!--</ul>-->
+                        <!--{% endifequal %}-->
+                    <!--{% endfor %}-->
+                    <!--</ul>-->
+                <!--{% endifequal %}-->
+            <!--{% endfor %}-->
+            <!--</ul>-->
+        <!--{% endifequal %}-->
+    <!--{% endfor %}-->
+
+
+<div class="container">
+    <!--<div class="col-sm-7">-->
+  <!--<h1>Referal Team</h1>-->
+  <!--<h4>The following is your referal team:</h4>-->
+      <!--{% for i in x %}-->
+        <!--{% ifequal referrar.your_referal i.referal_id %}-->
+        <!--<ul class="list-group">-->
+            <!--<li class="list-group-item list-group-item-info" style="width:300px;height:30px;">{{ i.user.first_name }} {{ i.user.last_name }}-(Rs.100)<br/></li>-->
+            <!--{% for j in x %}-->
+                <!--{% ifequal i.user.profile.your_referal j.referal_id %}-->
+                <!--<ul>-->
+                    <!--<li class="list-group-item list-group-item-success" style="width:300px;height:30px;">{{ j.user.first_name }} {{ j.user.last_name }}-(Rs.50)</li>-->
+                    <!--{% for k in x %}-->
+                        <!--{% ifequal j.user.profile.your_referal k.referal_id %}-->
+                        <!--<ul>-->
+                            <!--<li class="list-group-item list-group-item-warning" style="width:300px;height:30px;">{{ k.user.first_name }} {{ k.user.last_name }}-(Rs.25)</li>-->
+                            <!--{% for l in x %}-->
+                                <!--{% ifequal k.user.profile.your_referal l.referal_id %}-->
+                                <!--<ul>-->
+                                    <!--<li class="list-group-item list-group-item-danger" style="width:300px;height:30px;">{{ l.user.first_name }} {{ l.user.last_name }}-(Rs.12.5)</li>-->
+                                    <!--{% for m in x %}-->
+                                        <!--{% ifequal l.user.profile.your_referal m.referal_id %}-->
+                                        <!--<ul>-->
+                                            <!--<li class="list-group-item list-group-item-default" style="width:300px;height:30px;">{{ m.user.first_name }} {{ m.user.last_name }}-(Rs.12.5)</li>-->
+                                            <!--{% for n in x %}-->
+                                                <!--{% ifequal m.user.profile.your_referal n.referal_id %}-->
+                                                <!--<ul>-->
+                                                    <!--<li class="list-group-item list-group-item-default" style="width:300px;height:30px;">{{ n.user.first_name }} {{ n.user.last_name }}-(Rs.12.5)</li>-->
+                                                <!--</ul>-->
+                                                <!--{% endifequal %}-->
+                                            <!--{% endfor %}-->
+                                            <!--</ul>-->
+                                        <!--{% endifequal %}-->
+                                    <!--{% endfor %}-->
+                                    <!--</ul>-->
+                                <!--{% endifequal %}-->
+                            <!--{% endfor %}-->
+                            <!--</ul>-->
+                        <!--{% endifequal %}-->
+                    <!--{% endfor %}-->
+                    <!--</ul>-->
+                <!--{% endifequal %}-->
+            <!--{% endfor %}-->
+            <!--</ul>-->
+        <!--{% endifequal %}-->
+    <!--{% endfor %}-->
+    <!--</div>-->
+
+
+    <div class="panel panel-primary col-sm-7">
+      <div class="panel-heading"><h1>Referal Team:</h1></div>
+      <div class="panel-body">
+        <div class="">
+            {% for i in x %}
         {% ifequal referrar.your_referal i.referal_id %}
-        <ul>
-            <li>{{ i.user.first_name }} {{ i.user.last_name }}-(Rs.100)<br/></li>
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-info" style="width:300px;height:30px;">{{ i.user.first_name }} {{ i.user.last_name }}<br/></li>
             {% for j in x %}
                 {% ifequal i.user.profile.your_referal j.referal_id %}
                 <ul>
-                    <li>{{ j.user.first_name }} {{ j.user.last_name }}-(Rs.50)</li>
+                    <li class="list-group-item list-group-item-success" style="width:300px;height:30px;">{{ j.user.first_name }} {{ j.user.last_name }}</li>
                     {% for k in x %}
                         {% ifequal j.user.profile.your_referal k.referal_id %}
                         <ul>
-                            <li>{{ k.user.first_name }} {{ k.user.last_name }}-(Rs.25)</li>
+                            <li class="list-group-item list-group-item-warning" style="width:300px;height:30px;">{{ k.user.first_name }} {{ k.user.last_name }}</li>
                             {% for l in x %}
                                 {% ifequal k.user.profile.your_referal l.referal_id %}
                                 <ul>
-                                    <li>{{ l.user.first_name }} {{ l.user.last_name }}-(Rs.12.5)</li>
+                                    <li class="list-group-item list-group-item-danger" style="width:300px;height:30px;">{{ l.user.first_name }} {{ l.user.last_name }}</li>
                                     {% for m in x %}
                                         {% ifequal l.user.profile.your_referal m.referal_id %}
                                         <ul>
-                                            <li>{{ m.user.first_name }} {{ m.user.last_name }}-(Rs.12.5)</li>
+                                            <li class="list-group-item list-group-item-default" style="background-color:#ccff99;width:300px;height:30px;">{{ m.user.first_name }} {{ m.user.last_name }}</li>
                                             {% for n in x %}
                                                 {% ifequal m.user.profile.your_referal n.referal_id %}
                                                 <ul>
-                                                    <li>{{ n.user.first_name }} {{ n.user.last_name }}-(Rs.12.5)</li>
+                                                    <li class="list-group-item list-group-item-default" style="width:300px;height:30px;">{{ n.user.first_name }} {{ n.user.last_name }}</li>
                                                 </ul>
                                                 {% endifequal %}
                                             {% endfor %}
@@ -47,6 +144,29 @@
             </ul>
         {% endifequal %}
     {% endfor %}
+    </div>
+
+      </div>
+    </div>
+
+
+
+    <div class="col-sm-3" style="">
+        <div class="panel panel-primary">
+      <div class="panel-heading">NOTE:</div>
+      <div class="panel-body">
+          <ul>
+              <li class="list-group-item list-group-item-info">Level 1 Referars.</li>
+              <li class="list-group-item list-group-item-success">Level 2 Referars.</li>
+              <li class="list-group-item list-group-item-danger">Level 3 Referars.</li>
+              <li class="list-group-item list-group-item-warning">Level 4 Referars.</li>
+              <li class="list-group-item list-group-item-default" style="background-color:#ccff99;">Level 5 Referars.</li>
+              <li class="list-group-item list-group-item-default">Level 6 Referars.</li>
+          </ul>
+      </div>
+    </div>
+    </div>
+</div>
 
 
     <!--<b><u>Your Referrar</u>:</b><br/>-->
@@ -72,8 +192,13 @@
         <!--</ul>-->
     <!--{% endfor %}-->
 
-<br/><hr width="100px" align="left">
-<h1><u>Your Earning</u>: {{ money }}</h1>
-<br/><hr width="100px" align="left">
+
+<div class="panel panel-primary" style="width:50%">
+      <div class="panel-heading"><h1>Your Earning:</h1></div>
+      <div class="panel-body">
+        <h1>{{ money }} Rupees</h1>
+      </div>
+    </div>
+
 
 {% endblock %}

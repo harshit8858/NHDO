@@ -1,45 +1,84 @@
-{% extends 'base1.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 
-
-
-<br />
-<hr />
 {% for i in pic %}
     {% ifequal i.user request.user %}
+            <div class="panel panel-primary" style="width:500px">
+                  <div class="panel-heading"><h2>Passport</h2></div>
+                  <div class="panel-body">
             <b>Passport</b>:{% if i.passport %}
-                <img src="{{i.passport.url}}" width="10%px" height="200px" /><br><br>
-            {% endif %}
-            <br />
-            <b>Pan Card</b>:{% if i.pan %}
-                <img src="{{i.pan.url}}" width="10%px" height="200px" /><br><br>
-            {% endif %}
-            <br />
-            <b>Aadhar Card</b>:{% if i.aadhar %}
-                <img src="{{i.aadhar.url}}" width="10%px" height="200px" /><br><br>
-            {% endif %}
-            <br />
-            <b>Voter ID</b>:{% if i.voter %}
-                <img src="{{i.voter.url}}" width="10%px" height="200px" /><br><br>
-            {% endif %}
-            <br />
-            <b>Cancelled Cheque</b>:{% if i.cancelled_cheque %}
-                <img src="{{i.cancelled_cheque.url}}" width="10%px" height="200px" /><br><br>
-            {% endif %}
-            <br />
-            <b>Passbook</b>:{% if i.passbook %}
-                <img src="{{i.passbook.url}}" width="10%px" height="200px" /><br><br>
+                <img src="{{i.passport.url}}" width="200px" height="200px" /><br><br>
             {% endif %}
             <br />
 
-            <a href="{% url 'edit_kyc' i.id %}" class="btn btn-default">Edit</a>
+              </div>
+            </div>
+
+            <div class="panel panel-primary" style="width:500px">
+                  <div class="panel-heading"><h2>Pan Card</h2></div>
+                  <div class="panel-body">
+
+                        <b>Pan Card</b>:{% if i.pan %}
+                            <img src="{{i.pan.url}}" width="200px" height="200px" /><br><br>
+                        {% endif %}
+                        <br />
+                  </div>
+            </div>
+
+
+            <div class="panel panel-primary" style="width:500px">
+                  <div class="panel-heading"><h2>Aadhar Card</h2></div>
+                  <div class="panel-body">
+
+                        <b>Aadhar Card</b>:{% if i.aadhar %}
+                            <img src="{{i.aadhar.url}}" width="200px" height="200px" /><br><br>
+                        {% endif %}
+                        <br />
+                  </div>
+            </div>
+
+
+            <div class="panel panel-primary" style="width:500px">
+                  <div class="panel-heading"><h2>Voter ID</h2></div>
+                  <div class="panel-body">
+                    <b>Voter ID</b>:{% if i.voter %}
+                            <img src="{{i.voter.url}}" width="200px" height="200px" /><br><br>
+                        {% endif %}
+                        <br />
+
+                  </div>
+            </div>
+
+            <div class="panel panel-primary" style="width:500px">
+                  <div class="panel-heading"><h2>Cancelled Cheque</h2></div>
+                  <div class="panel-body">
+                        <b>Cancelled Cheque</b>:{% if i.cancelled_cheque %}
+                            <img src="{{i.cancelled_cheque.url}}" width="200px" height="200px" /><br><br>
+                        {% endif %}
+                        <br />
+
+                  </div>
+            </div>
+            <div class="panel panel-primary" style="width:500px">
+                  <div class="panel-heading"><h2>Passbook</h2></div>
+                  <div class="panel-body">
+                        <b>Passbook</b>:{% if i.passbook %}
+                            <img src="{{i.passbook.url}}" width="200px" height="200px" /><br><br>
+                        {% endif %}
+                        <br />
+
+                  </div>
+            </div>
+
+
+<h3><a href="{% url 'edit_kyc' i.id %}" class="btn btn-warning" style="width:100px;"><span style="font-size:30px;">Edit</span></a></h3>
             <hr />
     {% endifequal %}
 {% endfor %}
 
-<a href="{% url 'add_kyc' %}" class="btn btn-default">Add</a>(If you have'nt already!)
+<a href="{% url 'add_kyc' %}" class="btn btn-info" style="width:100px;"><span style="font-size:30px;">Add</span></a><b>(If you have'nt already!)</b>
 
-<hr />
-<hr />
+
+
 {% endblock %}

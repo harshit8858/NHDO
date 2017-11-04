@@ -1,53 +1,140 @@
-{% extends 'base1.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 
 
-<b><u><h3>Your referral Level</h3></u>({{ referrar.user.first_name }} {{ referrar.user.last_name }}-{{ referrar.user.email }}-{{ referrar.user.profile.your_referal }}-{{ referrar.user.profile.dob }}--{{ referrar.user.profile.level_reached }})</b>
-<br/>
-<br/>
-<table>
-    {% for i in x %}
-        {% ifequal referrar.your_referal i.referal_id %}
-                {{ i.user.first_name }} {{ i.user.last_name }}-{{ i.user.email }}-{{ i.user.profile.your_referal }}-{{ i.user.profile.dob }}--{{ i.user.profile.level_reached }}     <br/>
+<!--<br/>-->
+<!--<br/>-->
+<!--<table>-->
+    <!--{% for i in x %}-->
+        <!--{% ifequal referrar.your_referal i.referal_id %}-->
+                <!--{{ i.user.first_name }} {{ i.user.last_name }}-{{ i.user.email }}-{{ i.user.profile.your_referal }}-{{ i.user.profile.dob }}&#45;&#45;{{ i.user.profile.level_reached }}     <br/>-->
+                <!--{% for j in x %}-->
+                <!--{% ifequal i.user.profile.your_referal j.referal_id %}-->
+                <!--<tr>-->
+                    <!--{{ j.user.first_name }} {{ j.user.last_name }}-{{ j.user.email }}-{{ j.user.profile.your_referal }}-{{ j.user.profile.dob }}&#45;&#45;{{ j.user.profile.level_reached }}<br/>-->
+                    <!--{% for k in x %}-->
+                        <!--{% ifequal j.user.profile.your_referal k.referal_id %}-->
+                        <!--<tr>-->
+                            <!--{{ k.user.first_name }} {{ k.user.last_name }}-{{ k.user.email }}-{{ k.user.profile.your_referal }}-{{ k.user.profile.dob }}&#45;&#45;{{ k.user.profile.level_reached }}<br/>-->
+                            <!--{% for l in x %}-->
+                                <!--{% ifequal k.user.profile.your_referal l.referal_id %}-->
+                                <!--<tr>-->
+                                    <!--{{ l.user.first_name }} {{ l.user.last_name }}-{{ l.user.email }}-{{ l.user.profile.your_referal }}-{{ l.user.profile.dob }}&#45;&#45;{{ l.user.profile.level_reached }}<br/>-->
+                                    <!--{% for m in x %}-->
+                                        <!--{% ifequal l.user.profile.your_referal m.referal_id %}-->
+                                        <!--<tr>-->
+                                            <!--{{ m.user.first_name }} {{ m.user.last_name }}-{{ m.user.email }}-{{ m.user.profile.your_referal }}-{{ m.user.profile.dob }}&#45;&#45;{{ m.user.profile.level_reached }}<br/>-->
+                                            <!--{% for n in x %}-->
+                                                <!--{% ifequal m.user.profile.your_referal n.referal_id %}-->
+                                                <!--<tr>-->
+                                                    <!--{{ n.user.first_name }} {{ n.user.last_name }}-{{ n.user.email }}-{{ n.user.profile.your_referal }}-{{ n.user.profile.dob }}&#45;&#45;{{ n.user.profile.level_reached }}<br/>-->
+                                                <!--</tr>-->
+                                                <!--{% endifequal %}-->
+                                            <!--{% endfor %}-->
+                                            <!--</tr>-->
+                                        <!--{% endifequal %}-->
+                                    <!--{% endfor %}-->
+                                    <!--</tr>-->
+                                <!--{% endifequal %}-->
+                            <!--{% endfor %}-->
+                            <!--</tr>-->
+                        <!--{% endifequal %}-->
+                    <!--{% endfor %}-->
+                    <!--</tr>-->
+                <!--{% endifequal %}-->
+            <!--{% endfor %}-->
+            <!--</tr>-->
+        <!--{% endifequal %}-->
+    <!--{% endfor %}-->
+<!--</table>-->
+<div class="panel panel-primary">
+      <div class="panel-heading"><h1>Referal Level</h1></div>
+      <div class="panel-body">
+
+
+<div class="container" style="width:100%">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Referal ID</th>
+        <th>Level Reached</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in x %}
+            {% ifequal referrar.your_referal i.referal_id %}
+                <tr class="info">
+                    <td>{{ i.user.first_name }}</td>
+                    <td>{{ i.user.last_name }}</td>
+                    <td>{{ i.user.email }}</td>
+                    <td>{{ i.user.profile.your_referal }}</td>
+                    <td>{{ i.user.profile.level_reached }}</td>
+                </tr>
                 {% for j in x %}
-                {% ifequal i.user.profile.your_referal j.referal_id %}
-                <tr>
-                    {{ j.user.first_name }} {{ j.user.last_name }}-{{ j.user.email }}-{{ j.user.profile.your_referal }}-{{ j.user.profile.dob }}--{{ j.user.profile.level_reached }}<br/>
+                    {% ifequal i.user.profile.your_referal j.referal_id %}
+                    <tr class="success">
+                        <td>{{ j.user.first_name }}</td>
+                        <td>{{ j.user.last_name }}</td>
+                        <td>{{ j.user.email }}</td>
+                        <td>{{ j.user.profile.your_referal }}</td>
+                        <td>{{ j.user.profile.level_reached }}</td>
+                    </tr>
                     {% for k in x %}
                         {% ifequal j.user.profile.your_referal k.referal_id %}
-                        <tr>
-                            {{ k.user.first_name }} {{ k.user.last_name }}-{{ k.user.email }}-{{ k.user.profile.your_referal }}-{{ k.user.profile.dob }}--{{ k.user.profile.level_reached }}<br/>
+                            <tr class="warning">
+                                <td>{{ k.user.first_name }}</td>
+                                <td>{{ k.user.last_name }}</td>
+                                <td>{{ k.user.email }}</td>
+                                <td>{{ k.user.profile.your_referal }}</td>
+                                <td>{{ k.user.profile.level_reached }}</td>
+                            </tr>
                             {% for l in x %}
                                 {% ifequal k.user.profile.your_referal l.referal_id %}
-                                <tr>
-                                    {{ l.user.first_name }} {{ l.user.last_name }}-{{ l.user.email }}-{{ l.user.profile.your_referal }}-{{ l.user.profile.dob }}--{{ l.user.profile.level_reached }}<br/>
+                                    <tr class="danger">
+                                        <td>{{ l.user.first_name }}</td>
+                                        <td>{{ l.user.last_name }}</td>
+                                        <td>{{ l.user.email }}</td>
+                                        <td>{{ l.user.profile.your_referal }}</td>
+                                        <td>{{ l.user.profile.level_reached }}</td>
+                                    </tr>
                                     {% for m in x %}
                                         {% ifequal l.user.profile.your_referal m.referal_id %}
-                                        <tr>
-                                            {{ m.user.first_name }} {{ m.user.last_name }}-{{ m.user.email }}-{{ m.user.profile.your_referal }}-{{ m.user.profile.dob }}--{{ m.user.profile.level_reached }}<br/>
+                                            <tr class="active">
+                                                <td>{{ m.user.first_name }}</td>
+                                                <td>{{ m.user.last_name }}</td>
+                                                <td>{{ m.user.email }}</td>
+                                                <td>{{ m.user.profile.your_referal }}</td>
+                                                <td>{{ m.user.profile.level_reached }}</td>
+                                            </tr>
                                             {% for n in x %}
                                                 {% ifequal m.user.profile.your_referal n.referal_id %}
                                                 <tr>
-                                                    {{ n.user.first_name }} {{ n.user.last_name }}-{{ n.user.email }}-{{ n.user.profile.your_referal }}-{{ n.user.profile.dob }}--{{ n.user.profile.level_reached }}<br/>
+                                                    <td>{{ n.user.first_name }}</td>
+                                                    <td>{{ n.user.last_name }}</td>
+                                                    <td>{{ n.user.email }}</td>
+                                                    <td>{{ n.user.profile.your_referal }}</td>
+                                                    <td>{{ n.user.profile.level_reached }}</td>
                                                 </tr>
                                                 {% endifequal %}
                                             {% endfor %}
-                                            </tr>
                                         {% endifequal %}
                                     {% endfor %}
-                                    </tr>
                                 {% endifequal %}
                             {% endfor %}
-                            </tr>
                         {% endifequal %}
                     {% endfor %}
-                    </tr>
                 {% endifequal %}
             {% endfor %}
-            </tr>
         {% endifequal %}
     {% endfor %}
-</table>
+
+    </tbody>
+  </table>
+</div>
+      </div></div>
 
 {% endblock %}
