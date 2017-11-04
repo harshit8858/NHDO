@@ -348,7 +348,7 @@ def home(request):
         # print(referral.count3)
         # print(referral.money)
         p = Profile.objects.all()
-        return render(request, 'dashboard/dashboard.html', {'info':p})
+        return render(request, 'nhdo_main/index.html', {'info':p})
     else:
         return render(request, 'nhdo_main/index.html')
 
