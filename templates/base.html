@@ -1,20 +1,130 @@
-<!doctype html>
-<html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Forum for Financial Initiative</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html>
+<head>
 
-        <link rel="apple-touch-icon" href="icon.png">
+	<title></title>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
 
-        <link rel="stylesheet" href= "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+	<style>
+	  .modal-header,.close {
+	      background-color: #009933;
+	      text-align: center;
+	      font-size: 30px;
+	  }
+	  .captcha {
+	  	  width: 200px;
+	  }
+	  body {
+  background: #FFFFFF;
+		}
 
-        <link rel="stylesheet" href="css/style.css">
-        
-        <style>
+		/* Profile container */
+		.profile {
+		  margin: 0px 0;
+		}
+
+		/* Profile sidebar */
+		.profile-sidebar {
+		  padding: 0% 0% 0% 0%;
+		  background: #fff;
+		}
+
+		.profile-userpic img {
+		  float: none;
+		  margin: 0 auto;
+		  width: 80%;
+		  height: 50%;
+		  -webkit-border-radius: 50% !important;
+		  -moz-border-radius: 50% !important;
+		  border-radius: 50% !important;
+		}
+
+		.profile-usertitle {
+		  text-align: center;
+		  margin-top: 20px;
+		}
+
+		.profile-usertitle-name {
+		  color: #5a7391;
+		  font-size: 16px;
+		  font-weight: 600;
+		  margin-bottom: 7px;
+		}
+
+		.profile-usertitle-job {
+		  text-transform: uppercase;
+		  color: #5b9bd1;
+		  font-size: 12px;
+		  font-weight: 600;
+		  margin-bottom: 15px;
+		}
+
+		.profile-userbuttons {
+		  text-align: center;
+		  margin-top: 10px;
+		}
+
+		.profile-userbuttons .btn {
+		  text-transform: uppercase;
+		  font-size: 11px;
+		  font-weight: 600;
+		  padding: 6px 15px;
+		  margin-right: 5px;
+		}
+
+		.profile-userbuttons .btn:last-child {
+		  margin-right: 0px;
+		}
+
+		.profile-usermenu {
+		  margin-top: 0px;
+		}
+
+		.profile-usermenu ul li {
+		  border-bottom: 1px solid #f0f4f7;
+		}
+
+		.profile-usermenu ul li:last-child {
+		  border-bottom: none;
+		}
+
+		.profile-usermenu ul li a {
+		  color: #fffff;
+		  font-size: 14px;
+		  font-weight: 400;
+		}
+
+		.profile-usermenu ul li a i {
+		  margin-right: 5px;
+		  font-size: 14px;
+		}
+
+		.profile-usermenu ul li a:hover {
+		  background-color: #fafcfd;
+		  color: #555555;
+		}
+
+		.profile-usermenu ul li.active {
+			background-color: #fafcfd;
+		    color: #555555;
+		}
+
+		.profile-usermenu ul li.active a {
+		  color: #5b9bd1;
+		  background-color: #f6f9fb;
+		  border-left: 2px solid #5b9bd1;
+		  margin-left: 0px;
+		}
+
+		/* Profile Content */
+		.profile-content {
+		  padding: 20px;
+		  background: #fff;
+		  min-height: 460px;
+		}
+
             h6:hover {
                 color:green;
             }
@@ -80,7 +190,7 @@
 	        }
             body {
                 font-family: "Lato", sans-serif;
-    transition: background-color .5s;
+    		transition: background-color .5s;
             }
             .sidenav {
                 height: 100%;
@@ -108,6 +218,10 @@
                 color: #f1f1f1;
             }
 
+            .sidenav a:click {
+            	color: black;
+			}
+
             .sidenav .closebtn {
                 position: absolute;
                 top: 0;
@@ -125,17 +239,32 @@
               .sidenav {padding-top: 15px;}
               .sidenav a {font-size: 18px;}
             }
+            #particle {
+				  background-color: #ffffff;
+				  position:fixed;
+				  top:0;
+				  right:0;
+				  bottom:0;
+				  left:0;
+				  z-index:0;
+				}
+				#overlay {
+				  position: relative;
+			}
+	  </style>
+</head>
 
-        </style>
-    </head>
-    <body>
+<body class="body" style="">
+<div id="particle"></div>
+<div id="overlay">
 
-        <nav class="navbar navbar-inverse" style="border-radius:0px; height: 50%; background-color:black;">
+
+<nav class="navbar navbar-inverse" style="border-radius:0px; height: 50%; background-color:black;">
             <div class="container-fluid">
                 <ul class="nav navbar-nav">
-                        <li><a href="{% url 'home' %}"><i class="fa fa-lg fa-home"></i></a></li>
+						<li><a href="{% url 'home' %}"><i class="fa fa-lg fa-home"></i></a></li>
                         {% if user.is_authenticated %}
-                            <span style="color:black;font-size:30px;font-family:serif" >{{ request.user.first_name }}</span>
+                            <!--<span style="color:White;font-size:30px;font-family:serif" >{{ request.user.first_name }}</span>-->
                         {% else %}
                         <li><a href="{% url 'log_in' %}" style="color:white"><span class="glyphicon glyphicon-log-in">LogIn</span></a></li>
                         {% endif %}
@@ -148,17 +277,17 @@
                         <a href="{% url 'signup' %}" style="color:white"><span class="glyphicon glyphicon-new-window">Register</span></a>
                     </li>
                     {% endif %}
-                    {% if request.user.profile.profile_pic %}
-                    <li>
-                    <div style="margin-top:0px">
-                        <img src="{{request.user.profile.profile_pic.url}}" align="middle" class="img-circle" width="60px" height="60px"/>
-                    </div>
-                    </li>
-                    {% else %}
-                    <li>
-                    <span style="color:black;font-size:30px" class="glyphicon glyphicon-user"></span>
-                    </li>
-                    {% endif %}
+                    <!--{% if request.user.profile.profile_pic %}-->
+                    <!--<li>-->
+                    <!--<div style="margin-top:0px">-->
+                        <!--<img src="{{request.user.profile.profile_pic.url}}" align="middle" class="img-circle" width="60px" height="60px"/>-->
+                    <!--</div>-->
+                    <!--</li>-->
+                    <!--{% else %}-->
+                    <!--<li>-->
+                    <!--<span style="color:black;font-size:30px" class="glyphicon glyphicon-user"></span>-->
+                    <!--</li>-->
+                    <!--{% endif %}-->
                 </ul>
 
               <ul class="nav navbar-nav navbar-right">
@@ -180,9 +309,9 @@
               </div>
               <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="{% url 'home' %}">Home</a></li>
-        
+
                 <li><a href="{% url 'about' %}">About</a></li>
-        
+
                 <li><a href="{% url 'gallery' %}">Gallery</a></li>
 
                 <li class="dropdown">
@@ -224,7 +353,7 @@
                     <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#">Projects
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        
+
                             <li><a href="#">NHDO</a>
                                 <ul>
                                     <li><a href="#">Phases</a></li>
@@ -256,61 +385,161 @@
                             <li><a href="#">Garib Kalyan Yojana</a></li>
                             <li><a href="#">Make in India</a></li>
                             <li><a href="#">Smart City</a></li>
-                       
-                
+
+
                     </ul> -->
                 </li>
 
                 <li><a href="{% url 'contact' %}">Contact</a></li>
             </ul>
-                
-              
+
+
             </div>
           </nav>
 
-        <div id="mySidenav" class="sidenav">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-          <a href="{% url 'dashboard' %}">Dashboard</a>
-          <a href="{% url 'update_kyc' %}">Update KYC</a>
-          <a href="#">Clients</a>
-          <a href="#">Contact</a>
-        </div>
+<div class="container">
+    <div class="row profile">
+		{% if user.is_authenticated %}
 
-        <div id="main">
-          <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+		<div class="col-md-3">
+			<div class="profile-sidebar">
+				<!-- SIDEBAR USERPIC -->
+				<div class="profile-userpic">
+					<center>
+						{% if request.user.profile.profile_pic %}
+							<div class="profile-userpic"> <img src="{{request.user.profile.profile_pic.url}}" align="middle" class="img-circle" width="120px" height="120px"/></div>
+						{% endif %}
+					</center>
+				</div>
+				<!-- END SIDEBAR USERPIC -->
+				<!-- SIDEBAR USER TITLE -->
 
+				<div class="profile-usertitle">
+					<div class="profile-usertitle-name">
+						<span style="font-size:20px"> {{ request.user.first_name }} {{ request.user.last_name }}</span>
+					</div>
+					<div class="profile-usertitle-job">
+						<span style="font-size:15px"> {{ request.user.profile.mobile_number }}</span><br/>
+						<span style="font-size:10px"> {{ request.user.profile.your_referal }}</span>
+					</div>
+				</div>
 
-        <script>
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
-            document.getElementById("main").style.marginLeft = "250px";
-        }
+				<!-- END SIDEBAR USER TITLE -->
+				<!-- SIDEBAR BUTTONS -->
+				<!-- END SIDEBAR BUTTONS -->
+				<!-- SIDEBAR MENU -->
+				<div class="profile-usermenu">
+					<ul class="nav">
+						<li class="active">
+							<a href="{% url 'dashboard' %}">
+							<i class="glyphicon glyphicon-home"></i>
+							Dashboard </a>
+						</li>
+						<li>
+							<a href="{% url 'change_password' %}">
+							<i class="glyphicon glyphicon-lock"></i>
+							Change Password</a>
+						</li>
+						<li>
+							<a href="{% url 'update_kyc' %}">
+							<i class="glyphicon glyphicon-user"></i>
+							Update KYC</a>
+						</li>
+						<li>
+							<a href="{% url 'welcome_letter' %}">
+							<i class="glyphicon glyphicon-envelope"></i>
+							Welcome Letter </a>
+						</li>
+						<li>
+							<a href="{% url 'distributer_agreement' %}">
+							<i class="glyphicon glyphicon-menu-right"></i>
+							Distributer Agreement</a>
+						</li>
+						<li>
+							<a href="{% url 'referal_team' %}">
+							<i class="glyphicon glyphicon-list-alt"></i>
+							Referal Team</a>
+						</li>
+						<li>
+							<a href="{% url 'referal_counts' %}">
+							<i class="glyphicon glyphicon-align-left"></i>
+							Referal Count</a>
+						</li>
+						<li>
+							<a href="{% url 'referal_level' %}">
+							<i class="glyphicon glyphicon-signal"></i>
+							Referal Level</a>
+						</li>
+						<li>
+							<a href="{% url 'summary' %}">
+							<i class="glyphicon glyphicon-flag"></i>
+							Summary</a>
+						</li>
+						<li>
+							<a href="{% url 'ac_statement' %}">
+							<i class="glyphicon glyphicon-flag"></i>
+							A/C Statement</a>
+						</li>
+					</ul>
+				</div>
+				<!-- END MENU -->
+			</div>
+		</div>
+		{% endif %}
+		<div class="col-md-9">
+            <div class="profile-content">
 
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-            document.getElementById("main").style.marginLeft= "0";
-        }
-        </script>
+	{% block content %}
+	{% endblock %}
+            </div>
+		</div>
 
-<br><br>
-
-
-    {% block content %}
-    {% endblock %}
+	</div>
 </div>
 
 
-    <div style="width:100%; height: 300px; background-color:black; color:white; text-align:center; padding: 60px 0;">
-        <h1>Register!</h1>
-        <br>
-        <p>Small adorable Membership Fee of Rs. 11000/- Only</p>
-        <br>
-        <p><a class="btn btn-success" href="#">Apply Now! &raquo;</a></p>
-    </div>
+<hr/>
+
+<footer>
+	<div class="last-div footer">
+		<div class="container">
+			<div class="row">
+				<div class="copyright" align="right">
+					@Harshit_Verma(8858414441)
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<!--<script src="{% static 'login/js/jquery-2.1.1.min.js' %}"></script>-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+<!--<script src="{% static 'login/js/bootstrap.min.js' %}"></script>-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script type="javascript/text">
+</script>
+
+<div style="width:100%; height: 300px; background-color:black; color:white; text-align:center; padding: 60px 0;">
+    <h1>Register!</h1>
+    <br>
+    <p>Small adorable Membership Fee of Rs. 11000/- Only</p>
+    <br>
+    <p><a class="btn btn-success" href="#">Apply Now! &raquo;</a></p>
+	<a href="/newsletter/" class="btn btn-default">Subscribe</a>
+</div>
 
 
-            <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-            <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
 
-    </body>
+	</div>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+	var options = {"particles":{"number":{"value":99,"density":{"enable":true,"value_area":552.4033491425909}},"color":{"value":"#000000"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":3},"image":{"src":"img/github.svg","width":70,"height":100}},"opacity":{"value":1,"random":true,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":2,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":false,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":1.5782952832645452,"direction":"none","random":true,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":false,"mode":"repulse"},"onclick":{"enable":true,"mode":"repulse"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":false};
+particlesJS("particle", options);
+</script>
+</body>
 </html>
