@@ -2,33 +2,35 @@
 
 {% block content %}
 
-<h1>Dashboard</h1>
-<br/>
 
-<u><b><b>Personal Info</b></b></u>-
-<br />
-{% for i in  info %}
-    {% ifequal i.user request.user %}
+<div class="panel panel-primary">
+      <div class="panel-heading"><h1>Dashboard</h1></div>
+      <div class="panel-body">
+        {% for i in  info %}
+            {% ifequal i.user request.user %}
 
-        <b>Username</b>: {{ i.user }}<br />
-        <b>ReferalID</b>: {{ i.referal_id }}<br />
-        <b>Name</b>: {{ i.user.first_name }} {{ i.user.last_name }}<br />
-        <b>Pan</b>: {{ i.pan_number }}<br />
-        <b>Sex</b>: {{ i.gender }}<br />
-        <b>DOB</b>: {{ i.birth_date }}<br />
-        <b>Address</b>: {{ i.address }}, {{ i.city }}, {{ i.state }}-{{ i.pincode }}<br />
-        <b>Mobile</b>: {{ i.mobile_number }}<br />
-        <b>Status</b>: {{ i.status }}<br /><br />
-        <hr />
-        <b>Profile Pic:</b>
-        {% if i.profile_pic %}
-        <img src="{{i.profile_pic.url}}" width="200px" height="200px" /><br><br>
-        {% endif %}<br/>
-        <a href="{% url 'edit_profile' i.id %}" class="btn btn-info">Edit Details</a>
-        <hr class="colorgraph" />
+                <b>Username</b>: {{ i.user }}<br />
+                <b>ReferalID</b>: {{ i.referal_id }}<br />
+                <b>Name</b>: {{ i.user.first_name }} {{ i.user.last_name }}<br />
+                <b>Pan</b>: {{ i.pan_number }}<br />
+                <b>Sex</b>: {{ i.gender }}<br />
+                <b>DOB</b>: {{ i.birth_date }}<br />
+                <b>Address</b>: {{ i.address }}, {{ i.city }}, {{ i.state }}-{{ i.pincode }}<br />
+                <b>Mobile</b>: {{ i.mobile_number }}<br />
+                <b>Status</b>: {{ i.status }}<br /><br />
+                <hr />
+                <b>Profile Pic:</b>
+                {% if i.profile_pic %}
+                <img src="{{i.profile_pic.url}}" width="200px" height="200px" /><br><br>
+                {% endif %}<br/>
+                <a href="{% url 'edit_profile' i.id %}" class="btn btn-info">Edit Details</a>
+                <hr class="colorgraph" />
 
-    {% endifequal %}
-{% endfor %}
+            {% endifequal %}
+        {% endfor %}
+
+      </div>
+    </div>
 
 
 {% endblock %}
