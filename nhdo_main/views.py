@@ -21,10 +21,11 @@ amount = 500
 
 def index(request):
     home(request)
+    nom = Profile.objects.all()
     # email = EmailMessage('title', 'body', to=['dk291996@gmail.com'])
     # abc = email.send()
     # print (abc)
-    return render(request, 'nhdo_main/index.html')
+    return render(request, 'nhdo_main/index.html', {'nom':nom})
 
 
 # def signup(request):
@@ -281,6 +282,7 @@ def log_in(request):
 
 
 def home(request):
+    nom = Profile.objects.all()
     if request.user.is_authenticated():
         referral = Profile.objects.get(user=request.user)
         referral.your_referal = 'FFI/WSHG/RMD/' + request.user.username
@@ -348,9 +350,9 @@ def home(request):
         # print(referral.count3)
         # print(referral.money)
         p = Profile.objects.all()
-        return render(request, 'nhdo_main/index.html', {'info':p})
+        return render(request, 'nhdo_main/index.html', {'info':p, 'nom':nom})
     else:
-        return render(request, 'nhdo_main/index.html')
+        return render(request, 'nhdo_main/index.html', {'nom':nom})
 
 
 def referral_level(request):

@@ -171,13 +171,26 @@ def referal_counts(request):
         referral.level_reached = 6
     referral.save()
 
+    count1per = float((referral.count1/25))*100
+    count2per = float((referral.count2/625))*100
+    count3per = float((referral.count3/15625))*100
+    count4per = float((referral.count4/390625))*100
+    count5per = float((referral.count5/9765625))*100
+    count6per = float((referral.count6/244140625))*100
+
     return render(request, 'dashboard/referal_counts.html', {'referral': referral.your_referal,
                                                             'count1': referral.count1,
+                                                            'count1per':count1per,
                                                             'count2': referral.count2,
+                                                            'count2per':count2per,
                                                             'count3': referral.count3,
+                                                            'count3per':count3per,
                                                             'count4': referral.count4,
+                                                            'count4per':count4per,
                                                             'count5': referral.count5,
+                                                            'count5per':count5per,
                                                             'count6': referral.count6,
+                                                            'count6per':count6per,
                                                             'total': referral.total,
                                                             'level':referral.level_reached})
     #     referral = Profile.objects.get(user=request.user)
