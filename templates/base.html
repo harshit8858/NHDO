@@ -420,7 +420,7 @@
 					</div>
 					<div class="profile-usertitle-job">
 						<span style="font-size:15px"> {{ request.user.profile.mobile_number }}</span><br/>
-						<span style="font-size:10px"> {{ request.user.profile.your_referal }}</span>
+						<span style="font-size:12px"> {{ request.user.profile.your_referal }}</span>
 					</div>
 				</div>
 
@@ -486,6 +486,7 @@
 			</div>
 		</div>
 		{% endif %}
+
 		{% if user.is_authenticated %}
 			<div class="col-md-9">
     	{% else %}

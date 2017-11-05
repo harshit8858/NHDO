@@ -49,7 +49,7 @@
     <!--{% endfor %}-->
 
 
-<div class="container">
+
     <!--<div class="col-sm-7">-->
   <!--<h1>Referal Team</h1>-->
   <!--<h4>The following is your referal team:</h4>-->
@@ -98,7 +98,7 @@
     <!--</div>-->
 
 
-    <div class="panel panel-primary col-sm-7">
+    <div class="panel panel-primary col-sm-8">
       <div class="panel-heading"><h1>Referal Team:</h1></div>
       <div class="panel-body">
         <div class="">
@@ -151,9 +151,9 @@
 
 
 
-    <div class="col-sm-3" style="">
+    <div class="col-sm-4" style="">
         <div class="panel panel-primary">
-      <div class="panel-heading">NOTE:</div>
+            <div class="panel-heading" style="height:60px;"><h3>NOTE:</h3></div>
       <div class="panel-body">
           <ul>
               <li class="list-group-item list-group-item-info">Level 1 Referars.</li>
@@ -165,8 +165,14 @@
           </ul>
       </div>
     </div>
+        <div class="panel panel-primary" style="">
+      <div class="panel-heading"><h3>Your Earning:</h3></div>
+      <div class="panel-body">
+        <h2>{{ money }} Rupees</h2>
+      </div>
     </div>
-</div>
+    </div>
+
 
 
     <!--<b><u>Your Referrar</u>:</b><br/>-->
@@ -193,12 +199,12 @@
     <!--{% endfor %}-->
 
 
-<div class="panel panel-primary" style="width:50%">
-      <div class="panel-heading"><h1>Your Earning:</h1></div>
-      <div class="panel-body">
-        <h1>{{ money }} Rupees</h1>
-      </div>
-    </div>
+<!--<div class="panel panel-primary" style="width:50%">-->
+      <!--<div class="panel-heading"><h1>Your Earning:</h1></div>-->
+      <!--<div class="panel-body">-->
+        <!--<h1>{{ money }} Rupees</h1>-->
+      <!--</div>-->
+    <!--</div>-->
 
 
 {% endblock %}

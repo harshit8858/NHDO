@@ -4,7 +4,8 @@
 
 {% for i in pic %}
     {% ifequal i.user request.user %}
-            <div class="panel panel-primary" style="width:500px">
+        <div class="col-md-6">
+            <div class="panel panel-primary" style="">
                   <div class="panel-heading"><h2>Passport</h2></div>
                   <div class="panel-body">
             <b>Passport</b>:{% if i.passport %}
@@ -15,7 +16,7 @@
               </div>
             </div>
 
-            <div class="panel panel-primary" style="width:500px">
+            <div class="panel panel-primary" style="">
                   <div class="panel-heading"><h2>Pan Card</h2></div>
                   <div class="panel-body">
 
@@ -27,7 +28,7 @@
             </div>
 
 
-            <div class="panel panel-primary" style="width:500px">
+            <div class="panel panel-primary" style="">
                   <div class="panel-heading"><h2>Aadhar Card</h2></div>
                   <div class="panel-body">
 
@@ -37,9 +38,9 @@
                         <br />
                   </div>
             </div>
-
-
-            <div class="panel panel-primary" style="width:500px">
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-primary" style="">
                   <div class="panel-heading"><h2>Voter ID</h2></div>
                   <div class="panel-body">
                     <b>Voter ID</b>:{% if i.voter %}
@@ -50,7 +51,7 @@
                   </div>
             </div>
 
-            <div class="panel panel-primary" style="width:500px">
+            <div class="panel panel-primary" style="">
                   <div class="panel-heading"><h2>Cancelled Cheque</h2></div>
                   <div class="panel-body">
                         <b>Cancelled Cheque</b>:{% if i.cancelled_cheque %}
@@ -60,7 +61,7 @@
 
                   </div>
             </div>
-            <div class="panel panel-primary" style="width:500px">
+            <div class="panel panel-primary" style="">
                   <div class="panel-heading"><h2>Passbook</h2></div>
                   <div class="panel-body">
                         <b>Passbook</b>:{% if i.passbook %}
@@ -70,15 +71,17 @@
 
                   </div>
             </div>
-
+        </div>
 
 <h3><a href="{% url 'edit_kyc' i.id %}" class="btn btn-warning" style="width:100px;"><span style="font-size:30px;">Edit</span></a></h3>
             <hr />
     {% endifequal %}
 {% endfor %}
 
-<a href="{% url 'add_kyc' %}" class="btn btn-info" style="width:100px;"><span style="font-size:30px;">Add</span></a><b>(If you have'nt already!)</b>
-
+<!--{% if re.aadhar %}-->
+<!--{% else %}-->
+    <a href="{% url 'add_kyc' %}" class="btn btn-info" style="width:100px;"><span style="font-size:30px;">Add</span></a><b>(If you have'nt already!)</b>
+<!--{% endif %}-->
 
 
 {% endblock %}
