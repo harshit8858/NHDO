@@ -305,7 +305,7 @@
             <div class="container-fluid">
               <div class="navbar-header">
                 <!-- <a class="navbar-brand" href="#">FFI India</a> -->
-                <img style="width: 67%; margin:0 auto;"src="./images//ffi2.png"></img>
+                <img style="width: 67%; margin:0 auto;"src="./images//ffi2.png" />
               </div>
               <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="{% url 'home' %}">Home</a></li>
@@ -420,7 +420,7 @@
 					</div>
 					<div class="profile-usertitle-job">
 						<span style="font-size:15px"> {{ request.user.profile.mobile_number }}</span><br/>
-						<span style="font-size:10px"> {{ request.user.profile.your_referal }}</span>
+						<span style="font-size:12px"> {{ request.user.profile.your_referal }}</span>
 					</div>
 				</div>
 
@@ -486,14 +486,17 @@
 			</div>
 		</div>
 		{% endif %}
-		<div class="col-md-9">
-            <div class="profile-content">
 
+		{% if user.is_authenticated %}
+			<div class="col-md-9">
+    	{% else %}
+			<div class="col-md-12">
+		{% endif %}
+            <div class="profile-content">
 	{% block content %}
 	{% endblock %}
             </div>
 		</div>
-
 	</div>
 </div>
 

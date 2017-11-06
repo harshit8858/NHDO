@@ -14,13 +14,11 @@
 <!--</form>-->
 
 
-
-
- <div class="container">
+ <div class="container" style="">
         <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
             <div class="panel panel-info" >
                     <div class="panel-heading">
-                        <div class="panel-title">Sign In</div>
+                        <div class="panel-title"><h1>Log In</h1></div>
                     </div>
 
                     <div style="padding-top:30px" class="panel-body" >
@@ -45,7 +43,7 @@
 
                                 <div class="col-sm-12 controls">
                                   <button class="btn btn-success">Login  </button>
-                                  <a id="btn-fblogin" href="{% url 'change_password' %}" class="btn btn-primary">Change Password</a>
+                                  <a id="btn-fblogin" href="{% url 'password_reset' %}" class="btn btn-primary">Forgot Password</a>
 
                                 </div>
                             </div>
@@ -67,7 +65,6 @@
                     </div>
         </div>
     </div>
-
 
 
 

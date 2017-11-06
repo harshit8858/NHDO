@@ -2,14 +2,14 @@
 
 {% block content %}
 
-<div class="panel panel-warning" style="width:100%">
+<div class="panel panel-warning col-md-12" >
       <div class="panel-heading" style="height:60px;">
           <h3><b><u>Your Referal Code</u></b>:<i> <kbd>{{ referral }}</kbd></i><br/><br/></h3>
       </div>
     </div>
 
 
-<div class="panel panel-primary">
+<div class="panel panel-primary col-md-8">
       <div class="panel-heading"><h1>Your Referal Responses:</h1></div>
       <div class="panel-body">
           <ul class="list-group">
@@ -19,8 +19,9 @@
                 {% if count1 > 3 %}
                 (Done at 25)
                 {% endif %}</i></h2>
-              <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{ count1per }}%;display:inline;">
-                {{ count1per }}
+            </li>
+              <li><div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{ count1per }}%;">
+                  <span style="color:black;">{{ count1per }}%</span>
                 </div>
             </li>
             <li class="list-group-item list-group-item-success">
@@ -28,8 +29,9 @@
                 {% if count2 > 625 %}
                 (Done at 625)
                 {% endif %}</i><br/></h2>
-                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{ count2per }}%">
-                {{ count2per }}
+            </li>
+              <li><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{ count2per }}%;">
+                  <span style="color:black;">{{ count2per }}%</span>
                 </div>
             </li>
             <li class="list-group-item list-group-item-warning">
@@ -37,8 +39,9 @@
                 {% if count3 > 15625 %}
                 (Done at 15625)
                 {% endif %}</i><br/></h2>
-                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{ count3per }}%">
-                {{ count3per }}
+            </li>
+              <li><div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{ count3per }}%;">
+                  <span style="color:black;">{{ count3per }}%</span>
                 </div>
             </li>
             <li class="list-group-item list-group-item-danger">
@@ -46,17 +49,19 @@
                 {% if count4 > 390625 %}
                 (Done at 390625)
                 {% endif %}</i><br/></h2>
-                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{ count4per }}%">
-                {{ count4per }}
+            </li>
+              <li><div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{ count4per }}%;">
+                  <span style="color:black;">{{ count4per }}%</span>
                 </div>
             </li>
-            <li class="list-group-item list-group-item-default">
+            <li class="list-group-item list-group-item-default" style="background-color:#ccff99;">
                 <h2><b><u>Level 5</u></b>:<i> {{ count5 }}
                 {% if count5 > 9765625 %}
                 (Done at 9765625)
                 {% endif %}</i><br/></h2>
-                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{ count5per }}%">
-                {{ count5per }}
+            </li>
+              <li><div class="progress-bar progress-bar-default progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{ count5per }}%;background-color:green;">
+                  <span style="color:black;">{{ count5per }}%</span>
                 </div>
             </li>
             <li class="list-group-item list-group-item-default">
@@ -64,8 +69,9 @@
                 {% if count6 > 244140625 %}
                 (Done at 244140625)
                 {% endif %}</i><br/></h2>
-                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{ count6per }}%">
-                {{ count6per }}
+            </li>
+              <li><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{ count6per }}%;background-color:black;">
+                  <span style="color:blue;">{{ count6per }}%</span>
                 </div>
             </li>
           </ul>
@@ -73,17 +79,17 @@
     </div>
 
 
-
+<div class="col-md-4">
 <div class="panel panel-primary">
-      <div class="panel-heading"><h1>Total Members</h1></div>
+      <div class="panel-heading"><h2>Total Members</h2></div>
       <div class="panel-body">
           <h1><b>{{ total }}</b></h1>
       </div>
-    </div>
+        </div>
 
 
 <div class="panel panel-primary">
-      <div class="panel-heading"><h1>Level Reached</h1></div>
+      <div class="panel-heading"><h2>Level Reached</h2></div>
       <div class="panel-body">
     <h1><b>
             {% if level == 0 %}
@@ -104,4 +110,5 @@
     </b></h1>
       </div>
     </div>
+</div>
 {% endblock %}
