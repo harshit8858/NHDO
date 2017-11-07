@@ -29,7 +29,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="distributer_agreement.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="distributer_agreement.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/dashboard/distributer_agreement.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="126">
@@ -42,8 +42,8 @@
       <file leaf-file-name="welcome_letter.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/dashboard/welcome_letter.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="11" column="68" lean-forward="true" selection-start-line="11" selection-start-column="68" selection-end-line="11" selection-end-column="68" />
+            <state relative-caret-position="315">
+              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -92,7 +92,7 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dashboard/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2793">
+            <state relative-caret-position="-1113">
               <caret line="12" column="70" lean-forward="false" selection-start-line="12" selection-start-column="70" selection-end-line="12" selection-end-column="70" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
@@ -104,8 +104,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nhdo_main/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="461">
-              <caret line="354" column="47" lean-forward="false" selection-start-line="354" selection-start-column="47" selection-end-line="354" selection-end-column="47" />
+            <state relative-caret-position="188">
+              <caret line="286" column="39" lean-forward="true" selection-start-line="286" selection-start-column="39" selection-end-line="286" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -121,14 +121,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/nhdo_main/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="666">
+              <caret line="91" column="324" lean-forward="false" selection-start-line="91" selection-start-column="324" selection-end-line="91" selection-end-column="324" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#article#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -249,7 +250,6 @@
         <option value="$PROJECT_DIR$/templates/dashboard/direct_bonus.html" />
         <option value="$PROJECT_DIR$/templates/dashboard/edit_kyc.html" />
         <option value="$PROJECT_DIR$/templates/dashboard/list_epins.html" />
-        <option value="$PROJECT_DIR$/templates/dashboard/welcome_letter.html" />
         <option value="$PROJECT_DIR$/templates/nhdo_main/gallery.html" />
         <option value="$PROJECT_DIR$/templates/nhdo_main/home.html" />
         <option value="$PROJECT_DIR$/templates/nhdo_main/project.html" />
@@ -272,11 +272,12 @@
         <option value="$PROJECT_DIR$/templates/dashboard/referal_counts.html" />
         <option value="$PROJECT_DIR$/templates/dashboard/summary.html" />
         <option value="$PROJECT_DIR$/dashboard/views.py" />
-        <option value="$PROJECT_DIR$/templates/nhdo_main/index.html" />
         <option value="$PROJECT_DIR$/nhdo_main/views.py" />
         <option value="$PROJECT_DIR$/templates/nhdo_main/invalid.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/templates/dashboard/distributer_agreement.html" />
+        <option value="$PROJECT_DIR$/templates/dashboard/welcome_letter.html" />
+        <option value="$PROJECT_DIR$/templates/nhdo_main/index.html" />
       </list>
     </option>
   </component>
@@ -871,16 +872,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2793">
-          <caret line="12" column="70" lean-forward="false" selection-start-line="12" selection-start-column="70" selection-end-line="12" selection-end-column="70" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/nhdo_main/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -893,25 +884,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3297">
           <caret line="162" column="0" lean-forward="true" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/nhdo_main/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#article#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nhdo_main/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="354" column="47" lean-forward="false" selection-start-line="354" selection-start-column="47" selection-end-line="354" selection-end-column="47" />
           <folding />
         </state>
       </provider>
@@ -965,21 +937,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/dashboard/distributer_agreement.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="62" lean-forward="false" selection-start-line="6" selection-start-column="62" selection-end-line="6" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1113">
+          <caret line="12" column="70" lean-forward="false" selection-start-line="12" selection-start-column="70" selection-end-line="12" selection-end-column="70" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nhdo_main/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="286" column="39" lean-forward="true" selection-start-line="286" selection-start-column="39" selection-end-line="286" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/dashboard/welcome_letter.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="68" lean-forward="true" selection-start-line="11" selection-start-column="68" selection-end-line="11" selection-end-column="68" />
+        <state relative-caret-position="315">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#a#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/dashboard/distributer_agreement.html">
+    <entry file="file://$PROJECT_DIR$/templates/nhdo_main/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="62" lean-forward="false" selection-start-line="6" selection-start-column="62" selection-end-line="6" selection-end-column="62" />
-          <folding />
+        <state relative-caret-position="666">
+          <caret line="91" column="324" lean-forward="false" selection-start-line="91" selection-start-column="324" selection-end-line="91" selection-end-column="324" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#article#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
