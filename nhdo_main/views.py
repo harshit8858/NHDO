@@ -285,6 +285,7 @@ def home(request):
 
     nom = Profile.objects.all()
     if request.user.is_authenticated():
+        log_in(request)
         referral = Profile.objects.get(user=request.user)
         referral.your_referal = 'FFI/WSHG/RMD/' + request.user.username
         x = Profile.objects.all()
