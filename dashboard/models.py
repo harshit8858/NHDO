@@ -4,17 +4,6 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 
-class Epin(models.Model):
-    user = models.OneToOneField(User)
-    epin = models.CharField(max_length=20)
-    tran_number = models.IntegerField()
-    tran_date = models.DateField(auto_now=True)
-    jo_type = models.CharField(max_length=10)
-
-    def __str__(self):
-        return self.epin
-
-
 class kyc(models.Model):
     user = models.OneToOneField(User, default=None)
     passport = models.FileField(upload_to='passport')

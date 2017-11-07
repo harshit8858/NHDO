@@ -3,6 +3,84 @@
 {% block content %}
 
 
+<div class="panel panel-primary">
+      <div class="panel-heading"><h1>Summary</h1></div>
+      <div class="panel-body">
+    <h4><b>
+                {% if level == '0' %}
+                <ul>
+                    <li class="list-group-item list-group-item-info">Zero - No Earning so far... Complete your level zero(Make 25 direct members) to start your Earning.</li>
+                    <li class="list-group-item list-group-item-success">One - Not Completed.</li>
+                    <li class="list-group-item list-group-item-danger">Two - Not Completed.</li>
+                    <li class="list-group-item list-group-item-warning">Three - Not Completed.</li>
+                    <li class="list-group-item list-group-item-default" style="background-color:#ccff99;">Four - Not Completed.</li>
+                    <li class="list-group-item list-group-item-default">Five - Not Completed.</li>
+                </ul>
+            {% elif level == '1' %}
+                <ul>
+                    <li class="list-group-item list-group-item-info">Zero - Done :: Rs 1250/-</li>
+                    <li class="list-group-item list-group-item-success">One - Not Completed.</li>
+                    <li class="list-group-item list-group-item-danger">Two - Not Completed.</li>
+                    <li class="list-group-item list-group-item-warning">Three - Not Completed.</li>
+                    <li class="list-group-item list-group-item-default" style="background-color:#ccff99;">Four - Not Completed.</li>
+                    <li class="list-group-item list-group-item-default">Five - Not Completed.</li>
+                </ul>
+            {% elif level == '2' %}
+                <ul>
+                    <li class="list-group-item list-group-item-info">Zero - Done :: Rs 1250/-</li>
+                    <li class="list-group-item list-group-item-success">One - Done :: Rs 15625/-</li>
+                    <li class="list-group-item list-group-item-danger">Two - Not Completed.</li>
+                    <li class="list-group-item list-group-item-warning">Three - Not Completed.</li>
+                    <li class="list-group-item list-group-item-default" style="background-color:#ccff99;">Four - Not Completed.</li>
+                    <li class="list-group-item list-group-item-default">Five - Not Completed.</li>
+                </ul>
+            {% elif level == '3' %}
+                <ul>
+                    <li class="list-group-item list-group-item-info">Zero - Done :: Rs 1250/-</li>
+                    <li class="list-group-item list-group-item-success">One - Done :: Rs 15625/-</li>
+                    <li class="list-group-item list-group-item-danger">Two - Done :: Rs 312000/-</li>
+                    <li class="list-group-item list-group-item-warning">Three - Not Completed.</li>
+                    <li class="list-group-item list-group-item-default" style="background-color:#ccff99;">Four - Not Completed.</li>
+                    <li class="list-group-item list-group-item-default">Five - Not Completed.</li>
+                </ul>
+            {% elif level == '4' %}
+                <ul>
+                    <li class="list-group-item list-group-item-info">Zero - Done :: Rs 1250/-</li>
+                    <li class="list-group-item list-group-item-success">One - Done :: Rs 15625/-</li>
+                    <li class="list-group-item list-group-item-danger">Two - Done :: Rs 312000/-</li>
+                    <li class="list-group-item list-group-item-warning">Three - Done :: Rs 5859375/-</li>
+                    <li class="list-group-item list-group-item-default" style="background-color:#ccff99;">Four - Not Completed.</li>
+                    <li class="list-group-item list-group-item-default">Five - Not Completed.</li>
+                </ul>
+            {% elif level == '5' %}
+                <ul>
+                    <li class="list-group-item list-group-item-info">Zero - Done :: Rs 1250/-</li>
+                    <li class="list-group-item list-group-item-success">One - Done :: Rs 15625/-</li>
+                    <li class="list-group-item list-group-item-danger">Two - Done :: Rs 312000/-</li>
+                    <li class="list-group-item list-group-item-warning">Three - Done :: Rs 5859375/-</li>
+                    <li class="list-group-item list-group-item-default" style="background-color:#ccff99;">Four - Done :: Rs 97656250/-</li>
+                    <li class="list-group-item list-group-item-default">Five - Not Completed.</li>
+                </ul>
+            {% elif level == '6' %}
+                <ul>
+                    <li class="list-group-item list-group-item-info">Zero - Done :: Rs 1250/-</li>
+                    <li class="list-group-item list-group-item-success">One - Done :: Rs 15625/-</li>
+                    <li class="list-group-item list-group-item-danger">Two - Done :: Rs 312000/-</li>
+                    <li class="list-group-item list-group-item-warning">Three - Done :: Rs 5859375/-</li>
+                    <li class="list-group-item list-group-item-default" style="background-color:#ccff99;">Four - Done :: Rs 97656250/-</li>
+                    <li class="list-group-item list-group-item-default">Five - Done :: Rs 1220703125/-</li>
+                </ul>
+            {% endif %}
+    </ul>
+    </b></h4>
+      </div>
+    </div>
 
+<div class="panel panel-primary">
+      <div class="panel-heading"><h2>Total Earning</h2></div>
+      <div class="panel-body">
+          <h1><b>Rs {{ money }}/-</b></h1>
+      </div>
+        </div>
 
 {% endblock %}

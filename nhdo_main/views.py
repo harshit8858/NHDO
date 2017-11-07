@@ -282,6 +282,7 @@ def log_in(request):
 
 
 def home(request):
+
     nom = Profile.objects.all()
     if request.user.is_authenticated():
         referral = Profile.objects.get(user=request.user)

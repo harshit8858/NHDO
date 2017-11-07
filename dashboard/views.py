@@ -1,15 +1,16 @@
 from django.shortcuts import render, redirect
 from nhdo_main.models import Profile
-from .forms import EditForm, EditForm1, Epin_upgradeForm, KycForm
-from .models import Epin, kyc, Welcome, Distributor_agreement
+from .forms import EditForm, KycForm
+from .models import kyc, Welcome, Distributor_agreement
 from django.contrib.auth.models import User
 from nhdo_main.views import home
 
 
 def dashboard(request):
     home(request)
+    nom = Profile.objects.all()
     p = Profile.objects.all()
-    return render(request, 'dashboard/dashboard.html', {'info':p})
+    return render(request, 'dashboard/dashboard.html', {'info':p, 'nom':nom})
 
 
 def edit_profile(request,d):
@@ -157,17 +158,17 @@ def referal_counts(request):
     #                                 referral.save()
     if referral.count1 < 3:
         referral.level_reached = 0
-    elif referral.count1 > 3:
+    elif referral.count1 >= 3:
         referral.level_reached = 1
-    elif referral.count2 > 625:
+    elif referral.count2 >= 625:
         referral.level_reached = 2
-    elif referral.count3 > 15626:
+    elif referral.count3 >= 15626:
         referral.level_reached = 3
-    elif referral.count4 > 390625:
+    elif referral.count4 >= 390625:
         referral.level_reached = 4
-    elif referral.count5 > 9765625:
+    elif referral.count5 >= 9765625:
         referral.level_reached = 5
-    elif referral.count1 > 244140625:
+    elif referral.count1 >= 244140625:
         referral.level_reached = 6
     referral.save()
 
@@ -283,16 +284,8 @@ def direct_bonus(request):
 
 def summary(request):
     home(request)
-    summary = Profile.objects.get(user=request.user)
-    level1_income = summary.count2 * 50
-    level2_income = summary.count2 * 20
-    level3_income = summary.count3 * 25
-    level4_income = summary.count4 * 12.5
-    level5_income = summary.count2 * 50
-    level6_income = summary.count2 * 50
-    total = + level1_income + level2_income + level3_income + level4_income + level5_income + level6_income
-
-    return render(request, 'dashboard/summary.html', {'total':total})
+    summ = Profile.objects.get(user=request.user)
+    return render(request, 'dashboard/summary.html', {'money': summ.money, 'level':summ.level_reached})
 
 
 def ac_statement(request):
