@@ -1,8 +1,6 @@
 from django.contrib import admin
-from .models import Epin, kyc, Welcome, Distributor_agreement
+from .models import kyc, Welcome, Distributor_agreement
 
-
-admin.site.register(Epin)
 
 class kycAdmin(admin.ModelAdmin):
     list_display = ('user', 'aadhar')

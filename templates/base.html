@@ -259,7 +259,7 @@
 <div id="overlay">
 
 
-<nav class="navbar navbar-inverse" style="border-radius:0px; height: 50%; background-color:black;">
+<nav class="navbar navbar-inverse" style="border-radius:0px; height:50%; background-color:black;">
             <div class="container-fluid">
                 <ul class="nav navbar-nav">
 						<li><a href="{% url 'home' %}"><i class="fa fa-lg fa-home"></i></a></li>
@@ -308,11 +308,11 @@
                 <img style="width: 67%; margin:0 auto;"src="./images//ffi2.png" />
               </div>
               <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="{% url 'home' %}">Home</a></li>
+                <li class="{{nav1}}"><a href="{% url 'home' %}">Home</a></li>
 
-                <li><a href="{% url 'about' %}">About</a></li>
+                <li class="{{nav2}}"><a href="{% url 'about' %}">About</a></li>
 
-                <li><a href="{% url 'gallery' %}">Gallery</a></li>
+                <li class="{{nav3}}"><a href="{% url 'gallery' %}">Gallery</a></li>
 
                 <li class="dropdown">
                         <div class="dropbtn">Projects</div>
@@ -390,7 +390,7 @@
                     </ul> -->
                 </li>
 
-                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li class="{{nav5}}"><a href="{% url 'contact' %}">Contact</a></li>
             </ul>
 
 
@@ -430,54 +430,54 @@
 				<!-- SIDEBAR MENU -->
 				<div class="profile-usermenu">
 					<ul class="nav">
-						<li class="active">
+						<li class={{value1}}>
 							<a href="{% url 'dashboard' %}">
 							<i class="glyphicon glyphicon-home"></i>
 							Dashboard </a>
 						</li>
-						<li>
+						<li class={{value2}}>
 							<a href="{% url 'change_password' %}">
 							<i class="glyphicon glyphicon-lock"></i>
 							Change Password</a>
 						</li>
-						<li>
+						<li class={{value3}}>
 							<a href="{% url 'update_kyc' %}">
 							<i class="glyphicon glyphicon-user"></i>
 							Update KYC</a>
 						</li>
-						<li>
+						<li class={{value4}}>
 							<a href="{% url 'welcome_letter' %}">
 							<i class="glyphicon glyphicon-envelope"></i>
 							Welcome Letter </a>
 						</li>
-						<li>
+						<li class={{value5}}>
 							<a href="{% url 'distributer_agreement' %}">
 							<i class="glyphicon glyphicon-menu-right"></i>
 							Distributer Agreement</a>
 						</li>
-						<li>
+						<li class={{value6}}>
 							<a href="{% url 'referal_team' %}">
 							<i class="glyphicon glyphicon-list-alt"></i>
 							Referal Team</a>
 						</li>
-						<li>
+						<li class={{value7}}>
 							<a href="{% url 'referal_counts' %}">
 							<i class="glyphicon glyphicon-align-left"></i>
 							Referal Count</a>
 						</li>
-						<li>
+						<li class={{value8}}>
 							<a href="{% url 'referal_level' %}">
 							<i class="glyphicon glyphicon-signal"></i>
 							Referal Level</a>
 						</li>
-						<li>
+						<li class={{value9}}>
 							<a href="{% url 'summary' %}">
 							<i class="glyphicon glyphicon-flag"></i>
 							Summary</a>
 						</li>
-						<li>
+						<li class={{value10}}>
 							<a href="{% url 'ac_statement' %}">
-							<i class="glyphicon glyphicon-flag"></i>
+							<i class="glyphicon glyphicon-file"></i>
 							A/C Statement</a>
 						</li>
 					</ul>
@@ -502,18 +502,6 @@
 
 
 <hr/>
-
-<footer>
-	<div class="last-div footer">
-		<div class="container">
-			<div class="row">
-				<div class="copyright" align="right">
-					@Harshit_Verma(8858414441)
-				</div>
-			</div>
-		</div>
-	</div>
-</footer>
 
 <!--<script src="{% static 'login/js/jquery-2.1.1.min.js' %}"></script>-->
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->

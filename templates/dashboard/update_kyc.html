@@ -5,7 +5,7 @@
 {% for i in pic %}
     {% ifequal i.user request.user %}
         <div class="col-md-6">
-            <div class="panel panel-primary" style="">
+            <div class="panel panel-info" style="">
                   <div class="panel-heading"><h2>Passport</h2></div>
                   <div class="panel-body">
             <b>Passport</b>:{% if i.passport %}
@@ -16,7 +16,7 @@
               </div>
             </div>
 
-            <div class="panel panel-primary" style="">
+            <div class="panel panel-info" style="">
                   <div class="panel-heading"><h2>Pan Card</h2></div>
                   <div class="panel-body">
 
@@ -28,7 +28,7 @@
             </div>
 
 
-            <div class="panel panel-primary" style="">
+            <div class="panel panel-info" style="">
                   <div class="panel-heading"><h2>Aadhar Card</h2></div>
                   <div class="panel-body">
 
@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="panel panel-primary" style="">
+            <div class="panel panel-info" style="">
                   <div class="panel-heading"><h2>Voter ID</h2></div>
                   <div class="panel-body">
                     <b>Voter ID</b>:{% if i.voter %}
@@ -51,7 +51,7 @@
                   </div>
             </div>
 
-            <div class="panel panel-primary" style="">
+            <div class="panel panel-info" style="">
                   <div class="panel-heading"><h2>Cancelled Cheque</h2></div>
                   <div class="panel-body">
                         <b>Cancelled Cheque</b>:{% if i.cancelled_cheque %}
@@ -61,7 +61,7 @@
 
                   </div>
             </div>
-            <div class="panel panel-primary" style="">
+            <div class="panel panel-info" style="">
                   <div class="panel-heading"><h2>Passbook</h2></div>
                   <div class="panel-body">
                         <b>Passbook</b>:{% if i.passbook %}

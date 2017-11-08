@@ -1,8 +1,8 @@
 from django import forms
 from captcha.fields import CaptchaField
 from  nhdo_main.models import Profile
-from .models import Epin, kyc
-from django.contrib.auth.forms import UserCreationForm
+from .models import kyc
+# from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 
@@ -45,23 +45,23 @@ class EditForm(forms.ModelForm):
                   )
 
 
-class EditForm1(forms.ModelForm):
-    first_name = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder': 'First Name', 'class': 'form-control', 'style': 'width:200px'}))
-    last_name = forms.CharField(required=False, widget=forms.TextInput(attrs={'placeholder': 'Last Name', 'class': 'form-control', 'style': 'width:200px'}))
+# class EditForm1(forms.ModelForm):
+#     first_name = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder': 'First Name', 'class': 'form-control', 'style': 'width:200px'}))
+#     last_name = forms.CharField(required=False, widget=forms.TextInput(attrs={'placeholder': 'Last Name', 'class': 'form-control', 'style': 'width:200px'}))
+#
+#     class Meta:
+#         model = User
+#         fields = ('first_name',
+#                   'last_name',
+#                   )
 
-    class Meta:
-        model = User
-        fields = ('first_name',
-                  'last_name',
-                  )
 
-
-class Epin_upgradeForm(forms.ModelForm):
-    epin = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder':'Enter the new E-Pin', 'class':'form-control', 'style':'width:200px'}))
-
-    class Meta:
-        model = Epin
-        fields = ['epin']
+# class Epin_upgradeForm(forms.ModelForm):
+#     epin = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder':'Enter the new E-Pin', 'class':'form-control', 'style':'width:200px'}))
+#
+#     class Meta:
+#         model = Epin
+#         fields = ['epin']
 
 
 
