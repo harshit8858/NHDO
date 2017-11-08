@@ -85,7 +85,7 @@
                     </tr>
                     {% for k in x %}
                         {% ifequal j.user.profile.your_referal k.referal_id %}
-                            <tr class="warning">
+                            <tr class="danger">
                                 <td>{{ k.user.first_name }}</td>
                                 <td>{{ k.user.last_name }}</td>
                                 <td>{{ k.user.email }}</td>
@@ -94,7 +94,7 @@
                             </tr>
                             {% for l in x %}
                                 {% ifequal k.user.profile.your_referal l.referal_id %}
-                                    <tr class="danger">
+                                    <tr class="warning">
                                         <td>{{ l.user.first_name }}</td>
                                         <td>{{ l.user.last_name }}</td>
                                         <td>{{ l.user.email }}</td>

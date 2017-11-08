@@ -41,6 +41,7 @@ class Profile(models.Model):
     total = models.IntegerField(default=0, null=True, blank=True)
     your_referal = models.CharField(max_length=40, default='none')
     level_reached = models.CharField(max_length=20, default=0)
+    rest = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True, default=0)
 
     def __str__(self):
         return str(self.user)

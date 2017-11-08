@@ -25,7 +25,8 @@ def index(request):
     # email = EmailMessage('title', 'body', to=['dk291996@gmail.com'])
     # abc = email.send()
     # print (abc)
-    return render(request, 'nhdo_main/index.html', {'nom':nom})
+    nav1 = "active"
+    return render(request, 'nhdo_main/index.html', {'nom':nom, 'nav1':nav1})
 
 
 # def signup(request):
@@ -282,7 +283,7 @@ def log_in(request):
 
 
 def home(request):
-
+    nav1 = "active"
     nom = Profile.objects.all()
     if request.user.is_authenticated():
         log_in(request)
@@ -352,9 +353,9 @@ def home(request):
         # print(referral.count3)
         # print(referral.money)
         p = Profile.objects.all()
-        return render(request, 'nhdo_main/index.html', {'info':p, 'nom':nom})
+        return render(request, 'nhdo_main/index.html', {'info':p, 'nom':nom, 'nav1':nav1})
     else:
-        return render(request, 'nhdo_main/index.html', {'nom':nom})
+        return render(request, 'nhdo_main/index.html', {'nom':nom, 'nav1':nav1})
 
 
 def referral_level(request):
@@ -364,7 +365,8 @@ def referral_level(request):
 
 
 def about(request):
-    return render(request, 'nhdo_main/about.html')
+    nav2 = "active"
+    return render(request, 'nhdo_main/about.html', {'nav2':nav2})
 
 
 def project(request):
@@ -372,10 +374,12 @@ def project(request):
 
 
 def gallery(request):
-    return render(request, 'nhdo_main/gallery.html')
+    nav3 = "active"
+    return render(request, 'nhdo_main/gallery.html', {'nav3':nav3})
 
 
 def contact(request):
+    nav5 = "active"
     # n = Profile.objects.filter()
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -384,10 +388,11 @@ def contact(request):
             return redirect('index')
     else:
         form = ContactForm()
-    return render(request, 'nhdo_main/contact.html', {'form':form})
+    return render(request, 'nhdo_main/contact.html', {'form':form, 'nav5':nav5})
 
 
 def change_password(request):
+    value2 = "active"
     user = request.user
     if request.method == "POST":
         form = PasswordChangeForm(data=request.POST,user=request.user)
@@ -400,7 +405,7 @@ def change_password(request):
 
     else:
         form = PasswordChangeForm(user=request.user)
-    return render(request, 'nhdo_main/change_password.html', {'form': form})
+    return render(request, 'nhdo_main/change_password.html', {'form': form, 'value2':value2})
 
 
 # def captcha(request):

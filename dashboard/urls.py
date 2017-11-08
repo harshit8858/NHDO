@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from .views import dashboard, edit_profile, update_kyc, add_kyc, edit_kyc, welcome_letter, direct_bonus, distributer_agreement, referal_level, referal_team, summary, ac_statement, referal_counts
+from .views import dashboard, edit_profile, update_kyc, add_kyc, edit_kyc, welcome_letter, distributer_agreement, referal_level, referal_team, summary, ac_statement, referal_counts
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -15,7 +15,7 @@ urlpatterns = [
     url(r'^referal_team/', referal_team, name="referal_team"),
     url(r'^referal_counts/', referal_counts, name="referal_counts"),
     url(r'^referal_level/', referal_level, name="referal_level"),
-    url(r'^direct_bonus/', direct_bonus, name="direct_bonus"),
+    # url(r'^direct_bonus/', direct_bonus, name="direct_bonus"),
     url(r'^summary/', summary, name="summary"),
     url(r'^ac_statement/', ac_statement, name="ac_statement"),
 

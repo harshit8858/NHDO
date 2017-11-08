@@ -10,11 +10,13 @@ def dashboard(request):
     home(request)
     nom = Profile.objects.all()
     p = Profile.objects.all()
-    return render(request, 'dashboard/dashboard.html', {'info':p, 'nom':nom})
+    value1 = "active"
+    return render(request, 'dashboard/dashboard.html', {'info':p, 'nom':nom, 'value1':value1})
 
 
 def edit_profile(request,d):
     n = Profile.objects.get(id=d)
+    value1 = "active"
     if request.method == 'POST':
         form = EditForm(request.POST,request.FILES,instance=n)
         if form.is_valid():
@@ -22,16 +24,18 @@ def edit_profile(request,d):
             return redirect('dashboard')
     else:
         form = EditForm(instance=n)
-    return render(request, 'dashboard/edit_profile.html', {'form':form})
+    return render(request, 'dashboard/edit_profile.html', {'form':form, 'value1':value1})
 
 
 def update_kyc(request):
     u = User.objects.all()
     i = kyc.objects.all()
-    return render(request, 'dashboard/update_kyc.html', {'pic':i,'u':u})
+    value3 = "active"
+    return render(request, 'dashboard/update_kyc.html', {'pic':i,'u':u, 'value3':value3})
 
 
 def add_kyc(request):
+    value3 = "active"
     if request.method == 'POST':
         form = KycForm(request.POST, request.FILES)
         if form.is_valid():
@@ -41,10 +45,11 @@ def add_kyc(request):
             return redirect('update_kyc')
     else:
         form = KycForm()
-    return render(request, 'dashboard/add_kyc.html', {'form':form})
+    return render(request, 'dashboard/add_kyc.html', {'form':form, 'value3':value3})
 
 
 def edit_kyc(request,d):
+    value3 = "active"
     n = kyc.objects.get(id=d)
     if request.method == 'POST':
         form = KycForm(request.POST, request.FILES, instance=n)
@@ -55,20 +60,23 @@ def edit_kyc(request,d):
             return redirect('update_kyc')
     else:
         form = KycForm(instance=n)
-    return render(request, 'dashboard/edit_kyc.html', {'form':form})
+    return render(request, 'dashboard/edit_kyc.html', {'form':form, 'value3':value3})
 
 
 def welcome_letter(request):
+    value4 = "active"
     wel = Welcome.objects.all()
-    return render(request, 'dashboard/welcome_letter.html',{'wel':wel})
+    return render(request, 'dashboard/welcome_letter.html',{'wel':wel, 'value4':value4})
 
 
 def distributer_agreement(request):
+    value5 = "active"
     d_a = Distributor_agreement.objects.all()
-    return render(request, 'dashboard/distributer_agreement.html', {'d_a':d_a})
+    return render(request, 'dashboard/distributer_agreement.html', {'d_a':d_a, 'value5':value5})
 
 
 def referal_team(request):
+    value6 = "active"
     home(request)
     referrar = Profile.objects.get(user=request.user)
     x = Profile.objects.all()
@@ -113,10 +121,11 @@ def referal_team(request):
     #     referrar.save()
 
     # return render(request, 'your_referrar.html', {'referrar':referrar, 'x':x, 'y':y, 'a':a, 'b':b, 'c':c, 'money':referrar.money})
-    return render(request, 'dashboard/referal_team.html', {'referrar': referrar, 'x': x, 'money': referrar.money})
+    return render(request, 'dashboard/referal_team.html', {'referrar': referrar, 'x': x, 'money': referrar.money, 'value6':value6})
 
 
 def referal_counts(request):
+    value7 = "active"
     home(request)
     referral = Profile.objects.get(user=request.user)
     # x = Profile.objects.all()
@@ -156,6 +165,8 @@ def referal_counts(request):
     #                                 referral.count3 = referral.count3 + 1
     #                                 # print(referral.count3)
     #                                 referral.save()
+
+    print(referral.money)
     if referral.count1 < 3:
         referral.level_reached = 0
     elif referral.count1 >= 3:
@@ -178,7 +189,6 @@ def referal_counts(request):
     count4per = float((referral.count4/390625))*100
     count5per = float((referral.count5/9765625))*100
     count6per = float((referral.count6/244140625))*100
-
     return render(request, 'dashboard/referal_counts.html', {'referral': referral.your_referal,
                                                             'count1': referral.count1,
                                                             'count1per':count1per,
@@ -193,7 +203,8 @@ def referal_counts(request):
                                                             'count6': referral.count6,
                                                             'count6per':count6per,
                                                             'total': referral.total,
-                                                            'level':referral.level_reached})
+                                                            'level':referral.level_reached,
+                                                            'value7':value7})
     #     referral = Profile.objects.get(user=request.user)
     #     # print(referral)
     #     # print(referral.referal_id)
@@ -275,19 +286,38 @@ def referal_level(request):
     home(request)
     ref = Profile.objects.get(user=request.user)
     x = Profile.objects.all()
-    return render(request, 'dashboard/referal_level.html', {'referrar':ref, 'x':x})
+    value8 = "active"
+    return render(request, 'dashboard/referal_level.html', {'referrar':ref, 'x':x, 'value8':value8})
 
-
-def direct_bonus(request):
-    return render(request, 'dashboard/direct_bonus.html', )
+#
+# def direct_bonus(request):
+#     return render(request, 'dashboard/direct_bonus.html', )
 
 
 def summary(request):
+    value9 = "active"
     home(request)
     summ = Profile.objects.get(user=request.user)
-    return render(request, 'dashboard/summary.html', {'money': summ.money, 'level':summ.level_reached})
+    if summ.count1 < 3:
+        summ.rest = 0
+    elif summ.count1 >= 3:
+        summ.rest = summ.money - 1250
+    elif summ.count2 >= 625:
+        summ.rest = summ.money - 15625 - 1250
+    elif summ.count3 >= 15626:
+        summ.rest = summ.money - 312500 - 15625 - 1250
+    elif summ.count4 >= 390625:
+        summ.rest = summ.money - 5859375 - 312500 - 15625 - 1250
+    elif summ.count5 >= 9765625:
+        summ.rest = summ.money - 97656250 - 5859375 - 312500 - 15625 - 1250
+    elif summ.count1 >= 244140625:
+        summ.rest = 0
+    summ.save()
+
+    return render(request, 'dashboard/summary.html', {'money': summ.money, 'level':summ.level_reached, 'value9':value9, 'rest':summ.rest})
 
 
 def ac_statement(request):
+    value10 = "active"
     home(request)
-    return render(request, 'dashboard/ac_statement.html', )
+    return render(request, 'dashboard/ac_statement.html', {'value10':value10})
