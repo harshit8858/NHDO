@@ -77,6 +77,9 @@ def distributer_agreement(request):
 
 def referal_team(request):
     value6 = "active"
+    referal_counts(request)
+    referal_level(request)
+    summary(request)
     home(request)
     referrar = Profile.objects.get(user=request.user)
     x = Profile.objects.all()
@@ -190,21 +193,21 @@ def referal_counts(request):
     count5per = float((referral.count5/9765625))*100
     count6per = float((referral.count6/244140625))*100
     return render(request, 'dashboard/referal_counts.html', {'referral': referral.your_referal,
-                                                            'count1': referral.count1,
-                                                            'count1per':count1per,
-                                                            'count2': referral.count2,
-                                                            'count2per':count2per,
-                                                            'count3': referral.count3,
-                                                            'count3per':count3per,
-                                                            'count4': referral.count4,
-                                                            'count4per':count4per,
-                                                            'count5': referral.count5,
-                                                            'count5per':count5per,
-                                                            'count6': referral.count6,
-                                                            'count6per':count6per,
-                                                            'total': referral.total,
-                                                            'level':referral.level_reached,
-                                                            'value7':value7})
+                                                             'count1': referral.count1,
+                                                             'count1per':count1per,
+                                                             'count2': referral.count2,
+                                                             'count2per':count2per,
+                                                             'count3': referral.count3,
+                                                             'count3per':count3per,
+                                                             'count4': referral.count4,
+                                                             'count4per':count4per,
+                                                             'count5': referral.count5,
+                                                             'count5per':count5per,
+                                                             'count6': referral.count6,
+                                                             'count6per':count6per,
+                                                             'total': referral.total,
+                                                             'level':referral.level_reached,
+                                                             'value7':value7})
     #     referral = Profile.objects.get(user=request.user)
     #     # print(referral)
     #     # print(referral.referal_id)
@@ -298,19 +301,19 @@ def summary(request):
     value9 = "active"
     home(request)
     summ = Profile.objects.get(user=request.user)
-    if summ.count1 < 3:
+    if summ.level_reached == 0:
         summ.rest = 0
-    elif summ.count1 >= 3:
+    elif summ.level_reached == 1:
         summ.rest = summ.money - 1250
-    elif summ.count2 >= 625:
+    elif summ.level_reached == 2:
         summ.rest = summ.money - 15625 - 1250
-    elif summ.count3 >= 15626:
+    elif summ.level_reached == 3:
         summ.rest = summ.money - 312500 - 15625 - 1250
-    elif summ.count4 >= 390625:
+    elif summ.level_reached == 4:
         summ.rest = summ.money - 5859375 - 312500 - 15625 - 1250
-    elif summ.count5 >= 9765625:
+    elif summ.level_reached == 5:
         summ.rest = summ.money - 97656250 - 5859375 - 312500 - 15625 - 1250
-    elif summ.count1 >= 244140625:
+    elif summ.level_reached == 6:
         summ.rest = 0
     summ.save()
 

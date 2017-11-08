@@ -84,7 +84,8 @@ def signup(request):
             return redirect('index')
     else:
         form = SignUpForm()
-    return render(request, 'nhdo_main/signup.html', {'form':form})
+    rnav = "active"
+    return render(request, 'nhdo_main/signup.html', {'form':form, 'rnav':rnav})
 
 
 def your_referral(request):
@@ -279,7 +280,8 @@ def invalid(request):
 
 
 def log_in(request):
-    return render(request, 'nhdo_main/login.html')
+    lnav = "active"
+    return render(request, 'nhdo_main/login.html', {'lnav':lnav})
 
 
 def home(request):

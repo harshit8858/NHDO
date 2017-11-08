@@ -6,7 +6,7 @@ from django.dispatch import receiver
 
 class kyc(models.Model):
     user = models.OneToOneField(User, default=None)
-    passport = models.FileField(upload_to='passport')
+    passport = models.FileField(upload_to='passport', null=True,blank=True)
     pan = models.FileField(upload_to='pan')
     aadhar = models.FileField(upload_to='aadhar')
     voter = models.FileField(upload_to='voter', blank=True, null=True)
