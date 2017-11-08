@@ -266,15 +266,16 @@
                         {% if user.is_authenticated %}
                             <!--<span style="color:White;font-size:30px;font-family:serif" >{{ request.user.first_name }}</span>-->
                         {% else %}
-                        <li><a href="{% url 'log_in' %}" style="color:white"><span class="glyphicon glyphicon-log-in">LogIn</span></a></li>
+                        <li class="{{lnav}}"><a href="{% url 'log_in' %}" style="color:white" class="btn btn-warning"><span class="glyphicon glyphicon-log-in" style="font-size:15px"> LogIn</span></a></li>
                         {% endif %}
+					<li> . </li>
                     {% if user.is_authenticated %}
                     <li>
-                        <a href="/logout/" style="color:white"><span class="glyphicon glyphicon-log-out">Logout</span></a>
+                        <a href="/logout/" style="color:white" class="btn btn-danger"><span class="glyphicon glyphicon-log-out">Logout</span></a>
                     </li>
                     {% else %}
-                    <li>
-                        <a href="{% url 'signup' %}" style="color:white"><span class="glyphicon glyphicon-new-window">Register</span></a>
+                    <li class="{{rnav}}">
+                        <a href="{% url 'signup' %}" style="color:white" class="btn btn-warning"><span class="glyphicon glyphicon-new-window" style="font-size:15px">Register</span></a>
                     </li>
                     {% endif %}
                     <!--{% if request.user.profile.profile_pic %}-->
@@ -291,8 +292,9 @@
                 </ul>
 
               <ul class="nav navbar-nav navbar-right">
-                  <li ><a><i class="fa fa-phone"></i> +91-11-41033648</a></li>
-                  <li ><a><i class="fa fa-envelope-o"></i> cmd@nhdoindia.org</a></li>
+				  <li ><a class="btn btn-info"><span style="color:white" class="glyphicons glyphicons-phone-alt"> +91-11-41033648 </span></a></li>
+				  <li> : </li>
+				  <li ><a class="btn btn-info"><span style="color:white" class="glyphicons glyphicons-envelope"> cmd@nhdoindia.org </span></a></li>
               </ul>
               <!-- <div style="margin-top:15px">
                 <span class="hover-white" style="float:right; color:green;"><i class="fa fa-phone"></i> +91-11-41033648</span>
@@ -396,6 +398,7 @@
 
             </div>
           </nav>
+
 
 <div class="container">
     <div class="row profile">
@@ -513,13 +516,17 @@
 <script type="javascript/text">
 </script>
 
-<div style="width:100%; height: 300px; background-color:black; color:white; text-align:center; padding: 60px 0;">
-    <h1>Register!</h1>
-    <br>
-    <p>Small adorable Membership Fee of Rs. 11000/- Only</p>
-    <br>
-    <p><a class="btn btn-success" href="#">Apply Now! &raquo;</a></p>
-	<a href="/newsletter/" class="btn btn-default">Subscribe</a>
+<div style="width:100%; background-color:black; color:white; text-align:center; padding: 60px 0;">
+    <!--<h1>Register!</h1>-->
+    <!--<br>-->
+    <!--<p>Small adorable Membership Fee of Rs. 11000/- Only</p>-->
+    <!--<br>-->
+    <!--<p><a class="btn btn-success" href="#">Apply Now! &raquo;</a></p>-->
+	<a href="/newsletter/" class="btn btn-default" ><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAB7CAMAAAB6t7bCAAAAe1BMVEUAAAD////l5eWamppBQUHs7OyhoaF6enqKiopcXFzi4uL4+Pi5ubn19fXT09Onp6fb29u9vb1/f383NzfOzs7ExMRwcHCurq48PDxkZGRbW1tISEgsLCxQUFC0tLTR0dGGhoYjIyMaGhqTk5MbGxswMDBpaWkLCwsmJiYKpgSqAAAKKElEQVR4nO2dW3uiMBCGQau2IIrH1lqt1rXt//+FKySEyWQCUfZZ5mK+qwqBhLw5TDIDjWIRU0V9F0Dkk6BhK0HDViWaNBmIGClJDZokErFSYtAM+i6KyNZA0HCVoGErQcNWgoatBA1bCRq2EjRsJWjYStCwlaBhK0HDVoKGrQQNWwkathI0bCVo2ErQsJWgYStBw1aChq0EDVsJGrYSNGwlaNhK0LCVoGErQcNWgoatBA1bCRq2EjRsJWjYStCwVUc0T8P1IE2zfLF0z3083fRGX7cqzl1x4qeGK6yrh5vklmuyeG5P+z3c5KM0TZPZcXnGJ88m1x/f9b+4TF97c5E/1/rGSO0FNuqEZjmKax3x2dfi6Ii+Mi/OLcCBObhTPJhOGnKdJCDpoiFhFF3y2NJoiM7Dk8mCynVcnMrAgZ11w83zF5XxMvaosbi2OqD5TVC2O/t8Wduel3dnxbkpODDGz3D0tOMvVNuxl+LHgqqbV5jkGZ/dOM16WBIAB17wNWuiK0w8ZFJfYQk9jubJzdge1bqh8dT5yk03pNLpTkvpUqdx0CB0UQiaOJ47mfeKhqgjxKYrmnjsXnduqWujQ+qpnJtyk4pAg+shBE08w9n3iibTec2/r6vDaa2zhn37ATRZofpBTs511Rg6315X+9NG/3p30g3rm2wu32+r1X4ynplDqyrZM5Vr4t7JRYOuwVPepE5kyTP1knoUjX52M5i8lTeynuF+NLoI1+eBfmJsUunZ1Qwg54Rui8eqytbW/LfMKTT66t9J1b6sEdKDRv39Za75tgswAYke1aNoVIHgg6taAt3mYTQ3benGqCxCOGyqrvBiJ6vI5I4hvk+8aG760E0CWiCNaG56U2WCNlzUKxplQdpT5u3AJ/zdBU10jomHeyJ43UaVHHWuat4i1lpRdGpAE0Wf5YVwHdCGRlchMk97RDMnst4im6oTGt1v7NpVyxAbxCHG60698EhXEamPrAGNmkLhkXY0Zwdnr2jKIRbbJX/sn93QqMHL7iFT6o4o12qszfDhWgMz6rpo1Gy2rw+0o4kWOEmvaBJ3PHPUEU25Lsndq5rX/1GkzTaHGJDpdy4aBRZ0xAA0W5dDj2jKy4h1B1RHNEu3LTpXEdIr4ZfmVFoEmhF6sgA0b6zQlAPapjlNRzTfbrUtqGGUKllbh65EoME9MwBNxArNMSDrjmgmbqEo4wPpGt9TKT40YE4PQPPBCo0aXpuH/Y5ohm4XeS9zXbdmSm7dUPo3AxrRj/pfcjqOAKiOaEpLA20cZq1sRnfViYvmp7werAIC0JQPahssfaLRno78w5+kGxo1t6LdMb1RM/B6pFbtLQbKRaN21cBTBaApD9j7332iMRuNi6svRTc0I1wlpaotq41nPalqNsw8iyg0Mc62HY0qk+1R6xVNZPZdPz010QXNWQ1M386Fxq+au+cibcOFV4mDRu1/wqmqFY0ig0ZeheYyxvpPDuja3Tg6UecfR/Ou/ZPUwLSucyUiA8q+nLvHPUJofvX2JkzSjOZJO85x5fn8NdvgonWLDQBOEWr5eT+aNC9kOga9boL+/FfsmM/wfZtloakahL0V6EFTlrTyXbh11zea6LoBuTqrvK5eTl/j/zMFiVDHKo+Fms7V1LTY3JR4bhni5cwcY6h3NDc4IDQiRfl2dkDHn57Apz9HkOgEzzyExhaCHeSAjgekK61XNFH0BcIj7CVodzQN23QgOAqOe93RnFCSMDR49FVojlOkxSG4aP8merOuVmvx/i/QNOzTXUxgBsijK5pXJ8QqFI1t6PdrPEM9V5Y0rMkOxvP5ZVjZfw3b2yZCsW4R5U9P9BNVbli307Eb/tFqPP/UISuwXfJBU1trYDDtuFHzpifmfeRXVbXGjB7h+zZLW2jrhkYQsvO8QKXghSZaqY4D1m8d0VROscZVypfuONZ9w//dS2U8q5uQE0EImjLgwDrICk31fHW36YxGh8s0r6Azq8G+3lclFZodbla1gtDoqbLuNszQqOerZ5vuaP6Ud3TDVqEOVtdSVbJrvALILDmVNU5taYehUS2k7uDM0OAdye5o1CTQsu+SW7VQ/mgLHzCqdwNU5yPCrAPRXOyj3NCg0aQJDXZYedA8Bzzh0EqT31UnNZp9eV38S9++HY0KSTBLZG5oTnZ5xua5XZWNFBq5NJpdwBMqh2u1VaLqJDA0AO6hqdnCrYRANKq7GkOiVzREMBFq48uG4pWnYPwfjUZ5nMEy8Mt968ZGE6We1k8Kbm+qvUrHgr4LjZnk+kPzMh/Ern/THlp0vVLLON0b4GxNo7H74WGeEAYuagGq9QfazxCNCr5wMghEc2XSa8p8T87hch2SoWTk2OLauDSaI7wj3aqde8V3DGmWU0C/0YGSBKJRDcT4KHpDU07iruFUjiXAAE285Yvx83rQxPCOiXMRWRi96dvwBu7WzNa2K00to9CuXSCa3MbaG5pXsuurQR/sLY597XfudgASjRohK4tW2afY76zWNXDto/e0vDtpS184uoqmQRZ0GBpVitpo7w2NGljxBZndp29ztnpUZwGo924tDyWFRj1v/YDkgKN2aizHjt5r9WxaL/wvcWyJgoWhSVFj7c8MUF3fdjqt3fqYkmz0Sxb2upBAo0emukOoXUR7ya6O2YOrjuB0fHuFvgtu3pc4iF27EDT7FF/XH5o3t13qNyXt0CddRxbDykNp39F9v0bfEFSc2rex2OjBC42tung3Qw3B2arpz/9+jepwcCxsR3Oo3PAgAKvHdY12bWZ6sj1XnjBkQJnPH0y1DX0wfn00Z6gvJ1RuwXXtqYe1XkVs6Pnsp/JEONPZm3GzpUfTZ3fH6qgfjTL4A96vqfyWmzquCBoePi9ncPBi9PiS09TdYJbPTEU4UfzAV5Xks0H9C7/M5/Ny2nOyqYfRLVcTCEctYuCHH7Ii+gW8rlx3bTdEULU5MKEFezmtWvfFBvyXr22MiHyJ9ys8XwRxXrP0oMHRh/gDH4Xo5eWFSKmU1R3RF44OhupQNLax3u/XNj6dfMnd+yeC4ciNlCHREDvIGyeRb4z4mRJ3jO3IAQKNnqfMJBWGZoaeqF800dL+oEXu8xSfEJyMWg3OY6zB2PkQU6FtZqVKyI0gpfPc+eTGwM6b2tnW3a3ahXM+H+SiyY7Oo/f8+aBbAUzPGb02+SLfp4bOaEr7uXbjIdSkocbNZxRuddIWPPQ+ryeddDbEQeyHIlccgHMpCjCuus1LkQQCXdklXe6oFrS3ExmFB/t0dwqsdpPJJCS66rCdTLZNIRj36Frm6v2Gma3fw6RITX4ci7PkK4JsJWjYStCwlaBhK0HDVoKGrQQNWwkathI0bCVo2ErQsJWgYStBw1aChq0EDVsJGrYSNGwlaNhK0LCVoGErQcNWgoatBA1bCRq2EjRsJWjYStCwlaBhqxpN+AfeRP9FiUGTJgMRIyWpQSPiKEHDVoKGrQQNW/0FX5J9zc2Wx/QAAAAASUVORK5CYII="
+														width="200px"
+														height="50px"></a>
+	<hr width="1400px"/>
+	<span class="warning" style="color:grey;font-size:22px;font-family:georgia">FFI INDIA, a family that strives and works for A Race Against Poverty.</span>
 </div>
 
 
