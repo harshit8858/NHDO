@@ -3,7 +3,7 @@ from .models import kyc, Welcome, Distributor_agreement
 
 
 class kycAdmin(admin.ModelAdmin):
-    list_display = ('user', 'aadhar')
+    list_display = ('user', 'aadhar', 'pan')
 
     def get_list_filter(self, request):        #1
         if request.user.is_superuser:
