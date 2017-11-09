@@ -411,6 +411,8 @@
 					<center>
 						{% if request.user.profile.profile_pic %}
 							<div class="profile-userpic"> <img src="{{request.user.profile.profile_pic.url}}" align="middle" class="img-circle" width="120px" height="120px"/></div>
+						{% else %}
+							<div class="profile-userpic"> <img src="https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300" align="middle" class="img-circle" width="120px" height="120px"/></div>
 						{% endif %}
 					</center>
 				</div>
