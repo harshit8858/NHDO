@@ -3,11 +3,11 @@ from nhdo_main.models import Profile
 from .forms import EditForm, KycForm
 from .models import kyc, Welcome, Distributor_agreement
 from django.contrib.auth.models import User
-from nhdo_main.views import home
+# from nhdo_main.views import home
 
 
 def dashboard(request):
-    home(request)
+    # home(request)
     nom = Profile.objects.all()
     p = Profile.objects.all()
     value1 = "active"
@@ -80,7 +80,7 @@ def referal_team(request):
     referal_counts(request)
     referal_level(request)
     summary(request)
-    home(request)
+    # home(request)
     referrar = Profile.objects.get(user=request.user)
     x = Profile.objects.all()
     # y = Profile.objects.values_list('referal_id', flat=True)
@@ -129,7 +129,7 @@ def referal_team(request):
 
 def referal_counts(request):
     value7 = "active"
-    home(request)
+    # home(request)
     referral = Profile.objects.get(user=request.user)
     # x = Profile.objects.all()
     # y = Profile.objects.values_list('referal_id', flat=True)
@@ -286,7 +286,7 @@ def referal_counts(request):
 
 
 def referal_level(request):
-    home(request)
+    # home(request)
     ref = Profile.objects.get(user=request.user)
     x = Profile.objects.all()
     value8 = "active"
@@ -299,7 +299,7 @@ def referal_level(request):
 
 def summary(request):
     value9 = "active"
-    home(request)
+    # home(request)
     summ = Profile.objects.get(user=request.user)
     if summ.level_reached == 0:
         summ.rest = 0
@@ -322,5 +322,7 @@ def summary(request):
 
 def ac_statement(request):
     value10 = "active"
-    home(request)
-    return render(request, 'dashboard/ac_statement.html', {'value10':value10})
+    # home(request)
+    # ac = User.objects.all()
+    ac = Profile.objects.get(user=request.user)
+    return render(request, 'dashboard/ac_statement.html', {'value10':value10, 'ac':ac})

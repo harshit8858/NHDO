@@ -14,6 +14,7 @@ from django.contrib.auth.forms import PasswordChangeForm
 # import pinax
 from django.contrib.auth.models import User
 from django.db.models import F
+from dashboard.views import referal_level, referal_counts, referal_team, summary
 
 
 amount = 500
@@ -285,6 +286,11 @@ def log_in(request):
 
 
 def home(request):
+    if request.user.is_authenticated():
+        referal_team(request)
+        referal_counts(request)
+        referal_level(request)
+        summary(request)
     nav1 = "active"
     nom = Profile.objects.all()
     if request.user.is_authenticated():
