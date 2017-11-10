@@ -15,7 +15,7 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
+            <state relative-caret-position="-1112">
               <caret line="414" column="145" lean-forward="false" selection-start-line="414" selection-start-column="145" selection-end-line="414" selection-end-column="145" />
               <folding>
                 <element signature="n#style#0;n#nav#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -31,16 +31,16 @@
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#src#0;n#img#0;n#a#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1510220135298" expanded="false" signature="6111:6155" ph="..." />
-                <marker date="1510220135298" expanded="false" signature="7193:7207" ph="..." />
-                <marker date="1510220135298" expanded="false" signature="7533:7559" ph="..." />
-                <marker date="1510220135298" expanded="false" signature="17964:17971" ph="»" />
+                <marker date="1510304166816" expanded="false" signature="6111:6155" ph="..." />
+                <marker date="1510304166816" expanded="false" signature="7193:7207" ph="..." />
+                <marker date="1510304166816" expanded="false" signature="7533:7559" ph="..." />
+                <marker date="1510304166816" expanded="false" signature="17964:17971" ph="»" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/dashboard/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
@@ -50,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="contact.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="contact.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/nhdo_main/contact.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="516">
-              <caret line="34" column="6" lean-forward="true" selection-start-line="34" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
+            <state relative-caret-position="684">
+              <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -80,37 +80,59 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="referal_counts.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/dashboard/referal_counts.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="115" column="10" lean-forward="false" selection-start-line="115" selection-start-column="10" selection-end-line="128" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/nhdo_main/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="756">
-              <caret line="36" column="63" lean-forward="false" selection-start-line="36" selection-start-column="63" selection-end-line="36" selection-end-column="63" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/nhdo_main/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="90" column="47" lean-forward="false" selection-start-line="90" selection-start-column="47" selection-end-line="90" selection-end-column="47" />
+            <state relative-caret-position="21">
+              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#iframe#0;n#div#4;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#5;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#iframe#0;n#div#5;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#iframe#0;n#div#6;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#7;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#7;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.rnc" pinned="false" current-in-tab="false">
+        <entry file="jar://$APPLICATION_HOME_DIR$/lib/pycharm.jar!/resources/html5-schema/html5/common.rnc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="287">
+              <caret line="124" column="18" lean-forward="false" selection-start-line="124" selection-start-column="18" selection-end-line="124" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="about.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/nhdo_main/about.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="392">
+              <caret line="55" column="14" lean-forward="true" selection-start-line="55" selection-start-column="14" selection-end-line="55" selection-end-column="14" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#1;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#1;n#div#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#4;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#1;n#div#4;n#!!top" expanded="true" />
+                <marker date="1510311097534" expanded="false" signature="5412:5422" ph="..." />
+                <marker date="1510311097534" expanded="false" signature="5452:5470" ph="..." />
+                <marker date="1510311097534" expanded="false" signature="6747:6757" ph="..." />
+                <marker date="1510311097534" expanded="false" signature="6787:6805" ph="..." />
+                <marker date="1510311097534" expanded="false" signature="7136:7154" ph="..." />
               </folding>
             </state>
           </provider>
@@ -119,7 +141,7 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dashboard/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="674">
+            <state relative-caret-position="6762">
               <caret line="326" column="6" lean-forward="false" selection-start-line="326" selection-start-column="6" selection-end-line="326" selection-end-column="6" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
@@ -131,7 +153,7 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nhdo_main/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
+            <state relative-caret-position="5817">
               <caret line="293" column="19" lean-forward="false" selection-start-line="293" selection-start-column="19" selection-end-line="293" selection-end-column="19" />
               <folding>
                 <element signature="e#0#44#0" expanded="true" />
@@ -151,9 +173,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>epin</find>
-      <find>elif</find>
-      <find>x</find>
       <find>ffi</find>
       <find>One</find>
       <find>Two</find>
@@ -181,10 +200,11 @@
       <find>ac</find>
       <find>stat</find>
       <find>we lo</find>
+      <find>50</find>
+      <find>font-size:20px;</find>
+      <find>font-size:20px</find>
     </findStrings>
     <replaceStrings>
-      <replace>base1</replace>
-      <replace>j</replace>
       <replace>width=&quot;200px&quot;</replace>
       <replace>&lt;div class=&quot;panel panel-primary&quot; style=&quot;width:500px&quot;&gt;</replace>
       <replace>h2</replace>
@@ -213,6 +233,8 @@
       <replace>summ.rest</replace>
       <replace>&lt;span style=&quot;color:red;&quot;&gt; Current Level &lt;/span&gt;</replace>
       <replace>&lt;span style=&quot;color:red;&quot;&gt; {{rest}} &lt;/span&gt;</replace>
+      <replace>60</replace>
+      <replace>font-size:20px;color:black</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\Users\Harshit Verma\nhdo\nhdo_reset\templates</dir>
@@ -276,14 +298,14 @@
         <option value="$PROJECT_DIR$/dashboard/admin.py" />
         <option value="$PROJECT_DIR$/dashboard/urls.py" />
         <option value="$PROJECT_DIR$/templates/dashboard/summary.html" />
-        <option value="$PROJECT_DIR$/templates/nhdo_main/about.html" />
         <option value="$PROJECT_DIR$/nhdo_main/views.py" />
         <option value="$PROJECT_DIR$/dashboard/views.py" />
-        <option value="$PROJECT_DIR$/templates/nhdo_main/contact.html" />
-        <option value="$PROJECT_DIR$/templates/nhdo_main/index.html" />
         <option value="$PROJECT_DIR$/templates/dashboard/ac_statement.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/templates/dashboard/dashboard.html" />
+        <option value="$PROJECT_DIR$/templates/nhdo_main/about.html" />
+        <option value="$PROJECT_DIR$/templates/nhdo_main/index.html" />
+        <option value="$PROJECT_DIR$/templates/nhdo_main/contact.html" />
       </list>
     </option>
   </component>
@@ -401,7 +423,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -416,10 +437,11 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$USER_HOME$/nhdo_india" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -532,7 +554,7 @@
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22556391" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22878624" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -562,13 +584,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/nhdo_main/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="50" lean-forward="false" selection-start-line="1" selection-start-column="50" selection-end-line="1" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/base--.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2079">
@@ -805,27 +820,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/nhdo_main/about.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="903">
-          <caret line="43" column="14" lean-forward="false" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h3#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#4;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/nhdo_main/change_password.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="5" column="38" lean-forward="false" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -833,7 +831,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -841,7 +838,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
           <caret line="13" column="14" lean-forward="false" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -855,7 +851,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/dashboard/referal_counts.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
+        <state relative-caret-position="2415">
           <caret line="115" column="10" lean-forward="false" selection-start-line="115" selection-start-column="10" selection-end-line="128" selection-end-column="10" />
           <folding />
         </state>
@@ -863,7 +859,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nhdo_main/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
+        <state relative-caret-position="5817">
           <caret line="293" column="19" lean-forward="false" selection-start-line="293" selection-start-column="19" selection-end-line="293" selection-end-column="19" />
           <folding>
             <element signature="e#0#44#0" expanded="true" />
@@ -873,7 +869,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="674">
+        <state relative-caret-position="6762">
           <caret line="326" column="6" lean-forward="false" selection-start-line="326" selection-start-column="6" selection-end-line="326" selection-end-column="6" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
@@ -889,28 +885,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/nhdo_main/contact.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="34" column="6" lean-forward="true" selection-start-line="34" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/nhdo_main/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="90" column="47" lean-forward="false" selection-start-line="90" selection-start-column="47" selection-end-line="90" selection-end-column="47" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#iframe#0;n#div#4;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#5;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/dashboard/ac_statement.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -919,9 +893,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/dashboard/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="64" lean-forward="false" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/nhdo_main/about.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="55" column="14" lean-forward="true" selection-start-line="55" selection-start-column="14" selection-end-line="55" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#1;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#1;n#div#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#4;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#1;n#div#4;n#!!top" expanded="true" />
+            <marker date="1510311097534" expanded="false" signature="5412:5422" ph="..." />
+            <marker date="1510311097534" expanded="false" signature="5452:5470" ph="..." />
+            <marker date="1510311097534" expanded="false" signature="6747:6757" ph="..." />
+            <marker date="1510311097534" expanded="false" signature="6787:6805" ph="..." />
+            <marker date="1510311097534" expanded="false" signature="7136:7154" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/pycharm.jar!/resources/html5-schema/html5/common.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="124" column="18" lean-forward="false" selection-start-line="124" selection-start-column="18" selection-end-line="124" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
+        <state relative-caret-position="-1112">
           <caret line="414" column="145" lean-forward="false" selection-start-line="414" selection-start-column="145" selection-end-line="414" selection-end-column="145" />
           <folding>
             <element signature="n#style#0;n#nav#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -937,18 +952,37 @@
             <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#src#0;n#img#0;n#a#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1510220135298" expanded="false" signature="6111:6155" ph="..." />
-            <marker date="1510220135298" expanded="false" signature="7193:7207" ph="..." />
-            <marker date="1510220135298" expanded="false" signature="7533:7559" ph="..." />
-            <marker date="1510220135298" expanded="false" signature="17964:17971" ph="»" />
+            <marker date="1510304166816" expanded="false" signature="6111:6155" ph="..." />
+            <marker date="1510304166816" expanded="false" signature="7193:7207" ph="..." />
+            <marker date="1510304166816" expanded="false" signature="7533:7559" ph="..." />
+            <marker date="1510304166816" expanded="false" signature="17964:17971" ph="»" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/dashboard/dashboard.html">
+    <entry file="file://$PROJECT_DIR$/templates/nhdo_main/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="64" lean-forward="false" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
+        <state relative-caret-position="21">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#iframe#0;n#div#5;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#iframe#0;n#div#6;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#7;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#7;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/nhdo_main/contact.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding />
         </state>
       </provider>
