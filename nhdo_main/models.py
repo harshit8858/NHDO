@@ -20,12 +20,9 @@ STATUS = (
 
 class Profile(models.Model):
     user = models.OneToOneField(User, unique=True, on_delete=models.CASCADE)
-<<<<<<< HEAD
     your = models.ManyToManyField(User, blank=True, null=True, related_name='your_team')
     referal_id = models.IntegerField(null=True, blank=True)
-=======
     referal_id = models.CharField(max_length=40, null=True, blank=True)
->>>>>>> 9475edec126c6e3348a59a6a1940e40a0fabcb56
     pan_number = models.IntegerField(null=True, blank=True)
     gender = models.CharField(max_length=10, choices=GENDER)
     status = models.CharField(max_length=10, choices=STATUS, default='single')
