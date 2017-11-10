@@ -1,5 +1,5 @@
 from django.conf.urls import url, include
-from .views import index, signup, invalid, logout, log_in, auth_check, home, about, project, gallery, contact, change_password, your_referral, your_referrar, referral_level
+from .views import *
 
 from .models import Subscription
 
@@ -26,7 +26,15 @@ urlpatterns = [
     url(r'your_referral/$', your_referral, name='your_referral'),
     url(r'your_referrar/$', your_referrar, name='your_referrar'),
     url(r'referral_level/$', referral_level, name='referral_level'),
-
+    url(r'women_empowerment/$', women_empowerment, name='women_empowerment'),
+    url(r'ierp/$', ierp, name='ierp'),
+    url(r'mudra/$', mudra, name='mudra'),
+    url(r'shg/$', shg, name='shg'),
+    url(r'pmkvy/$', pmkvy , name='pmkvy'),
+    url(r'garib_kalyan/$', garib_kalyan, name='garib_kalyan'),
+    url(r'standup/$', standup, name='standup'),
+    url(r'makeinindia/$', makeinindia, name='makeinindia'),
+    url(r'smartcity/$', smartcity, name='smartcity'),
     url(r'^captcha/', include('captcha.urls')),
 
     url(r'^newsletter/', include(newsletter_subscriptions_urlpatterns(backend=ModelBackend(Subscription), )), name='subscribe' ),

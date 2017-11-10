@@ -370,6 +370,32 @@ def about(request):
     nav2 = "active"
     return render(request, 'nhdo_main/about.html', {'nav2':nav2})
 
+def women_empowerment(request):
+    return render(request, 'nhdo_main/women_empowerment.html')
+
+def ierp(request):
+    return render(request, 'nhdo_main/ierp.html')
+
+def mudra(request):
+    return render(request, 'nhdo_main/mudra.html')
+
+def shg(request):
+    return render(request, 'nhdo_main/shg.html')
+
+def pmkvy(request):
+    return render(request, 'nhdo_main/pmkvy.html')
+
+def standup(request):
+    return render(request, 'nhdo_main/standup.html')
+
+def garib_kalyan(request):
+    return render(request, 'nhdo_main/garib_kalyan.html')
+
+def makeinindia(request):
+    return render(request, 'nhdo_main/makeinindia.html')
+
+def smartcity(request):
+    return render(request, 'nhdo_main/smartcity.html')
 
 def project(request):
     return render(request, 'nhdo_main/project.html')
