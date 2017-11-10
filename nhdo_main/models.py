@@ -20,8 +20,6 @@ STATUS = (
 
 class Profile(models.Model):
     user = models.OneToOneField(User, unique=True, on_delete=models.CASCADE)
-    your = models.ManyToManyField(User, blank=True, null=True, related_name='your_team')
-    referal_id = models.IntegerField(null=True, blank=True)
     referal_id = models.CharField(max_length=40, null=True, blank=True)
     pan_number = models.IntegerField(null=True, blank=True)
     gender = models.CharField(max_length=10, choices=GENDER)
@@ -39,11 +37,16 @@ class Profile(models.Model):
     count4 = models.IntegerField(null=True, blank=True, default=0)
     count5 = models.IntegerField(null=True, blank=True, default=0)
     count6 = models.IntegerField(null=True, blank=True, default=0)
+    money1 = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True, default=0)
+    money2 = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True, default=0)
+    money3 = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True, default=0)
+    money4 = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True, default=0)
+    money5 = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True, default=0)
+    money6 = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True, default=0)
     money = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True, default=0)
     total = models.IntegerField(default=0, null=True, blank=True)
     your_referal = models.CharField(max_length=40, default='none')
     level_reached = models.CharField(max_length=20, default=0)
-    rest = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True, default=0)
 
     def __str__(self):
         return str(self.user)

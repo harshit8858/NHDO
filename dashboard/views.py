@@ -137,23 +137,7 @@ def referal_level(request):
 def summary(request):
     value9 = "active"
     summ = Profile.objects.get(user=request.user)
-    if summ.level_reached == 0:
-        summ.rest = 0
-    elif summ.level_reached == 1:
-        summ.rest = summ.money - 1250
-    elif summ.level_reached == 2:
-        summ.rest = summ.money - 15625 - 1250
-    elif summ.level_reached == 3:
-        summ.rest = summ.money - 312500 - 15625 - 1250
-    elif summ.level_reached == 4:
-        summ.rest = summ.money - 5859375 - 312500 - 15625 - 1250
-    elif summ.level_reached == 5:
-        summ.rest = summ.money - 97656250 - 5859375 - 312500 - 15625 - 1250
-    elif summ.level_reached == 6:
-        summ.rest = 0
-    summ.save()
-
-    return render(request, 'dashboard/summary.html', {'money': summ.money, 'level':summ.level_reached, 'value9':value9, 'rest':summ.rest})
+    return render(request, 'dashboard/summary.html', {'money': summ.money, 'level':summ.level_reached, 'value9':value9, 'summ':summ})
 
 
 def ac_statement(request):

@@ -4,14 +4,15 @@
 
 <div>
     {% for i in wel %}
-    {% if i.image %}
-        <img src="{{ i.image.url }}" width="800px"/>
-    {% endif %}
-    <br />
-    {% if i.letter %}
-        <a href="{{ i.letter.url }}" class="btn btn-success" style="width:800px;height:30px;">Download Welcome Letter</a>
-    {% endif %}
-{% endfor %}
+        {% if i.image %}
+            <img src="{{ i.image.url }}" width="800px" />
+        {% endif %}
+        <br />
+        {% if i.letter %}
+            <a href="{{ i.letter.url }}" class="col-md-12 btn btn-warning"><h1>Welcome Letter</h1></a>
+            <!--<a href="{{ i.letter.url }}" class="btn btn-success" style="width:800px;height:30px;">Download Welcome Letter</a>-->
+        {% endif %}
+    {% endfor %}
 </div>
 
 {% endblock %}
