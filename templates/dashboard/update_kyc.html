@@ -8,7 +8,7 @@
             <div class="panel panel-info" style="">
                   <div class="panel-heading"><h2>Passport</h2></div>
                   <div class="panel-body">
-            <b>Passport</b>:{% if i.passport %}
+            <b></b> {% if i.passport %}
                 <img src="{{i.passport.url}}" width="200px" height="200px" /><br><br>
             {% endif %}
             <br />
@@ -20,8 +20,8 @@
                   <div class="panel-heading"><h2>Pan Card</h2></div>
                   <div class="panel-body">
 
-                        <b>Pan Card</b>:{% if i.pan %}
-                            <img src="{{i.pan.url}}" width="200px" height="200px" /><br><br>
+                        <b></b> {% if i.pan %}
+                            <img src="{{i.pan.url}}" width="100%" height="100%" /><br><br>
                         {% endif %}
                         <br />
                   </div>
@@ -32,8 +32,8 @@
                   <div class="panel-heading"><h2>Aadhar Card</h2></div>
                   <div class="panel-body">
 
-                        <b>Aadhar Card</b>:{% if i.aadhar %}
-                            <img src="{{i.aadhar.url}}" width="200px" height="200px" /><br><br>
+                        <b></b> {% if i.aadhar %}
+                            <img src="{{i.aadhar.url}}"  width="100%" height="100%" /><br><br>
                         {% endif %}
                         <br />
                   </div>
@@ -43,8 +43,8 @@
             <div class="panel panel-info" style="">
                   <div class="panel-heading"><h2>Voter ID</h2></div>
                   <div class="panel-body">
-                    <b>Voter ID</b>:{% if i.voter %}
-                            <img src="{{i.voter.url}}" width="200px" height="200px" /><br><br>
+                    <b></b> {% if i.voter %}
+                            <img src="{{i.voter.url}}"  width="100%" height="100%" /><br><br>
                         {% endif %}
                         <br />
 
@@ -54,8 +54,8 @@
             <div class="panel panel-info" style="">
                   <div class="panel-heading"><h2>Cancelled Cheque</h2></div>
                   <div class="panel-body">
-                        <b>Cancelled Cheque</b>:{% if i.cancelled_cheque %}
-                            <img src="{{i.cancelled_cheque.url}}" width="200px" height="200px" /><br><br>
+                        <b></b> {% if i.cancelled_cheque %}
+                            <img src="{{i.cancelled_cheque.url}}"  width="100%" height="100%" /><br><br>
                         {% endif %}
                         <br />
 
@@ -64,8 +64,8 @@
             <div class="panel panel-info" style="">
                   <div class="panel-heading"><h2>Passbook</h2></div>
                   <div class="panel-body">
-                        <b>Passbook</b>:{% if i.passbook %}
-                            <img src="{{i.passbook.url}}" width="200px" height="200px" /><br><br>
+                        <b></b> {% if i.passbook %}
+                            <img src="{{i.passbook.url}}"  width="100%" height="100%" /><br><br>
                         {% endif %}
                         <br />
 

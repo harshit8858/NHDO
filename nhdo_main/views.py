@@ -92,7 +92,16 @@ def home(request):
         referral.count4 = 0
         referral.count5 = 0
         referral.count6 = 0
+        referral.money1 = 0
+        referral.money2 = 0
+        referral.money3 = 0
+        referral.money4 = 0
+        referral.money5 = 0
+        referral.money6 = 0
         referral.money = 0
+
+        fix = 3
+
         for i in x:
             if referral.your_referal == i.referal_id:
                 referral.count1 = referral.count1 + 1
@@ -111,32 +120,50 @@ def home(request):
                                                 for n in x:
                                                     if m.user.profile.your_referal == n.referal_id:
                                                         referral.count6 = referral.count6 + 1
-
-        if referral.count1 >= 3:
+        if referral.count1 >= fix:
             for i in x:
                 if referral.your_referal == i.referal_id:
-                    referral.money = referral.money + (0.1 * amount) #50
-                    if i.user.profile.count1 >=3:
+                    if referral.money1 >= 150:
+                        pass
+                    else:
+                        referral.money1 = float(referral.money1) + (0.1 * amount) #50
+                    if i.user.profile.count1 >= fix:
                         for j in x:
                             if i.user.profile.your_referal == j.referal_id:
-                                referral.money = referral.money + (0.05 * amount) #25
-                                if j.user.profile.count1 >= 3:
+                                if referral.money2 >= 15625:
+                                    pass
+                                else:
+                                    referral.money2 = float(referral.money2) + (0.05 * amount) #25
+                                if j.user.profile.count1 >= fix:
                                     for k in x:
                                         if j.user.profile.your_referal == k.referal_id:
-                                            referral.money = referral.money + (0.04 * amount) #20
-                                            if k.user.profile.count1 >= 3:
+                                            if referral.money3 > 312500:
+                                                pass
+                                            else:
+                                                referral.money3 = float(referral.money3) + (0.04 * amount) #20
+                                            if k.user.profile.count1 >= fix:
                                                 for l in x:
                                                     if k.user.profile.your_referal == l.referal_id:
-                                                        referral.money = referral.money + (0.03 * amount) #15
-                                                        if l.user.profile.count1 >= 3:
+                                                        if referral.money4 > 5859375:
+                                                            pass
+                                                        else:
+                                                            referral.money4 = float(referral.money4) + (0.03 * amount) #15
+                                                        if l.user.profile.count1 >= fix:
                                                             for m in x:
                                                                 if l.user.profile.your_referal == m.referal_id:
-                                                                    referral.money = referral.money + (0.02 * amount) #10
-                                                                    if m.user.profile.count1 >= 3:
+                                                                    if referral.money5 > 97656250:
+                                                                        pass
+                                                                    else:
+                                                                        referral.money5 = float(referral.money5) + (0.02 * amount) #10
+                                                                    if m.user.profile.count1 >= fix:
                                                                         for n in x:
                                                                             if m.user.profile.your_referal == n.referal_id:
-                                                                                referral.money = referral.money + (0.01 * amount) #5
+                                                                                if referral.money6 > 1220703125:
+                                                                                    pass
+                                                                                else:
+                                                                                    referral.money6 = float(referral.money6) + (0.01 * amount) #5
         referral.total = referral.count1 + referral.count2 + referral.count3 + referral.count4 + referral.count5 + referral.count6
+        referral.money = float(referral.money1) + float(referral.money2) + float(referral.money3) + float(referral.money4) + float(referral.money5) + float(referral.money6)
         referral.save()
         p = Profile.objects.all()
         return render(request, 'nhdo_main/index.html', {'info':p, 'nom':nom, 'nav1':nav1})
@@ -148,12 +175,6 @@ def referral_level(request):
     ref = Profile.objects.get(user=request.user)
     x = Profile.objects.all()
     return render(request, 'nhdo_main/referral_level.html', {'ref':ref, 'x':x})
-
-
-def referral_level(request):
-    level = Profile.objects.get(user=request.user)
-    x = Profile.objects.all()
-    return render(request, 'referral_level.html', {'x':x, 'level':level})
 
 
 def about(request):
