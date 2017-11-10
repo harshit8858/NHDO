@@ -1,9 +1,5 @@
 from django.conf.urls import url, include
-<<<<<<< HEAD
-from .views import index, signup, invalid, logout, log_in, auth_check, home, about, project, gallery, contact, change_password, your_referral, your_referrar, referral_level, summary
-=======
 from .views import *
->>>>>>> 9475edec126c6e3348a59a6a1940e40a0fabcb56
 
 from .models import Subscription
 
@@ -27,13 +23,9 @@ urlpatterns = [
     url(r'gallery/$', gallery, name='gallery'),
     url(r'contact/$', contact, name='contact'),
     url(r'change_password/$', change_password, name='change_password'),
-    url(r'your_referral/$', your_referral, name='your_referral'),
-    url(r'your_referrar/$', your_referrar, name='your_referrar'),
     url(r'referral_level/$', referral_level, name='referral_level'),
-<<<<<<< HEAD
-    url(r'summary/$', summary, name='summary'),
+    # url(r'summary/$', summary, name='summary'),
 
-=======
     url(r'women_empowerment/$', women_empowerment, name='women_empowerment'),
     url(r'ierp/$', ierp, name='ierp'),
     url(r'mudra/$', mudra, name='mudra'),
@@ -43,7 +35,6 @@ urlpatterns = [
     url(r'standup/$', standup, name='standup'),
     url(r'makeinindia/$', makeinindia, name='makeinindia'),
     url(r'smartcity/$', smartcity, name='smartcity'),
->>>>>>> 9475edec126c6e3348a59a6a1940e40a0fabcb56
     url(r'^captcha/', include('captcha.urls')),
 
     url(r'^newsletter/', include(newsletter_subscriptions_urlpatterns(backend=ModelBackend(Subscription), )), name='subscribe' ),

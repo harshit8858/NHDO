@@ -3,11 +3,9 @@ from nhdo_main.models import Profile
 from .forms import EditForm, KycForm
 from .models import kyc, Welcome, Distributor_agreement
 from django.contrib.auth.models import User
-# from nhdo_main.views import home
 
 
 def dashboard(request):
-    # home(request)
     nom = Profile.objects.all()
     p = Profile.objects.all()
     value1 = "active"
@@ -80,95 +78,14 @@ def referal_team(request):
     referal_counts(request)
     referal_level(request)
     summary(request)
-    # home(request)
     referrar = Profile.objects.get(user=request.user)
     x = Profile.objects.all()
-    # y = Profile.objects.values_list('referal_id', flat=True)
-    # # print(x)
-    # # print(y)
-    # # print(referrar.mobile_number)
-    # referrar.money = 0
-    # for i in x:
-    #     if referrar.mobile_number == i.referal_id:
-    #         # a = i.user.first_name
-    #         referrar.money = referrar.money + 100
-    #         # print('a')
-    #         # print(a)
-    #         direct = i.user
-    #         # print('direct:' + str(direct))
-    #         for j in x:
-    #             # print("asasasasa:" + str(i.user))
-    #             if i.user.profile.mobile_number == j.referal_id:
-    #                 # b = j.user.first_name
-    #                 referrar.money = referrar.money + 50
-    #                 # print('b')
-    #                 # print(b)
-    #                 level1 = j.user
-    #                 # print('level1:' + str(level1))
-    #                 for k in x:
-    #                     if j.user.profile.mobile_number == k.referal_id:
-    #                         # c = k.user.first_name
-    #                         referrar.money = referrar.money + 25
-    #                         # print('c')
-    #                         # print(c)
-    #                         level2 = k.user
-    #                         # print('level2:' + str(level2))
-    #                         for l in x:
-    #                             if k.user.profile.mobile_number == l.referal_id:
-    #                                 # print('d')
-    #                                 # print(d)
-    #                                 # d = l.user.first_name
-    #                                 referrar.money = referrar.money + 12.5
-    #                                 level3 = l.user
-    #                                 # print('level3:' + str(level3))
-    #     referrar.save()
-
-    # return render(request, 'your_referrar.html', {'referrar':referrar, 'x':x, 'y':y, 'a':a, 'b':b, 'c':c, 'money':referrar.money})
     return render(request, 'dashboard/referal_team.html', {'referrar': referrar, 'x': x, 'money': referrar.money, 'value6':value6})
 
 
 def referal_counts(request):
     value7 = "active"
-    # home(request)
     referral = Profile.objects.get(user=request.user)
-    # x = Profile.objects.all()
-    # y = Profile.objects.values_list('referal_id', flat=True)
-    # # print(x)
-    # # print(y)
-    # # print(referral.mobile_number)
-    # referral.count = 0
-    # referral.count1 = 0
-    # referral.count2 = 0
-    # referral.count3 = 0
-    # for i in x:
-    #     if referral.mobile_number == i.referal_id:
-    #         a = i.user.first_name
-    #         referral.count = referral.count + 1
-    #         referral.save()
-    #         # print('a')
-    #         # print(a)
-    #         for j in x:
-    #             if i.user.profile.mobile_number == j.referal_id:
-    #                 b = j.user.first_name
-    #                 referral.count1 = referral.count1 + 1
-    #                 referral.save()
-    #                 # print('b')
-    #                 # print(b)
-    #                 for k in x:
-    #                     if j.user.profile.mobile_number == k.referal_id:
-    #                         c = k.user.first_name
-    #                         referral.count2 = referral.count2 + 1
-    #                         referral.save()
-    #                         # print('c')
-    #                         # print(c)
-    #                         for l in x:
-    #                             if k.user.profile.mobile_number == l.referal_id:
-    #                                 # print('d')
-    #                                 # d = l.user.first_name
-    #                                 referral.count3 = referral.count3 + 1
-    #                                 # print(referral.count3)
-    #                                 referral.save()
-
     print(referral.money)
     if referral.count1 < 3:
         referral.level_reached = 0
@@ -208,98 +125,17 @@ def referal_counts(request):
                                                              'total': referral.total,
                                                              'level':referral.level_reached,
                                                              'value7':value7})
-    #     referral = Profile.objects.get(user=request.user)
-    #     # print(referral)
-    #     # print(referral.referal_id)
-    #     y = Profile.objects.values_list('referal_id', flat=True)
-    #     z = User.objects.values_list('username', flat=True)
-    #     x = Profile.objects.all()
-    #     print(x)
-    #     a = len(y)
-    #     i = 0
-    #     j = 0
-    #     k = 0
-    #     l = 0
-    #     # print(referral.count1)
-    #     # print(referral.count2)
-    #     # print(referral.count3)
-    #     while i < a:
-    #         if referral.mobile_number == y[i]:
-    #             r = referral.id
-    #             # print(r)
-    #             # print(b)
-    #             p = referral.count
-    #             p = p + 1
-    #             referral.count = p
-    #             # print('p')
-    #             # print(p)
-    #             # print('p')
-    #
-    #             while j < a:
-    #                 # if i.user.profile.mobile_number == j.referal_id:
-    #                 if y[i] == y[j]:
-    #                     q = referral.count1
-    #                     q = q + 1
-    #                     referral.count1 = q
-    #                     # print('q')
-    #                     # print(q)
-    #                     # print('q')
-    #
-    #                     while k < a:
-    #                         if y[j] == y[k]:
-    #                             r = referral.count1
-    #                             r = r + 1
-    #                             referral.count2 = r
-    #                             # print('r')
-    #                             # print(r)
-    #                             # print('r')
-    #
-    #                             while l < a:
-    #                                 if y[k] == y[l]:
-    #                                     s = referral.count1
-    #                                     s = s + 1
-    #                                     referral.count3 = s
-    #                                     # print('s')
-    #                                     # print(s)
-    #                                     # print('s')
-    #                                 l = l + 1
-    #                         k = k + 1
-    #                 j = j + 1
-    #         i = i + 1
-    #     print("p:" + str(p))
-    #     print("q:" + str(q))
-    #     print("r:" + str(r))
-    #     print("s:" + str(s))
-    #     # form = ReferralForm()
-    #     # f = form.save()
-    #     # f.user = request.user
-    #     # f.count = referral.count
-    #     # f.save()
-    #     # referral.save(['count'])
-    #     # n = Profile.objects.get(id=d)
-    #     # form = SignUpForm(instance=n)
-    #     # f = form.save(commit=False)
-    #     # # f.user = request.user
-    #     # f.count = x.count
-    #     # f.save()
-    #     return render(request, 'your_referral.html', {'referral':referral.mobile_number, 'count':referral.count, 'count1':referral.count1, 'count2':referral.count2, 'count3':referral.count3})
 
 
 def referal_level(request):
-    # home(request)
     ref = Profile.objects.get(user=request.user)
     x = Profile.objects.all()
     value8 = "active"
     return render(request, 'dashboard/referal_level.html', {'referrar':ref, 'x':x, 'value8':value8})
 
-#
-# def direct_bonus(request):
-#     return render(request, 'dashboard/direct_bonus.html', )
-
 
 def summary(request):
     value9 = "active"
-    # home(request)
     summ = Profile.objects.get(user=request.user)
     if summ.level_reached == 0:
         summ.rest = 0
@@ -322,7 +158,5 @@ def summary(request):
 
 def ac_statement(request):
     value10 = "active"
-    # home(request)
-    # ac = User.objects.all()
     ac = Profile.objects.get(user=request.user)
     return render(request, 'dashboard/ac_statement.html', {'value10':value10, 'ac':ac})
