@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div>
+    {% for i in wel %}
+    {% if i.image %}
+        <img src="{{ i.image.url }}" width="800px"/>
+    {% endif %}
+    <br />
+    {% if i.letter %}
+        <a href="{{ i.letter.url }}" class="btn btn-success" style="width:800px;height:30px;">Download Welcome Letter</a>
+    {% endif %}
+{% endfor %}
+</div>
+
+{% endblock %}

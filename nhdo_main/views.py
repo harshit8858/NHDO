@@ -6,21 +6,28 @@ from .forms import SignUpForm
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
-from .forms import ContactForm, ReferralForm
-from .models import Profile, Referral
+from .forms import ContactForm
+from .models import Profile
 from django.contrib.auth.forms import PasswordChangeForm
 # from django.core.mail import EmailMessage
 # from pinax.referrals.models import Referral
 # import pinax
 from django.contrib.auth.models import User
 from django.db.models import F
+from dashboard.views import referal_level, referal_counts, referal_team, summary
+
+
+amount = 500
 
 
 def index(request):
+    home(request)
+    nom = Profile.objects.all()
     # email = EmailMessage('title', 'body', to=['dk291996@gmail.com'])
     # abc = email.send()
     # print (abc)
-    return render(request, 'index.html')
+    nav1 = "active"
+    return render(request, 'nhdo_main/index.html', {'nom':nom, 'nav1':nav1})
 
 
 # def signup(request):
@@ -44,9 +51,9 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             user.refresh_from_db()  # load the profile instance created by the signal
-            user.profile.birth_date = form.cleaned_data.get('birth_date')
             user.profile.gender = form.cleaned_data.get('gender')
-            user.profile.first_name = form.cleaned_data.get('firts_name')
+            user.profile.birth_date = form.cleaned_data.get('birth_date')
+            user.profile.first_name = form.cleaned_data.get('first_name')
             user.profile.last_name = form.cleaned_data.get('last_name')
             user.profile.address = form.cleaned_data.get('address')
             user.profile.pan_number = form.cleaned_data.get('pan_number')
@@ -56,9 +63,14 @@ def signup(request):
             user.profile.state = form.cleaned_data.get('state')
             user.profile.profile_pic = form.cleaned_data.get('profile_pic')
             user.profile.referal_id = form.cleaned_data.get('referal_id')
-            if form.cleaned_data.get('referal_id') == None:
-                user.profile.referal_id = 1234567890
             user.profile.mobile_number = form.cleaned_data.get('mobile_number')
+            # print(form.cleaned_data.get('mobile_number'))
+            # print(form.cleaned_data.get('referal_id'))
+            # if int(form.cleaned_data.get('mobile_number')) == int(form.cleaned_data.get('referal_id')):
+            #     print('if')
+            #     raise `ValidationError("Mobile Number AND Referal ID cannot be Same!")
+            # else:
+            #     print('else')
             user.save()
             # referral = Referral.create(
             #     user=user,
@@ -67,13 +79,14 @@ def signup(request):
             # Profile.referral = referral
             # print("h")
             # Profile.save()
-            # raw_password = form.cleaned_data.get('password1')
-            # user = authenticate(username=user.username, password=raw_password)
-            # login(request, user)
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=user.username, password=raw_password)
+            auth.login(request, user)
             return redirect('index')
     else:
         form = SignUpForm()
-    return render(request, 'signup.html', {'form':form})
+    rnav = "active"
+    return render(request, 'nhdo_main/signup.html', {'form':form, 'rnav':rnav})
 
 
 def your_referral(request):
@@ -116,7 +129,15 @@ def your_referral(request):
     #                                 referral.count3 = referral.count3 + 1
     #                                 # print(referral.count3)
     #                                 referral.save()
+<<<<<<< HEAD
     return render(request, 'your_referral.html',{'referral':referral})
+=======
+    return render(request, 'nhdo_main/your_referral.html',{'referral':referral.mobile_number,
+                                                           'count':referral.count,
+                                                           'count1':referral.count1,
+                                                           'count2':referral.count2,
+                                                           'count3':referral.count3})
+>>>>>>> 9475edec126c6e3348a59a6a1940e40a0fabcb56
 #     referral = Profile.objects.get(user=request.user)
 #     # print(referral)
 #     # print(referral.referal_id)
@@ -239,7 +260,11 @@ def your_referrar(request):
     #     referrar.save()
 
     # return render(request, 'your_referrar.html', {'referrar':referrar, 'x':x, 'y':y, 'a':a, 'b':b, 'c':c, 'money':referrar.money})
+<<<<<<< HEAD
     return render(request, 'your_referrar.html', {'referrar':referrar, 'x':x})
+=======
+    return render(request, 'nhdo_main/your_referrar.html', {'referrar':referrar, 'x':x, 'money':referrar.money})
+>>>>>>> 9475edec126c6e3348a59a6a1940e40a0fabcb56
 
 
 def auth_check(request):
@@ -260,15 +285,17 @@ def logout(request):
 
 
 def invalid(request):
-    return render(request, 'invalid.html')
+    return render(request, 'nhdo_main/invalid.html')
 
 
 def log_in(request):
-    return render(request, 'login.html')
+    lnav = "active"
+    return render(request, 'nhdo_main/login.html', {'lnav':lnav})
 
 
 def home(request):
     if request.user.is_authenticated():
+<<<<<<< HEAD
         info = Profile.objects.get(user=request.user)
         x = Profile.objects.all()
         y = Profile.objects.values_list('referal_id', flat=True)
@@ -301,8 +328,91 @@ def home(request):
         # print(info.count3)
         # print(info.money)
         return render(request, 'home.html')
+=======
+        referal_team(request)
+        referal_counts(request)
+        referal_level(request)
+        summary(request)
+    nav1 = "active"
+    nom = Profile.objects.all()
+    if request.user.is_authenticated():
+        log_in(request)
+        referral = Profile.objects.get(user=request.user)
+        referral.your_referal = 'FFI/WSHG/RMD/' + request.user.username
+        x = Profile.objects.all()
+        # y = Profile.objects.values_list('referal_id', flat=True)
+        referral.count1 = 0
+        referral.count2 = 0
+        referral.count3 = 0
+        referral.count4 = 0
+        referral.count5 = 0
+        referral.count6 = 0
+        referral.money = 0
+        for i in x:
+            if referral.your_referal == i.referal_id:
+                referral.count1 = referral.count1 + 1
+                for j in x:
+                    if i.user.profile.your_referal == j.referal_id:
+                        referral.count2 = referral.count2 + 1
+                        for k in x:
+                            if j.user.profile.your_referal == k.referal_id:
+                                referral.count3 = referral.count3 + 1
+                                for l in x:
+                                    if k.user.profile.your_referal == l.referal_id:
+                                        referral.count4 = referral.count4 + 1
+                                        for m in x:
+                                            if l.user.profile.your_referal == m.referal_id:
+                                                referral.count5 = referral.count5 + 1
+                                                for n in x:
+                                                    if m.user.profile.your_referal == n.referal_id:
+                                                        referral.count6 = referral.count6 + 1
+
+        if referral.count1 >= 3:
+            for i in x:
+                # if i.user.profile.count1 >= 3:
+                # if referral.user.profile.count1 >= 3:
+                if referral.your_referal == i.referal_id:
+                    referral.money = referral.money + (0.1 * amount) #50
+                    if i.user.profile.count1 >=3:
+                        # print(i)
+                        for j in x:
+                            if i.user.profile.your_referal == j.referal_id:
+                                referral.money = referral.money + (0.05 * amount) #25
+                                if j.user.profile.count1 >= 3:
+                                    for k in x:
+                                        if j.user.profile.your_referal == k.referal_id:
+                                            referral.money = referral.money + (0.04 * amount) #20
+                                            if k.user.profile.count1 >= 3:
+                                                for l in x:
+                                                    if k.user.profile.your_referal == l.referal_id:
+                                                        referral.money = referral.money + (0.03 * amount) #15
+                                                        if l.user.profile.count1 >= 3:
+                                                            for m in x:
+                                                                if l.user.profile.your_referal == m.referal_id:
+                                                                    referral.money = referral.money + (0.02 * amount) #10
+                                                                    if m.user.profile.count1 >= 3:
+                                                                        for n in x:
+                                                                            if m.user.profile.your_referal == n.referal_id:
+                                                                                referral.money = referral.money + (0.01 * amount) #5
+        referral.total = referral.count1 + referral.count2 + referral.count3 + referral.count4 + referral.count5 + referral.count6
+        # print(request.user.first_name)
+        referral.save()
+        # print(referral.count)
+        # print(referral.count1)
+        # print(referral.count2)
+        # print(referral.count3)
+        # print(referral.money)
+        p = Profile.objects.all()
+        return render(request, 'nhdo_main/index.html', {'info':p, 'nom':nom, 'nav1':nav1})
+>>>>>>> 9475edec126c6e3348a59a6a1940e40a0fabcb56
     else:
-        return render(request, 'invalid.html')
+        return render(request, 'nhdo_main/index.html', {'nom':nom, 'nav1':nav1})
+
+
+def referral_level(request):
+    ref = Profile.objects.get(user=request.user)
+    x = Profile.objects.all()
+    return render(request, 'nhdo_main/referral_level.html', {'ref':ref, 'x':x})
 
 
 def referral_level(request):
@@ -328,18 +438,47 @@ def summary(request):
 
 
 def about(request):
-    return render(request, 'about.html')
+    nav2 = "active"
+    return render(request, 'nhdo_main/about.html', {'nav2':nav2})
 
+def women_empowerment(request):
+    return render(request, 'nhdo_main/women_empowerment.html')
+
+def ierp(request):
+    return render(request, 'nhdo_main/ierp.html')
+
+def mudra(request):
+    return render(request, 'nhdo_main/mudra.html')
+
+def shg(request):
+    return render(request, 'nhdo_main/shg.html')
+
+def pmkvy(request):
+    return render(request, 'nhdo_main/pmkvy.html')
+
+def standup(request):
+    return render(request, 'nhdo_main/standup.html')
+
+def garib_kalyan(request):
+    return render(request, 'nhdo_main/garib_kalyan.html')
+
+def makeinindia(request):
+    return render(request, 'nhdo_main/makeinindia.html')
+
+def smartcity(request):
+    return render(request, 'nhdo_main/smartcity.html')
 
 def project(request):
-    return render(request, 'project.html')
+    return render(request, 'nhdo_main/project.html')
 
 
 def gallery(request):
-    return render(request, 'gallery.html')
+    nav3 = "active"
+    return render(request, 'nhdo_main/gallery.html', {'nav3':nav3})
 
 
 def contact(request):
+    nav5 = "active"
     # n = Profile.objects.filter()
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -348,10 +487,11 @@ def contact(request):
             return redirect('index')
     else:
         form = ContactForm()
-    return render(request, 'contact.html', {'form':form})
+    return render(request, 'nhdo_main/contact.html', {'form':form, 'nav5':nav5})
 
 
 def change_password(request):
+    value2 = "active"
     user = request.user
     if request.method == "POST":
         form = PasswordChangeForm(data=request.POST,user=request.user)
@@ -364,7 +504,7 @@ def change_password(request):
 
     else:
         form = PasswordChangeForm(user=request.user)
-    return render(request, 'change_password.html', {'form': form})
+    return render(request, 'nhdo_main/change_password.html', {'form': form, 'value2':value2})
 
 
 # def captcha(request):

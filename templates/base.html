@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title></title>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+
+	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+	<style>
+	  .modal-header,.close {
+	      background-color: #009933;
+	      text-align: center;
+	      font-size: 30px;
+	  }
+	  .captcha {
+	  	  width: 200px;
+	  }
+	  body {
+  background: #FFFFFF;
+		}
+
+		/* Profile container */
+		.profile {
+		  margin: 0px 0;
+		}
+
+		/* Profile sidebar */
+		.profile-sidebar {
+		  padding: 0% 0% 0% 0%;
+		  background: #fff;
+		}
+
+		.profile-userpic img {
+		  float: none;
+		  margin: 0 auto;
+		  width: 80%;
+		  height: 50%;
+		  -webkit-border-radius: 50% !important;
+		  -moz-border-radius: 50% !important;
+		  border-radius: 50% !important;
+		}
+
+		.profile-usertitle {
+		  text-align: center;
+		  margin-top: 20px;
+		}
+
+		.profile-usertitle-name {
+		  color: #5a7391;
+		  font-size: 16px;
+		  font-weight: 600;
+		  margin-bottom: 7px;
+		}
+
+		.profile-usertitle-job {
+		  text-transform: uppercase;
+		  color: #5b9bd1;
+		  font-size: 12px;
+		  font-weight: 600;
+		  margin-bottom: 15px;
+		}
+
+		.profile-userbuttons {
+		  text-align: center;
+		  margin-top: 10px;
+		}
+
+		.profile-userbuttons .btn {
+		  text-transform: uppercase;
+		  font-size: 11px;
+		  font-weight: 600;
+		  padding: 6px 15px;
+		  margin-right: 5px;
+		}
+
+		.profile-userbuttons .btn:last-child {
+		  margin-right: 0px;
+		}
+
+		.profile-usermenu {
+		  margin-top: 0px;
+		}
+
+		.profile-usermenu ul li {
+		  border-bottom: 1px solid #f0f4f7;
+		}
+
+		.profile-usermenu ul li:last-child {
+		  border-bottom: none;
+		}
+
+		.profile-usermenu ul li a {
+		  color: #fffff;
+		  font-size: 14px;
+		  font-weight: 400;
+		}
+
+		.profile-usermenu ul li a i {
+		  margin-right: 5px;
+		  font-size: 14px;
+		}
+
+		.profile-usermenu ul li a:hover {
+		  background-color: #fafcfd;
+		  color: #555555;
+		}
+
+		.profile-usermenu ul li.active {
+			background-color: #fafcfd;
+		    color: #555555;
+		}
+
+		.profile-usermenu ul li.active a {
+		  color: #5b9bd1;
+		  background-color: #f6f9fb;
+		  border-left: 2px solid #5b9bd1;
+		  margin-left: 0px;
+		}
+
+		/* Profile Content */
+		.profile-content {
+		  padding: 20px;
+		  background: #fff;
+		  min-height: 460px;
+		}
+
+            h6:hover {
+                color:green;
+            }
+
+            .hover-green:hover{
+                background-color: #56F756;
+                color:white;
+            }
+
+            .hover-white:hover{
+                color:white;
+            }
+            /* Style The Dropdown Button */
+            .dropbtn {
+                background-color: #4CAF50;
+                color: white;
+                padding: 16px;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+            }
+
+            /* The container <div> - needed to position the dropdown content */
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            /* Dropdown Content (Hidden by Default) */
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
+
+            /* Links inside the dropdown */
+            .dropdown-content a {
+                color: black;
+                padding: 10px 12px;
+                text-decoration: none;
+                display: block;
+            }
+
+            .dropdown-content a:hover {
+                color: green;
+                background-color: #f1f1f1
+            }
+
+            /* Show the dropdown menu on hover */
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            /* Change the background color of the dropdown button when the dropdown content is shown */
+            .dropdown:hover .dropbtn {
+                background-color: #3e8e41;
+            }
+            .captcha {
+	  	        width: 200px;
+	        }
+            body {
+                font-family: "Lato", sans-serif;
+    		transition: background-color .5s;
+            }
+            .sidenav {
+                height: 100%;
+                width: 0;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                background-color: #111;
+                overflow-x: hidden;
+                transition: 0.5s;
+                padding-top: 60px;
+            }
+
+            .sidenav a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 25px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+            }
+
+            .sidenav a:hover {
+                color: #f1f1f1;
+            }
+
+            .sidenav a:click {
+            	color: black;
+			}
+
+            .sidenav .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+
+            #main {
+                transition: margin-left .5s;
+                padding: 16px;
+            }
+
+            @media screen and (max-height: 450px) {
+              .sidenav {padding-top: 15px;}
+              .sidenav a {font-size: 18px;}
+            }
+            #particle {
+				  background-color: #ffffff;
+				  position:fixed;
+				  top:0;
+				  right:0;
+				  bottom:0;
+				  left:0;
+				  z-index:0;
+				}
+				#overlay {
+				  position: relative;
+			}
+	  </style>
+</head>
+
+<body class="body" style="">
+<div id="particle"></div>
+<div id="overlay">
+
+
+<nav class="navbar navbar-inverse" style="border-radius:0px; height:50%; background-color:black;">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+						<li><a href="{% url 'home' %}"><i class="fa fa-lg fa-home"></i></a></li>
+                        {% if user.is_authenticated %}
+                            <!--<span style="color:White;font-size:30px;font-family:serif" >{{ request.user.first_name }}</span>-->
+                        {% else %}
+                        <li class="{{lnav}}"><a href="{% url 'log_in' %}" style="color:white" class="btn btn-warning"><span class="glyphicon glyphicon-log-in" style="font-size:15px"> LogIn</span></a></li>
+                        {% endif %}
+					<li> . </li>
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a href="/logout/" style="color:white" class="btn btn-danger"><span class="glyphicon glyphicon-log-out">Logout</span></a>
+                    </li>
+                    {% else %}
+                    <li class="{{rnav}}">
+                        <a href="{% url 'signup' %}" style="color:white" class="btn btn-warning"><span class="glyphicon glyphicon-new-window" style="font-size:15px">Register</span></a>
+                    </li>
+                    {% endif %}
+                    <!--{% if request.user.profile.profile_pic %}-->
+                    <!--<li>-->
+                    <!--<div style="margin-top:0px">-->
+                        <!--<img src="{{request.user.profile.profile_pic.url}}" align="middle" class="img-circle" width="60px" height="60px"/>-->
+                    <!--</div>-->
+                    <!--</li>-->
+                    <!--{% else %}-->
+                    <!--<li>-->
+                    <!--<span style="color:black;font-size:30px" class="glyphicon glyphicon-user"></span>-->
+                    <!--</li>-->
+                    <!--{% endif %}-->
+                </ul>
+
+              <ul class="nav navbar-nav navbar-right">
+				  <li ><a class="btn btn-info"><span style="color:white" class="glyphicons glyphicons-phone-alt"> +91-11-41033648 </span></a></li>
+				  <li> : </li>
+				  <li ><a class="btn btn-info"><span style="color:white" class="glyphicons glyphicons-envelope"> cmd@nhdoindia.org </span></a></li>
+              </ul>
+              <!-- <div style="margin-top:15px">
+                <span class="hover-white" style="float:right; color:green;"><i class="fa fa-phone"></i> +91-11-41033648</span>
+                <span class="hover-white" style="float:right; color:green; margin-right: 10px;"><i class="fa fa-envelope-o"></i> cmd@nhdoindia.org</span>
+              </div> -->
+            </div>
+          </nav>
+
+        <nav class="navbar navbar-inverse" style="margin-top:-20px; border-radius:0px;">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <!-- <a class="navbar-brand" href="#">FFI India</a> -->
+                <a href="{% url 'home' %}"><img style="width: 45%; margin:0 auto;"src="https://i.imgur.com/mjW1oPJ.png" /></a>
+              </div>
+              <ul class="nav navbar-nav navbar-right">
+                <li style="font-size:18px;" class="{{nav1}}"><a href="{% url 'home' %}">Home</a></li>
+
+                <li style="font-size:18px;" class="{{nav2}}"><a href="{% url 'about' %}">About</a></li>
+
+                <li style="font-size:18px;" class="{{nav3}}"><a href="{% url 'gallery' %}">Gallery</a></li>
+
+                <li  style="font-size:15px;" class="dropdown">
+                        <div class="dropbtn">Projects</div>
+                        <div class="dropdown-content">
+
+                                <a href="http://nhdoindia.org">NHDO (Housing For All)</a>
+                                    <!-- <ul>
+                                        <li><a href="#">Phases</a></li>
+                                        <li><a href="#">Targets and Features of PMAY</a></li>
+                                        <li><a href="#">EMI under PMAY</a></li>
+                                        <li><a href="#">Union Territories for PMAY</a></li>
+                                    </ul>
+                                </li> -->
+                                <a href="{% url 'women_empowerment' %}">Women Empowerment</a>
+                                    <!-- <ul>
+                                        <li><a href="#">Goals and Objectives</a></li>
+                                        <li><a href="#">Policy Presciptions</a></li>
+                                        <li><a href="#">Economic Empowerment of Women</a></li>
+                                        <li><a href="#">Social Empowerment of Women</a></li>
+                                        <li><a href="#">Operational Strategies</a></li>
+                                    </ul>
+                                </li> -->
+                                <a href="{% url 'ierp' %}" >Industry Education (IERP)</a>
+                                    <!-- <ul>
+                                        <li><a href="#">Education Relationship Program (IERP)</a></li>
+                                        <li><a href="#">Need for Academia</a></li>
+                                        <li><a href="#">Avenues of Interfaces</a></li>
+                                    </ul>
+                                </li> -->
+                                <a href="{% url 'shg' %}">Self Help Group</a>
+                                <a href="{% url 'pmkvy' %}">Kaushal Vikas Yojana</a>
+                                <a href="{% url 'mudra' %}">MUDRA Bank Yojana</a>
+                                <a href="{% url 'standup' %}">Standup India</a>
+                                <a href="{% url 'garib_kalyan' %}">Garib Kalyan Yojana</a>
+                                <a href="{% url 'makeinindia' %}">Make in India</a>
+                                <a href="{% url 'smartcity' %}">Smart City</a>
+                        </div>
+                    <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#">Projects
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+
+                            <li><a href="#">NHDO</a>
+                                <ul>
+                                    <li><a href="#">Phases</a></li>
+                                    <li><a href="#">Targets and Features of PMAY</a></li>
+                                    <li><a href="#">EMI under PMAY</a></li>
+                                    <li><a href="#">Union Territories for PMAY</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Women Empowerment</a>
+                                <ul>
+                                    <li><a href="#">Goals and Objectives</a></li>
+                                    <li><a href="#">Policy Presciptions</a></li>
+                                    <li><a href="#">Economic Empowerment of Women</a></li>
+                                    <li><a href="#">Social Empowerment of Women</a></li>
+                                    <li><a href="#">Operational Strategies</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" >Industry Education (IERP)</a>
+                                <ul>
+                                    <li><a href="#">Education Relationship Program (IERP)</a></li>
+                                    <li><a href="#">Need for Academia</a></li>
+                                    <li><a href="#">Avenues of Interfaces</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Self Help Group</a></li>
+                            <li><a href="#">Kaushal Vikas Yojana</a></li>
+                            <li><a href="#">MUDRA Bank Yojana</a></li>
+                            <li><a href="#">Standup India</a></li>
+                            <li><a href="#">Garib Kalyan Yojana</a></li>
+                            <li><a href="#">Make in India</a></li>
+                            <li><a href="#">Smart City</a></li>
+
+
+                    </ul> -->
+                </li>
+
+                <li style="font-size:18px;" class="{{nav5}}"><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+
+
+            </div>
+          </nav>
+
+
+<div class="container">
+    <div class="row profile">
+		{% if user.is_authenticated %}
+
+		<div class="col-md-3">
+			<div class="profile-sidebar">
+				<!-- SIDEBAR USERPIC -->
+				<div class="profile-userpic">
+					<center>
+						{% if request.user.profile.profile_pic %}
+							<div class="profile-userpic"> <img src="{{request.user.profile.profile_pic.url}}" align="middle" class="img-circle" width="120px" height="120px"/></div>
+						{% else %}
+							<div class="profile-userpic"> <img src="https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png?w=300" align="middle" class="img-circle" width="120px" height="120px"/></div>
+						{% endif %}
+					</center>
+				</div>
+				<!-- END SIDEBAR USERPIC -->
+				<!-- SIDEBAR USER TITLE -->
+
+				<div class="profile-usertitle">
+					<div class="profile-usertitle-name">
+						<span style="font-size:20px"> {{ request.user.first_name }} {{ request.user.last_name }}</span>
+					</div>
+					<div class="profile-usertitle-job">
+						<span style="font-size:15px"> {{ request.user.profile.mobile_number }}</span><br/>
+						<span style="font-size:12px"> {{ request.user.profile.your_referal }}</span>
+					</div>
+				</div>
+
+				<!-- END SIDEBAR USER TITLE -->
+				<!-- SIDEBAR BUTTONS -->
+				<!-- END SIDEBAR BUTTONS -->
+				<!-- SIDEBAR MENU -->
+				<div class="profile-usermenu">
+					<ul class="nav">
+						<li class={{value1}}>
+							<a href="{% url 'dashboard' %}">
+							<i class="glyphicon glyphicon-home"></i>
+							Dashboard </a>
+						</li>
+						<li class={{value2}}>
+							<a href="{% url 'change_password' %}">
+							<i class="glyphicon glyphicon-lock"></i>
+							Change Password</a>
+						</li>
+						<li class={{value3}}>
+							<a href="{% url 'update_kyc' %}">
+							<i class="glyphicon glyphicon-user"></i>
+							Update KYC</a>
+						</li>
+						<li class={{value4}}>
+							<a href="{% url 'welcome_letter' %}">
+							<i class="glyphicon glyphicon-envelope"></i>
+							Welcome Letter </a>
+						</li>
+						<li class={{value5}}>
+							<a href="{% url 'distributer_agreement' %}">
+							<i class="glyphicon glyphicon-menu-right"></i>
+							Distributer Agreement</a>
+						</li>
+						<li class={{value6}}>
+							<a href="{% url 'referal_team' %}">
+							<i class="glyphicon glyphicon-list-alt"></i>
+							Referal Team</a>
+						</li>
+						<li class={{value7}}>
+							<a href="{% url 'referal_counts' %}">
+							<i class="glyphicon glyphicon-align-left"></i>
+							Referal Count</a>
+						</li>
+						<li class={{value8}}>
+							<a href="{% url 'referal_level' %}">
+							<i class="glyphicon glyphicon-signal"></i>
+							Referal Level</a>
+						</li>
+						<li class={{value9}}>
+							<a href="{% url 'summary' %}">
+							<i class="glyphicon glyphicon-flag"></i>
+							Summary</a>
+						</li>
+						<li class={{value10}}>
+							<a href="{% url 'ac_statement' %}">
+							<i class="glyphicon glyphicon-file"></i>
+							A/C Statement</a>
+						</li>
+					</ul>
+				</div>
+				<!-- END MENU -->
+			</div>
+		</div>
+		{% endif %}
+
+		{% if user.is_authenticated %}
+			<div class="col-md-9">
+    	{% else %}
+			<div class="col-md-12">
+		{% endif %}
+            <div class="profile-content">
+	{% block content %}
+	{% endblock %}
+            </div>
+		</div>
+	</div>
+</div>
+
+
+<hr/>
+
+<!--<script src="{% static 'login/js/jquery-2.1.1.min.js' %}"></script>-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+<!--<script src="{% static 'login/js/bootstrap.min.js' %}"></script>-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script type="javascript/text">
+</script>
+
+<div style="width:100%; background-color:black; color:white; text-align:center; padding: 60px 0;">
+    <!--<h1>Register!</h1>-->
+    <!--<br>-->
+    <!--<p>Small adorable Membership Fee of Rs. 11000/- Only</p>-->
+    <!--<br>-->
+    <!--<p><a class="btn btn-success" href="#">Apply Now! &raquo;</a></p>-->
+	<a href="/newsletter/" class="btn btn-default" ><img src="data:image/png;base64,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"
+														width="200px"
+														height="50px"></a>
+	<hr width="1400px"/>
+	<span class="warning" style="color:grey;font-size:22px;font-family:georgia">FFI INDIA, a family that strives and works for A Race Against Poverty.</span>
+</div>
+
+
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
+
+	</div>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+	var options = {"particles":{"number":{"value":300,"density":{"enable":true,"value_area":552.4033491425909}},"color":{"value":"#0000ff"},"shape":{"type":"circle","stroke":{"width":10,"color":"#ffffff"},"polygon":{"nb_sides":0},"image":{"src":"img/github.svg","width":70,"height":100}},"opacity":{"value":1,"random":true,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":2,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":false,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":1.5782952832645452,"direction":"none","random":true,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":false,"mode":"repulse"},"onclick":{"enable":true,"mode":"repulse"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":false};
+particlesJS("particle", options);
+</script>
+</body>
+</html>

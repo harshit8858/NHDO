@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1 {font-family: "Montserrat", sans-serif}
+img {margin-bottom: -7px}
+.w3-row-padding img {margin-bottom: 12px}
+</style>
+
+<!-- Sidebar -->
+
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-content" style="max-width:1500px">
+
+<!-- Header -->
+<div class="w3-opacity">
+<div class="w3-clear"></div>
+<header class="w3-center w3-margin-bottom">
+  <h1 style="font-size:60px;"><b>Gallery</b></h1>
+  <p><b></b></p>
+  <p class="w3-padding-16"><button class="w3-button w3-black" onclick="myFunction()">Toggle Grid Padding</button></p>
+</header>
+</div>
+
+
+<!-- Photo Grid -->
+<div class="w3-row" id="myGrid" style="margin-bottom:128px">
+  <div class="w3-third">
+    <img src="https://preview.ibb.co/e24FLw/IMG_9810.jpg" style="width:100%">
+    <img src="https://preview.ibb.co/nQ9RSb/IMG_8684.jpg" style="width:100%">
+    <img src="https://preview.ibb.co/iK1vLw/IMG_7114.jpg" style="width:100%">
+    <img src="https://preview.ibb.co/bXg6Sb/IMG_7112.jpg" style="width:100%">
+  </div>
+
+  <div class="w3-third">
+    <img src="https://preview.ibb.co/fnu4DG/IMG_7071.jpg" style="width:100%">
+    <img src="https://preview.ibb.co/huDxYG/IMG_0504.jpg" style="width:100%">
+    <img src="https://preview.ibb.co/kdsPDG/IMG_0345.jpg" style="width:100%">
+    <img src="https://preview.ibb.co/ndFcYG/IMG_0308.jpg" style="width:100%">
+  </div>
+
+  <div class="w3-third">
+    <img src="https://preview.ibb.co/jf0BtG/IMG_0296.jpg" style="width:100%">
+    <img src="https://preview.ibb.co/c9oxYG/IMG_0283.jpg" style="width:100%">
+    <img src="https://preview.ibb.co/ivLcYG/IMG_0153.jpg" style="width:100%">
+    <img src="https://preview.ibb.co/dPiLnb/DSCN3544.jpg" style="width:100%">
+  </div>
+
+</div>
+
+<!-- End Page Content -->
+</div>
+
+<script>
+// Toggle grid padding
+function myFunction() {
+    var x = document.getElementById("myGrid");
+    if (x.className === "w3-row") {
+        x.className = "w3-row-padding";
+    } else {
+        x.className = x.className.replace("w3-row-padding", "w3-row");
+    }
+}
+
+// Open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.width = "100%";
+    document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,316 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Forum for Financial Initiative</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="icon.png">
+
+        <link rel="stylesheet" href= "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="css/style.css">
+        
+        <style>
+            h6:hover {
+                color:green;
+            }
+
+            .hover-green:hover{
+                background-color: #56F756;
+                color:white;
+            }
+
+            .hover-white:hover{
+                color:white;
+            }
+            /* Style The Dropdown Button */
+            .dropbtn {
+                background-color: #4CAF50;
+                color: white;
+                padding: 16px;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+            }
+
+            /* The container <div> - needed to position the dropdown content */
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            /* Dropdown Content (Hidden by Default) */
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
+
+            /* Links inside the dropdown */
+            .dropdown-content a {
+                color: black;
+                padding: 10px 12px;
+                text-decoration: none;
+                display: block;
+            }
+
+            .dropdown-content a:hover {
+                color: green;
+                background-color: #f1f1f1
+            }
+
+            /* Show the dropdown menu on hover */
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            /* Change the background color of the dropdown button when the dropdown content is shown */
+            .dropdown:hover .dropbtn {
+                background-color: #3e8e41;
+            }
+            .captcha {
+	  	        width: 200px;
+	        }
+            body {
+                font-family: "Lato", sans-serif;
+    transition: background-color .5s;
+            }
+            .sidenav {
+                height: 100%;
+                width: 0;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                background-color: #111;
+                overflow-x: hidden;
+                transition: 0.5s;
+                padding-top: 60px;
+            }
+
+            .sidenav a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 25px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+            }
+
+            .sidenav a:hover {
+                color: #f1f1f1;
+            }
+
+            .sidenav .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+
+            #main {
+                transition: margin-left .5s;
+                padding: 16px;
+            }
+
+            @media screen and (max-height: 450px) {
+              .sidenav {padding-top: 15px;}
+              .sidenav a {font-size: 18px;}
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-inverse" style="border-radius:0px; height: 50%; background-color:black;">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                        <li><a href="{% url 'home' %}"><i class="fa fa-lg fa-home"></i></a></li>
+                        {% if user.is_authenticated %}
+                            <span style="color:black;font-size:30px;font-family:serif" >{{ request.user.first_name }}</span>
+                        {% else %}
+                        <li><a href="{% url 'log_in' %}" style="color:white"><span class="glyphicon glyphicon-log-in">LogIn</span></a></li>
+                        {% endif %}
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a href="/logout/" style="color:white"><span class="glyphicon glyphicon-log-out">Logout</span></a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="{% url 'signup' %}" style="color:white"><span class="glyphicon glyphicon-new-window">Register</span></a>
+                    </li>
+                    {% endif %}
+                    {% if request.user.profile.profile_pic %}
+                    <li>
+                    <div style="margin-top:0px">
+                        <img src="{{request.user.profile.profile_pic.url}}" align="middle" class="img-circle" width="60px" height="60px"/>
+                    </div>
+                    </li>
+                    {% else %}
+                    <li>
+                    <span style="color:black;font-size:30px" class="glyphicon glyphicon-user"></span>
+                    </li>
+                    {% endif %}
+                </ul>
+
+              <ul class="nav navbar-nav navbar-right">
+                  <li ><a><i class="fa fa-phone"></i> +91-11-41033648</a></li>
+                  <li ><a><i class="fa fa-envelope-o"></i> cmd@nhdoindia.org</a></li>
+              </ul>
+              <!-- <div style="margin-top:15px">
+                <span class="hover-white" style="float:right; color:green;"><i class="fa fa-phone"></i> +91-11-41033648</span>
+                <span class="hover-white" style="float:right; color:green; margin-right: 10px;"><i class="fa fa-envelope-o"></i> cmd@nhdoindia.org</span>
+              </div> -->
+            </div>
+          </nav>
+
+        <nav class="navbar navbar-inverse" style="margin-top:-20px; border-radius:0px;">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <!-- <a class="navbar-brand" href="#">FFI India</a> -->
+                <img style="width: 67%; margin:0 auto;"src="./images//ffi2.png"></img>
+              </div>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="{% url 'home' %}">Home</a></li>
+        
+                <li><a href="{% url 'about' %}">About</a></li>
+        
+                <li><a href="{% url 'gallery' %}">Gallery</a></li>
+
+                <li class="dropdown">
+                        <div class="dropbtn">Projects</div>
+                        <div class="dropdown-content">
+
+                                <a href="#">NHDO</a>
+                                    <!-- <ul>
+                                        <li><a href="#">Phases</a></li>
+                                        <li><a href="#">Targets and Features of PMAY</a></li>
+                                        <li><a href="#">EMI under PMAY</a></li>
+                                        <li><a href="#">Union Territories for PMAY</a></li>
+                                    </ul>
+                                </li> -->
+                                <a href="#">Women Empowerment</a>
+                                    <!-- <ul>
+                                        <li><a href="#">Goals and Objectives</a></li>
+                                        <li><a href="#">Policy Presciptions</a></li>
+                                        <li><a href="#">Economic Empowerment of Women</a></li>
+                                        <li><a href="#">Social Empowerment of Women</a></li>
+                                        <li><a href="#">Operational Strategies</a></li>
+                                    </ul>
+                                </li> -->
+                                <a href="#" >Industry Education (IERP)</a>
+                                    <!-- <ul>
+                                        <li><a href="#">Education Relationship Program (IERP)</a></li>
+                                        <li><a href="#">Need for Academia</a></li>
+                                        <li><a href="#">Avenues of Interfaces</a></li>
+                                    </ul>
+                                </li> -->
+                                <a href="#">Self Help Group</a>
+                                <a href="#">Kaushal Vikas Yojana</a>
+                                <a href="#">MUDRA Bank Yojana</a>
+                                <a href="#">Standup India</a>
+                                <a href="#">Garib Kalyan Yojana</a>
+                                <a href="#">Make in India</a>
+                                <a href="#">Smart City</a>
+                        </div>
+                    <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#">Projects
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        
+                            <li><a href="#">NHDO</a>
+                                <ul>
+                                    <li><a href="#">Phases</a></li>
+                                    <li><a href="#">Targets and Features of PMAY</a></li>
+                                    <li><a href="#">EMI under PMAY</a></li>
+                                    <li><a href="#">Union Territories for PMAY</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Women Empowerment</a>
+                                <ul>
+                                    <li><a href="#">Goals and Objectives</a></li>
+                                    <li><a href="#">Policy Presciptions</a></li>
+                                    <li><a href="#">Economic Empowerment of Women</a></li>
+                                    <li><a href="#">Social Empowerment of Women</a></li>
+                                    <li><a href="#">Operational Strategies</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" >Industry Education (IERP)</a>
+                                <ul>
+                                    <li><a href="#">Education Relationship Program (IERP)</a></li>
+                                    <li><a href="#">Need for Academia</a></li>
+                                    <li><a href="#">Avenues of Interfaces</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Self Help Group</a></li>
+                            <li><a href="#">Kaushal Vikas Yojana</a></li>
+                            <li><a href="#">MUDRA Bank Yojana</a></li>
+                            <li><a href="#">Standup India</a></li>
+                            <li><a href="#">Garib Kalyan Yojana</a></li>
+                            <li><a href="#">Make in India</a></li>
+                            <li><a href="#">Smart City</a></li>
+                       
+                
+                    </ul> -->
+                </li>
+
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+                
+              
+            </div>
+          </nav>
+
+        <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="{% url 'dashboard' %}">Dashboard</a>
+          <a href="{% url 'update_kyc' %}">Update KYC</a>
+          <a href="#">Clients</a>
+          <a href="#">Contact</a>
+        </div>
+
+        <div id="main">
+          <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+
+
+        <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft= "0";
+        }
+        </script>
+
+<br><br>
+
+
+    {% block content %}
+    {% endblock %}
+</div>
+
+
+    <div style="width:100%; height: 300px; background-color:black; color:white; text-align:center; padding: 60px 0;">
+        <h1>Register!</h1>
+        <br>
+        <p>Small adorable Membership Fee of Rs. 11000/- Only</p>
+        <br>
+        <p><a class="btn btn-success" href="#">Apply Now! &raquo;</a></p>
+    </div>
+
+
+            <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+            <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
+
+    </body>
+</html>

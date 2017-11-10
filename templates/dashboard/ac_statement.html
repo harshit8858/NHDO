@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="panel panel-primary" style="">
+        <div class="panel-heading" style=""><h1>Statement</h1></div>
+  <div class="panel-body">
+      <h3>
+          It is hereby to inform that <u><b>{{ user.first_name }} {{ user.last_name }}</b></u> with details:<br />
+      <ul>
+          <li>Username- <b>{{ user.username }}</b></li>
+          <li>Mobile Number- <b>{{ ac.mobile_number }}</b></li>
+          <li>Email ID- <b>{{ user.email }}</b></li>
+          <li>Referal ID- <b>{{ ac.your_referal }}</b></li>
+      </ul>
+          has successfully earned <b><big>Rs {{ ac.money }}/- </big></b>
+      </h3>
+  </div>
+</div>
+
+{% endblock %}
