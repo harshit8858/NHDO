@@ -11,13 +11,13 @@
     <!--<button type="submit" class="btn btn-success">Submit</button>-->
 <!--</form>-->
 
- <div class="container" align="">
-        <div id="loginbox" style="margin-top:50px;width:600px;align:left" class="mainbox">
+ <div class="container">
+        <div style="" class="col-md-6">
             <div class="panel panel-info" >
                     <div class="panel-heading">
                         <div class="panel-title"><h1>Contact</h1></div>
                     </div>
-                    <div style="padding-top:30px;align:center" class="panel-body">
+                    <div style="" class="panel-body">
             <form method="post" class="form-group" >
                 {% csrf_token %}
                 <input type="text" placeholder="Name" name="name" class="form-control" style="width:300px" /><br/>
@@ -25,8 +25,17 @@
                 <input type="number" placeholder="Contact Number" name="number" class="form-control" style="width:300px" /><br/>
                 <input type="email" placeholder="Email Id" name="email" class="form-control" style="width:300px" /><br/>
                 <textarea placeholder="Query" name="query" class="form-control" style="width:300px;height:150px;resize:none"  ></textarea><br/>
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit" class="btn btn-info">Submit</button>
             </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-4">
+        <div class="panel panel-danger" >
+            <div class="panel-heading">
+                <h3>We will contact you via Email or Mobile phone as soon as possible.</h3>
             </div>
         </div>
     </div>

@@ -9,16 +9,17 @@
         {% for i in  info %}
             {% ifequal i.user request.user %}
             <table class="table" border="2px" style="font-size:20px">
-                <tr class="info"><th>Username:</th><td>{{ i.user.username }}</td></tr>
+                <tr class="info" style=""><th>Username:</th><td>{{ i.user.username }}</td></tr>
                 <tr class=" "><th>Referal ID:</th><td>{{ i.referal_id }}</td></tr>
-                <tr class="info"><th>Name:</th><td>{{ i.user.first_name }} {{ i.user.last_name }}</td></tr>
-                <tr class=" "><th>Pan Number:</th><td>{{ i.pan_number }}</td></tr>
-                <tr class="info"><th>Sex:</th><td>{{ i.gender }}</td></tr>
-                <tr class=" "><th>DOB:</th><td>{{ i.birth_date }}</td></tr>
-                <tr class="info"><th>Address:</th><td>{{ i.address }}, {{ i.city }}, {{ i.state }}-{{ i.pincode }}</td></tr>
-                <tr class=" "><th>Mobile:</th><td>{{ i.mobile_number }}</td></tr>
-                <tr class="info"><th>Status:</th><td>{{ i.status }}</td></tr>
-                <tr class=" ">
+                <tr class="info"><th>Your Referal ID:</th><td>{{ i.your_referal }}</td></tr>
+                <tr class=""><th>Name:</th><td>{{ i.user.first_name }} {{ i.user.last_name }}</td></tr>
+                <tr class="info"><th>Pan Number:</th><td>{{ i.pan_number }}</td></tr>
+                <tr class=""><th>Sex:</th><td>{{ i.gender }}</td></tr>
+                <tr class="info"><th>DOB:</th><td>{{ i.birth_date }}</td></tr>
+                <tr class=""><th>Address:</th><td>{{ i.address }}, {{ i.city }}, {{ i.state }}-{{ i.pincode }}</td></tr>
+                <tr class="info"><th>Mobile:</th><td>{{ i.mobile_number }}</td></tr>
+                <tr class=""><th>Status:</th><td>{{ i.status }}</td></tr>
+                <tr class="info">
                     <th>Profile Pic:</th>
                     <td>
                         {% if i.profile_pic %}
