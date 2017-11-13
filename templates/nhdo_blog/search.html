@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<form class="navbar-form navbar-left" action="{% url 'blog_search' %}" method="post">
+    {% csrf_token %}
+	<div class="form-group">
+	    <input type="text" class="form-control" placeholder="Search" name="search" id="search_box">
+	</div>
+	<button type="submit" class="btn btn-default">Submit</button>
+</form>
+<hr/>
+<br/><br/>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Search result for "{{ t }}"</h3>
+  </div>
+</div>
+
+
+{% for i in text %}
+    <div class="container" style="width:1000px">
+        <div class="panel panel-info">
+            <div class="panel-heading"><h2><b>{{ i.title }}</b><small>({{ i.user.username }})</small></h2></div>
+            <div style="" class="panel-body"><p>{{ i.content }}</p>
+            <center>
+                {% if i.pic %}
+                    <img src="{{i.pic.url}}" width="600px" height="600px" /><br><br>
+                {% endif %}<br/>
+            </center>
+            <small>{{ i.date|timesince }} ago</small><br/>
+            {% ifequal i.user request.user %}
+                <a href="{% url 'blog_delete' i.id %}" class="btn btn-danger btn-md">Delete</a>
+                <a href="{% url 'blog_edit' i.id %}" class="btn btn-warning btn-md">Edit</a>
+            {% endifequal %}
+            </div>
+            <div class="panel-footer">Comments</div>
+        </div>
+    </div>
+{% endfor %}
+
+{% endblock %}

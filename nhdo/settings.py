@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'towel',
     'dashboard',
     # 'social_auth',
+    'nhdo_blog',
 ]
 
 SITE_ID = 1
