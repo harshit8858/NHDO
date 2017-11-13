@@ -130,7 +130,7 @@
             }
 
             .hover-green:hover{
-                background-color: #56F756;
+                background-color: #00aaff;
                 color:white;
             }
 
@@ -202,11 +202,11 @@
                 background-color: #111;
                 overflow-x: hidden;
                 transition: 0.5s;
-                padding-top: 60px;
+                padding-top: 0px;
             }
 
             .sidenav a {
-                padding: 8px 8px 8px 32px;
+                padding: ;
                 text-decoration: none;
                 font-size: 25px;
                 color: #818181;
@@ -225,9 +225,9 @@
             .sidenav .closebtn {
                 position: absolute;
                 top: 0;
-                right: 25px;
+                right: px;
                 font-size: 36px;
-                margin-left: 50px;
+                margin-left: px;
             }
 
             #main {
@@ -235,9 +235,9 @@
                 padding: 16px;
             }
 
-            @media screen and (max-height: 450px) {
-              .sidenav {padding-top: 15px;}
-              .sidenav a {font-size: 18px;}
+            @media screen and (max-height: px) {
+              .sidenav {padding-top: px;}
+              .sidenav a {font-size: px;}
             }
             #particle {
 				  background-color: #ffffff;
@@ -251,6 +251,10 @@
 				#overlay {
 				  position: relative;
 			}
+			body {
+   margin: 0;
+   padding: 0;
+}
 	  </style>
 </head>
 
@@ -495,17 +499,16 @@
 		{% endif %}
 
 		{% if user.is_authenticated %}
-			<div class="col-md-9">
-    	{% else %}
-			<div class="col-md-12">
+			<div class="col-sm-9" style="width:75%;align:left">
+		{% else %}
+			<div class="col-sm-12" style="width:100%">
 		{% endif %}
-            <div class="profile-content">
+
 	{% block content %}
 	{% endblock %}
-            </div>
-		</div>
+			</div>
 	</div>
-</div>
+	</div>
 
 
 <hr/>
