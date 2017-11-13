@@ -8,5 +8,6 @@ urlpatterns = [
     url(r'^password_reset/', include('nhdo_reset.urls')),
     url(r'^dashboard/', include('dashboard.urls')),
     # url(r'^referrals/', include('pinax.referrals.urls')),
+    url(r'^blog/', include('nhdo_blog.urls')),
 
 ]
