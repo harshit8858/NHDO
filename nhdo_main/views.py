@@ -177,9 +177,9 @@ def referral_level(request):
     return render(request, 'nhdo_main/referral_level.html', {'ref':ref, 'x':x})
 
 
-def about(request):
+def our_poineers(request):
     nav2 = "active"
-    return render(request, 'nhdo_main/about.html', {'nav2':nav2})
+    return render(request, 'nhdo_main/our_poineers.html', {'nav2':nav2})
 
 
 def women_empowerment(request):
@@ -220,6 +220,18 @@ def smartcity(request):
 
 def project(request):
     return render(request, 'nhdo_main/project.html')
+
+
+def whoweare(request):
+    return render(request, 'nhdo_main/whoweare.html')
+
+
+def visionm(request):
+    return render(request, 'nhdo_main/visionm.html')
+
+
+def our_visionary(request):
+    return render(request, 'nhdo_main/our_visionary.html')
 
 
 def gallery(request):
