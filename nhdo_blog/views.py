@@ -19,7 +19,6 @@ def blog(request):
             return redirect("blog")
     else:
         form = BlogForm()
-        form1 = Commentform()
     n = Blog.objects.all()
     n1 = Comment.objects.all()  # comment ka funct alag se bana hai...below!
     nav4="active"
@@ -46,12 +45,13 @@ def blog_edit(request,d):
 
 
 def blog_search(request):
+    n1 = Comment.objects.all()
     if request.method == 'POST':
         s = request.POST['search']
         if s:
             sa = Blog.objects.filter(Q(title__icontains=s)|Q(content__icontains=s)|Q(user__username__exact=s))
             if sa:
-                return render(request, 'nhdo_blog/search.html', {'text': sa,'t':s})
+                return render(request, 'nhdo_blog/search.html', {'text': sa,'t':s, 'comment':n1})
             else:
                 return render(request, 'nhdo_blog/notfound.html')
         else:
