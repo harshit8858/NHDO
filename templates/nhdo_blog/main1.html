@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<center>
+    <div class="container" style="width:1000px">
+        <div class="panel panel-info" style="width:650px">
+            <div class="panel-heading"><h1>Blog for <b>WOMEN EMPOWERMENT</b></h1></div>
+        </div>
+    </div>
+
+
+<form action="" method='post' enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="text" style="width:400px" name="title" id="title" class="form-control" placeholder="Subject" />
+    <textarea style="width:400px;height:200px" name="content" id="content" class="form-control" placeholder="Write Something..."></textarea>
+    <input type="file" style="width:210px" value="Pic" class="btn btn-info" name="pic" />
+    <button id="button" type='submit' class="btn btn-default">Post</button>
+</form>
+<hr/>
+</center>
+
+<div class="container" style="">
+    <div class="panel panel-success" style="width:350px">
+        <div class="panel-heading">
+            <form class="" action="{% url 'blog_search' %}" method="post" style="width:300px">
+                {% csrf_token %}
+                <input type="text" class="form-control" placeholder="Search" name="search" id="search_box">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

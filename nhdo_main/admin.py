@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Profile, Contact, Subscription
+from .models import Profile, Contact, Subscription, News
 
 
 class ProfileAdmin(admin.ModelAdmin):
@@ -35,4 +35,14 @@ class ContactAdmin(admin.ModelAdmin):
 admin.site.register(Contact, ContactAdmin)
 
 admin.site.register(Subscription)
+
+class NewsAdmin(admin.ModelAdmin):
+    list_display = ('news', 'date', 'date_now')
+
+    def get_list_filter(self, request):        #1
+        if request.user.is_superuser:
+            return ['news', 'date_now']
+        else:
+            return []
+admin.site.register(News, NewsAdmin)
 

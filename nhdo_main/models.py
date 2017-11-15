@@ -92,3 +92,12 @@ class Subscription(SubscriptionBase):
 # def handle_user_linked_to_response(sender, response, **kwargs):
 #     if response.action == "SOME_SPECIAL_ACTION":
 #         pass  # do something with response.user and response.referral.target (object that referral was linked to)
+
+
+class News(models.Model):
+    news = models.CharField(max_length=40)
+    date = models.DateField()
+    date_now = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.news

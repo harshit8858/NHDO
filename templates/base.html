@@ -130,7 +130,7 @@
             }
 
             .hover-green:hover{
-                background-color: #56F756;
+                background-color: #00aaff;
                 color:white;
             }
 
@@ -202,11 +202,11 @@
                 background-color: #111;
                 overflow-x: hidden;
                 transition: 0.5s;
-                padding-top: 60px;
+                padding-top: 0px;
             }
 
             .sidenav a {
-                padding: 8px 8px 8px 32px;
+                padding: ;
                 text-decoration: none;
                 font-size: 25px;
                 color: #818181;
@@ -225,9 +225,9 @@
             .sidenav .closebtn {
                 position: absolute;
                 top: 0;
-                right: 25px;
+                right: px;
                 font-size: 36px;
-                margin-left: 50px;
+                margin-left: px;
             }
 
             #main {
@@ -235,9 +235,9 @@
                 padding: 16px;
             }
 
-            @media screen and (max-height: 450px) {
-              .sidenav {padding-top: 15px;}
-              .sidenav a {font-size: 18px;}
+            @media screen and (max-height: px) {
+              .sidenav {padding-top: px;}
+              .sidenav a {font-size: px;}
             }
             #particle {
 				  background-color: #ffffff;
@@ -251,6 +251,7 @@
 				#overlay {
 				  position: relative;
 			}
+
 	  </style>
 </head>
 
@@ -259,7 +260,7 @@
 <div id="overlay">
 
 
-<nav class="navbar navbar-inverse" style="border-radius:0px; height:50%; background-color:black;">
+<nav class="navbar navbar-inverse" style="border-radius:0px; height:50%; background-color:#000000;">
             <div class="container-fluid">
                 <ul class="nav navbar-nav">
 						<li><a href="{% url 'home' %}"><i class="fa fa-lg fa-home"></i></a></li>
@@ -290,11 +291,10 @@
                     <!--</li>-->
                     <!--{% endif %}-->
                 </ul>
-
               <ul class="nav navbar-nav navbar-right">
 				  <li ><a class="btn btn-info"><span style="color:white" class="glyphicons glyphicons-phone-alt"> +91-11-41033648 </span></a></li>
 				  <li> : </li>
-				  <li ><a class="btn btn-info"><span style="color:white" class="glyphicons glyphicons-envelope"> cmd@nhdoindia.org </span></a></li>
+				  <li ><a class="btn btn-info"><span style="color:white" class="glyphicons glyphicons-envelope"> cmd@ffiindia.org </span></a></li>
               </ul>
               <!-- <div style="margin-top:15px">
                 <span class="hover-white" style="float:right; color:green;"><i class="fa fa-phone"></i> +91-11-41033648</span>
@@ -303,16 +303,87 @@
             </div>
           </nav>
 
-        <nav class="navbar navbar-inverse" style="margin-top:-20px; border-radius:0px;">
+        <nav class="navbar navbar-inverse" style="margin-top:-20px; border-radius:2px;height:57px">
             <div class="container-fluid">
               <div class="navbar-header">
                 <!-- <a class="navbar-brand" href="#">FFI India</a> -->
-                <a href="{% url 'home' %}"><img style="width: 45%; margin:0 auto;" src="https://i.imgur.com/mjW1oPJ.png" /></a>
-              </div>
+                <a href="{% url 'home' %}"><img style="width: 45%; margin:0 auto;" src="https://i.imgur.com/mjW1oPJ.png" height="56px"/></a>
               <ul class="nav navbar-nav navbar-right">
                 <li style="font-size:18px;" class="{{nav1}}"><a href="{% url 'home' %}">Home</a></li>
 
-                <li style="font-size:18px;" class="{{nav2}}"><a href="{% url 'about' %}">About</a></li>
+
+					  <li  style="font-size:15px;" class="dropdown">
+                        <div class="dropbtn">About</div>
+                        <div class="dropdown-content">
+
+                                <a href="{% url 'whoweare' %}" class="active">Who We Are?</a>
+                                    <!-- <ul>
+                                        <li><a href="#">Phases</a></li>
+                                        <li><a href="#">Targets and Features of PMAY</a></li>
+                                        <li><a href="#">EMI under PMAY</a></li>
+                                        <li><a href="#">Union Territories for PMAY</a></li>
+                                    </ul>
+                                </li> -->
+
+								<a href="{% url 'our_poineers' %}" >Our Poineers</a>
+
+                                <a href="{% url 'visionm' %}">Vision/Mission</a>
+                                    <!-- <ul>
+                                        <li><a href="#">Goals and Objectives</a></li>
+                                        <li><a href="#">Policy Presciptions</a></li>
+                                        <li><a href="#">Economic Empowerment of Women</a></li>
+                                        <li><a href="#">Social Empowerment of Women</a></li>
+                                        <li><a href="#">Operational Strategies</a></li>
+                                    </ul>
+                                </li> -->
+                                <a href="{% url 'our_visionary' %}" >Our Visionary</a>
+                                    <!-- <ul>
+                                        <li><a href="#">Education Relationship Program (IERP)</a></li>
+                                        <li><a href="#">Need for Academia</a></li>
+                                        <li><a href="#">Avenues of Interfaces</a></li>
+                                    </ul>
+                                </li> -->
+                        </div>
+                    <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#">Projects
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+
+                            <li><a href="#">NHDO</a>
+                                <ul>
+                                    <li><a href="#">Phases</a></li>
+                                    <li><a href="#">Targets and Features of PMAY</a></li>
+                                    <li><a href="#">EMI under PMAY</a></li>
+                                    <li><a href="#">Union Territories for PMAY</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Women Empowerment</a>
+                                <ul>
+                                    <li><a href="#">Goals and Objectives</a></li>
+                                    <li><a href="#">Policy Presciptions</a></li>
+                                    <li><a href="#">Economic Empowerment of Women</a></li>
+                                    <li><a href="#">Social Empowerment of Women</a></li>
+                                    <li><a href="#">Operational Strategies</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" >Industry Education (IERP)</a>
+                                <ul>
+                                    <li><a href="#">Education Relationship Program (IERP)</a></li>
+                                    <li><a href="#">Need for Academia</a></li>
+                                    <li><a href="#">Avenues of Interfaces</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Self Help Group</a></li>
+                            <li><a href="#">Kaushal Vikas Yojana</a></li>
+                            <li><a href="#">MUDRA Bank Yojana</a></li>
+                            <li><a href="#">Standup India</a></li>
+                            <li><a href="#">Garib Kalyan Yojana</a></li>
+                            <li><a href="#">Make in India</a></li>
+                            <li><a href="#">Smart City</a></li>
+
+
+                    </ul> -->
+                </li>
+
 
                 <li style="font-size:18px;" class="{{nav3}}"><a href="{% url 'gallery' %}">Gallery</a></li>
 
@@ -495,17 +566,16 @@
 		{% endif %}
 
 		{% if user.is_authenticated %}
-			<div class="col-md-9">
-    	{% else %}
-			<div class="col-md-12">
+			<div class="col-sm-9" style="width:75%;align:left">
+		{% else %}
+			<div class="col-sm-12" style="width:100%">
 		{% endif %}
-            <div class="profile-content">
+
 	{% block content %}
 	{% endblock %}
-            </div>
-		</div>
+			</div>
 	</div>
-</div>
+	</div>
 
 
 <hr/>
@@ -530,7 +600,7 @@
 														width="200px"
 														height="50px"></a>
 	<hr width="1400px"/>
-	<span class="warning" style="color:grey;font-size:22px;font-family:georgia">FFI INDIA, a family that strives and works for A Race Against Poverty.</span>
+	<span class="warning" style="color:grey;font-size:22px;font-family:georgia">FFI INDIA, a DRIVE for the <b>WOMEN</b>, by the <b>WOMEN</b>.</span>
 </div>
 
 
@@ -540,7 +610,7 @@
 	</div>
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
-	var options = {"particles":{"number":{"value":300,"density":{"enable":true,"value_area":252.4033491425909}},"color":{"value":"#0000ff"},"shape":{"type":"circle","stroke":{"width":10,"color":"#ffffff"},"polygon":{"nb_sides":0},"image":{"src":"img/github.svg","width":70,"height":100}},"opacity":{"value":1,"random":true,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":2,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":false,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":1.5782952832645452,"direction":"none","random":true,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":false,"mode":"repulse"},"onclick":{"enable":true,"mode":"repulse"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":false};
+	var options = {"particles":{"number":{"value":300,"density":{"enable":true,"value_area":552.4033491425909}},"color":{"value":"#0000ff"},"shape":{"type":"circle","stroke":{"width":10,"color":"#ffffff"},"polygon":{"nb_sides":0},"image":{"src":"img/github.svg","width":70,"height":100}},"opacity":{"value":1,"random":true,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":2,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":false,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":1.5782952832645452,"direction":"none","random":true,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":false,"mode":"repulse"},"onclick":{"enable":true,"mode":"repulse"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":false};
 particlesJS("particle", options);
 </script>
 </body>

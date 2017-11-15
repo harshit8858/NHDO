@@ -3,17 +3,20 @@
 
 
 
-<form class="navbar-form navbar-left" action="{% url 'blog_search' %}" method="post">
-    {% csrf_token %}
-	<div class="form-group">
-	    <input type="text" class="form-control" placeholder="Search" name="search" id="search_box">
-	</div>
-	<button type="submit" class="btn btn-default">Submit</button>
-</form>
-<hr/>
-<br/><br/>
 
-<div class="panel panel-default">
+<div class="container" style="width:px">
+    <div class="panel panel-success" style="width:350px">
+        <div class="panel-heading">
+            <form class="" action="{% url 'blog_search' %}" method="post" style="width:300px">
+                {% csrf_token %}
+                    <input type="text" class="form-control" placeholder="Search" name="search" id="search_box">
+                    <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default" style="width:300px">
   <div class="panel-heading">
     <h3 class="panel-title">Search result for "{{ t }}"</h3>
   </div>
@@ -36,7 +39,31 @@
                 <a href="{% url 'blog_edit' i.id %}" class="btn btn-warning btn-md">Edit</a>
             {% endifequal %}
             </div>
-            <div class="panel-footer">Comments</div>
+            <div class="panel-footer">
+                <b>Comments:</b><br/>
+
+                <ul class="list-group" style="">
+                    {% if comment %}
+                        {% for j in comment %}
+                            {% if j.box.id == i.id %}
+                                <li class="list-group-item list-group-item-warning">
+                                    {{ j.comment }}<br>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+
+                <form action="{% url 'blog_comment' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="hidden" name="take_id" value="{{ i.id }}" />
+                    <input id="com" type="text" class="form-control" style="width:300px" placeholder="Comment" name="comment" />
+                    <input type="submit" class="btn btn-default" value="Comment"/>
+                </form>
+
+                <br>
+
+            </div>
         </div>
     </div>
 {% endfor %}

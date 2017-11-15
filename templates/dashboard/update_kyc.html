@@ -10,6 +10,8 @@
                   <div class="panel-body">
             <b></b> {% if i.passport %}
                 <img src="{{i.passport.url}}" width="200px" height="200px" /><br><br>
+            {% else %}
+                <img src="https://forum.byjus.com/wp-content/themes/qaengine/img/default-thumbnail.jpg" width="200px" height="200px" /><br><br>
             {% endif %}
             <br />
 
@@ -22,6 +24,8 @@
 
                         <b></b> {% if i.pan %}
                             <img src="{{i.pan.url}}" width="100%" height="100%" /><br><br>
+                       {% else %}
+                            <img src="https://forum.byjus.com/wp-content/themes/qaengine/img/default-thumbnail.jpg" width="100%" height="100%" /><br><br>
                         {% endif %}
                         <br />
                   </div>
@@ -34,6 +38,8 @@
 
                         <b></b> {% if i.aadhar %}
                             <img src="{{i.aadhar.url}}"  width="100%" height="100%" /><br><br>
+                       {% else %}
+                            <img src="https://forum.byjus.com/wp-content/themes/qaengine/img/default-thumbnail.jpg"  width="100%" height="100%" /><br><br>
                         {% endif %}
                         <br />
                   </div>
@@ -45,6 +51,8 @@
                   <div class="panel-body">
                     <b></b> {% if i.voter %}
                             <img src="{{i.voter.url}}"  width="100%" height="100%" /><br><br>
+                      {% else %}
+                          <img src="https://forum.byjus.com/wp-content/themes/qaengine/img/default-thumbnail.jpg"  width="100%" height="100%" /><br><br>
                         {% endif %}
                         <br />
 
@@ -56,7 +64,9 @@
                   <div class="panel-body">
                         <b></b> {% if i.cancelled_cheque %}
                             <img src="{{i.cancelled_cheque.url}}"  width="100%" height="100%" /><br><br>
-                        {% endif %}
+                        {% else %}
+                              <img src="https://forum.byjus.com/wp-content/themes/qaengine/img/default-thumbnail.jpg"  width="100%" height="100%" /><br><br>
+                          {% endif %}
                         <br />
 
                   </div>
@@ -66,6 +76,8 @@
                   <div class="panel-body">
                         <b></b> {% if i.passbook %}
                             <img src="{{i.passbook.url}}"  width="100%" height="100%" /><br><br>
+                        {% else %}
+                           <img src="https://forum.byjus.com/wp-content/themes/qaengine/img/default-thumbnail.jpg"  width="100%" height="100%" /><br><br>
                         {% endif %}
                         <br />
 
@@ -78,7 +90,7 @@
     {% endifequal %}
 {% endfor %}
 
-<!--{% if re.aadhar %}-->
+<!--{% if re.request.user.aadhar %}-->
 <!--{% else %}-->
     <a href="{% url 'add_kyc' %}" class="btn btn-info" style="width:100px;"><span style="font-size:30px;">Add</span></a><b>(If you have'nt already!)</b>
 <!--{% endif %}-->

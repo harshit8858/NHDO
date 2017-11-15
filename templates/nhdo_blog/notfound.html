@@ -3,15 +3,18 @@
 {% block content %}
 
 
-<form class="navbar-form navbar-left" action="{% url 'blog_search' %}" method="post">
-    {% csrf_token %}
-	<div class="form-group">
-	    <input type="text" class="form-control" placeholder="Search" name="search" id="search_box">
-	</div>
-	<button type="submit" class="btn btn-default">Submit</button>
-</form>
-<hr/>
-<br/><br/>
+
+<div class="container" style="width:px">
+    <div class="panel panel-success" style="width:350px">
+        <div class="panel-heading">
+            <form class="" action="{% url 'blog_search' %}" method="post" style="width:300px">
+                {% csrf_token %}
+                    <input type="text" class="form-control" placeholder="Search" name="search" id="search_box">
+                    <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
 
 <div class="container" style="width:1000px">
     <div class="panel panel-info">
