@@ -87,9 +87,10 @@ def referal_counts(request):
     value7 = "active"
     referral = Profile.objects.get(user=request.user)
     print(referral.money)
-    if referral.count1 < 3:
+    fix = 25
+    if referral.count1 < fix:
         referral.level_reached = 0
-    elif referral.count1 >= 3:
+    elif referral.count1 >= fix:
         referral.level_reached = 1
     elif referral.count2 >= 625:
         referral.level_reached = 2
