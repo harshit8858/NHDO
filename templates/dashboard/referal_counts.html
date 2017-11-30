@@ -20,7 +20,8 @@
             <li class="list-group-item list-group-item-info">
 
                 <h2 style="display:inline;"><b><u>Level 1</u></b>:<i> {{ count1 }}
-                {% if count1 > 3 %}
+                {% if count1 > 25 %}
+                    <small>(Completed)</small>
                 {% else %}
                     <small>(Total Needed - 25)</small>
                 {% endif %}</i></h2>
@@ -32,6 +33,7 @@
             <li class="list-group-item list-group-item-success">
                 <h2><b><u>Level 2</u></b>:<i> {{ count2 }}
                 {% if count2 > 625 %}
+                    <small>(Completed)</small>
                 {% else %}
                     <small>(Total Needed - 625)</small>
                 {% endif %}</i><br/></h2>
@@ -43,6 +45,7 @@
             <li class="list-group-item list-group-item-danger">
                 <h2><b><u>Level 3</u></b>:<i> {{ count3 }}
                 {% if count3 > 15625 %}
+                    <small>(Completed)</small>
                 {% else %}
                     <small>(Total Needed - 15625)</small>
                 {% endif %}</i><br/></h2>
@@ -54,6 +57,7 @@
             <li class="list-group-item list-group-item-warning">
                 <h2><b><u>Level 4</u></b>:<i> {{ count4 }}
                 {% if count4 > 390625 %}
+                    <small>(Completed)</small>
                 {% else %}
                     <small>(Total Needed - 390625)</small>
                 {% endif %}</i><br/></h2>
@@ -65,6 +69,7 @@
             <li class="list-group-item list-group-item-default" style="background-color:#ccff99;">
                 <h2><b><u>Level 5</u></b>:<i> {{ count5 }}
                 {% if count5 > 9765625 %}
+                    <small>(Completed)</small>
                 {% else %}
                     <small>(Total Needed - 9765625)</small>
                 {% endif %}</i><br/></h2>
@@ -76,6 +81,7 @@
             <li class="list-group-item list-group-item-default">
                 <h2><b><u>Level 6</u></b>:<i> {{ count6 }}
                 {% if count6 > 244140625 %}
+                    <small>(Completed)</small>
                 {% else %}
                     <small>(Total Needed - 244140625)</small>
                 {% endif %}</i><br/></h2>

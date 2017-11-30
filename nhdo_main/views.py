@@ -100,7 +100,7 @@ def home(request):
         referral.money6 = 0
         referral.money = 0
 
-        fix = 3
+        fix = 25
 
         for i in x:
             if referral.your_referal == i.referal_id:
