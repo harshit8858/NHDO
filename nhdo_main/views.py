@@ -4,7 +4,7 @@ from .forms import SignUpForm
 from django.contrib import auth
 from django.contrib.auth import authenticate
 from .forms import ContactForm
-from .models import Profile
+from .models import Profile, News
 from django.contrib.auth.forms import PasswordChangeForm
 from dashboard.views import referal_level, referal_counts, referal_team, summary
 
@@ -15,8 +15,9 @@ amount = 500
 def index(request):
     home(request)
     nom = Profile.objects.all()
+    no = News.objects.all()
     nav1 = "active"
-    return render(request, 'nhdo_main/index.html', {'nom':nom, 'nav1':nav1})
+    return render(request, 'nhdo_main/index.html', {'nom':nom, 'nav1':nav1, 'no':no})
 
 
 def signup(request):
@@ -78,6 +79,7 @@ def log_in(request):
 def home(request):
     nav1 = "active"
     nom = Profile.objects.all()
+    no = News.objects.all()
     if request.user.is_authenticated():
         referal_team(request)
         referal_counts(request)
@@ -166,9 +168,11 @@ def home(request):
         referral.money = float(referral.money1) + float(referral.money2) + float(referral.money3) + float(referral.money4) + float(referral.money5) + float(referral.money6)
         referral.save()
         p = Profile.objects.all()
-        return render(request, 'nhdo_main/index.html', {'info':p, 'nom':nom, 'nav1':nav1})
+        print(no)
+        return render(request, 'nhdo_main/index.html', {'info':p, 'nom':nom, 'nav1':nav1, 'no':no})
     else:
-        return render(request, 'nhdo_main/index.html', {'nom':nom, 'nav1':nav1})
+        print(no)
+        return render(request, 'nhdo_main/index.html', {'nom':nom, 'nav1':nav1, 'no':no})
 
 
 def referral_level(request):
@@ -246,7 +250,7 @@ def contact(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect('contact')
     else:
         form = ContactForm()
     return render(request, 'nhdo_main/contact.html', {'form':form, 'nav5':nav5})

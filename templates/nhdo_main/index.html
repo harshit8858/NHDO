@@ -1,19 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 
-{% if user.is_authentictaed %}
-    <div class="col-sm-3">.</div>
-    <div class="col-sm-9">
-{% else %}
-    <div class="col-sm-12">
-{% endif %}
+
 
 <!--{{ request.user }}-->
 
 <!--<div>-->
     <!--<img style="width:1200px;height:100px; margin:0 auto;" src="https://i.imgur.com/mjW1oPJ.png"/>-->
 <!--</div>-->
-<div class="container" style="width:1200px;height:100px;">
+<div class="container" style="width:1500px;height:100px;">
   <div id="myCarousel" class="carousel slide col-sm-6" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -23,12 +18,19 @@
       <li data-target="#myCarousel" data-slide-to="3"></li>
       <li data-target="#myCarousel" data-slide-to="4"></li>
       <li data-target="#myCarousel" data-slide-to="5"></li>
+      <li data-target="#myCarousel" data-slide-to="6"></li>
+      <li data-target="#myCarousel" data-slide-to="7"></li>
+      <li data-target="#myCarousel" data-slide-to="8"></li>
     </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" style="height:300px">
       <div class="item active">
-        <img src="https://successfullady.in/wp-content/uploads/2015/10/Women-empowerment.jpg" alt="" style="width:100%;">
+        <img src="https://i.imgur.com/s6u7p05.jpg" alt="" style="width:100%;height:300px">
+      </div>
+
+      <div class="item active">
+        <img src="https://d1u4oo4rb13yy8.cloudfront.net/article-bhpkrlwmdw-1462615444.jpeg" alt="" style="width:100%;height:350px">
       </div>
 
       <div class="item">
@@ -45,6 +47,14 @@
 
       <div class="item">
         <img src="http://rapidoread.com/wp-content/uploads/2017/03/o-FEMINISM-IN-2014-facebook-800x445.jpg" alt="" style="width:100%;">
+      </div>
+
+      <div class="item" align="center">
+        <img src="https://thediaryofadivinediva.files.wordpress.com/2010/03/the-best-man-4-the-job-is-a-women.jpg" alt="" width="300px" height="250px">
+      </div>
+
+      <div class="item">
+        <img src="https://i.ytimg.com/vi/Z96TEKHtt0M/maxresdefault.jpg" alt="" style="width:100%;">
       </div>
 
       <div class="item">
@@ -65,21 +75,26 @@
 
 
 <div style="background-color:" class="col-sm-6">
-    <div class="container" style="">
+    <div class="container" style="width:800px">
         <div class="col-sm-6" style="">
-            <p class="lead" style="color:black;font-size:18px"><kbd>Forum of Financial Initiatives (FFI)</kbd> is an Autonomous Body, which has made deep inroads into economic, social and political landscape of the country.
-            FFI have successfully helped many individual, corporation and non-governmental organizations to tap resources both from India and abroad for investing in productive activities, since its inception i.e. 1997.
-            FFI have an impressive record in financial inclusion. Perhaps we are one among the very few organizations that have promoted self help groups and micro-financing. As the Indian economy is entering an exciting phase of growth, consolidation and greater stress is being laid on transparency and good Governance, we have decided to contribute whatever little that could do in this regard.
-            </p>
+            <div class="panel panel-default">
+  <div class="panel-heading" style="font-size:20px"><b>Upcoming Events</b></div>
+  <div class="panel-body news" style="height:250px;overflow-y:scroll">
+       {% for i in no %}
+            {{ i.news }}<br/>
+      <small><span style="float:right;color:grey">-{{ i.date }}</span></small>
+            <hr/>
+        {% endfor %}
+  </div>
+</div>
         </div>
     </div>
 </div>
 </div>
 
-
 <div class="container col-sm-12" style="background-color:#ffd11a;width:1100px">
     <div class="col-sm-4 " style="">
-        <h4 class="heading " style=""><b>We Love To Fight For Your <br/>Freedom</b><br><br></h4>
+        <h4 class="heading " style=""><b>We Love To Drive For Your <br/>Freedom</b><br><br></h4>
     </div>
     <div class="col-sm-4" style="">
         <h4 class="heading " style="">

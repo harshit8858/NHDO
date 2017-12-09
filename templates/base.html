@@ -252,12 +252,16 @@
 				  position: relative;
 			}
 
+
+
+
 	  </style>
 </head>
 
-<body class="body" style="">
+<body class="body" style="overflow-x:hidden;">
 <div id="particle"></div>
 <div id="overlay">
+
 
 
 <nav class="navbar navbar-inverse" style="border-radius:0px; height:50%; background-color:#000000;">
@@ -294,7 +298,7 @@
               <ul class="nav navbar-nav navbar-right">
 				  <li ><a class="btn btn-info"><span style="color:white" class="glyphicons glyphicons-phone-alt"> +91-11-41033648 </span></a></li>
 				  <li> : </li>
-				  <li ><a class="btn btn-info"><span style="color:white" class="glyphicons glyphicons-envelope"> cmd@ffiindia.org </span></a></li>
+				  <li ><a class="btn btn-info"><span style="color:white" class="glyphicons glyphicons-envelope"> info@ffiindia.org </span></a></li>
               </ul>
               <!-- <div style="margin-top:15px">
                 <span class="hover-white" style="float:right; color:green;"><i class="fa fa-phone"></i> +91-11-41033648</span>
@@ -325,9 +329,9 @@
                                     </ul>
                                 </li> -->
 
-								<a href="{% url 'our_poineers' %}" >Our Poineers</a>
+								<a href="{% url 'our_poineers' %}" >Our Visionaries</a>
 
-                                <a href="{% url 'visionm' %}">Vision/Mission</a>
+                                <a href="{% url 'visionm' %}">Our Vision/Mission</a>
                                     <!-- <ul>
                                         <li><a href="#">Goals and Objectives</a></li>
                                         <li><a href="#">Policy Presciptions</a></li>
@@ -336,7 +340,7 @@
                                         <li><a href="#">Operational Strategies</a></li>
                                     </ul>
                                 </li> -->
-                                <a href="{% url 'our_visionary' %}" >Our Visionary</a>
+                                <!--<a href="{% url 'our_visionary' %}" >Our Visionary</a>-->
                                     <!-- <ul>
                                         <li><a href="#">Education Relationship Program (IERP)</a></li>
                                         <li><a href="#">Need for Academia</a></li>
@@ -344,55 +348,11 @@
                                     </ul>
                                 </li> -->
                         </div>
-                    <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#">Projects
-                    <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-
-                            <li><a href="#">NHDO</a>
-                                <ul>
-                                    <li><a href="#">Phases</a></li>
-                                    <li><a href="#">Targets and Features of PMAY</a></li>
-                                    <li><a href="#">EMI under PMAY</a></li>
-                                    <li><a href="#">Union Territories for PMAY</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Women Empowerment</a>
-                                <ul>
-                                    <li><a href="#">Goals and Objectives</a></li>
-                                    <li><a href="#">Policy Presciptions</a></li>
-                                    <li><a href="#">Economic Empowerment of Women</a></li>
-                                    <li><a href="#">Social Empowerment of Women</a></li>
-                                    <li><a href="#">Operational Strategies</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#" >Industry Education (IERP)</a>
-                                <ul>
-                                    <li><a href="#">Education Relationship Program (IERP)</a></li>
-                                    <li><a href="#">Need for Academia</a></li>
-                                    <li><a href="#">Avenues of Interfaces</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Self Help Group</a></li>
-                            <li><a href="#">Kaushal Vikas Yojana</a></li>
-                            <li><a href="#">MUDRA Bank Yojana</a></li>
-                            <li><a href="#">Standup India</a></li>
-                            <li><a href="#">Garib Kalyan Yojana</a></li>
-                            <li><a href="#">Make in India</a></li>
-                            <li><a href="#">Smart City</a></li>
-
-
-                    </ul> -->
-                </li>
-
-
-                <li style="font-size:18px;" class="{{nav3}}"><a href="{% url 'gallery' %}">Gallery</a></li>
-
-			    <li style="font-size:18px;" class="{{nav4}}"><a href="{% url 'blog' %}">Blog</a></li>
-
-                <li  style="font-size:15px;" class="dropdown">
+						  <li  style="font-size:15px;" class="dropdown">
                         <div class="dropbtn">Projects</div>
                         <div class="dropdown-content">
 
+                                <a href="{% url 'women_empowerment' %}">Women Empowerment</a>
                                 <a href="http://nhdoindia.org">NHDO (Housing For All)</a>
                                     <!-- <ul>
                                         <li><a href="#">Phases</a></li>
@@ -401,7 +361,6 @@
                                         <li><a href="#">Union Territories for PMAY</a></li>
                                     </ul>
                                 </li> -->
-                                <a href="{% url 'women_empowerment' %}">Women Empowerment</a>
                                     <!-- <ul>
                                         <li><a href="#">Goals and Objectives</a></li>
                                         <li><a href="#">Policy Presciptions</a></li>
@@ -464,6 +423,52 @@
 
                     </ul> -->
                 </li>
+
+                    <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#">Projects
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+
+                            <li><a href="#">NHDO</a>
+                                <ul>
+                                    <li><a href="#">Phases</a></li>
+                                    <li><a href="#">Targets and Features of PMAY</a></li>
+                                    <li><a href="#">EMI under PMAY</a></li>
+                                    <li><a href="#">Union Territories for PMAY</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Women Empowerment</a>
+                                <ul>
+                                    <li><a href="#">Goals and Objectives</a></li>
+                                    <li><a href="#">Policy Presciptions</a></li>
+                                    <li><a href="#">Economic Empowerment of Women</a></li>
+                                    <li><a href="#">Social Empowerment of Women</a></li>
+                                    <li><a href="#">Operational Strategies</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" >Industry Education (IERP)</a>
+                                <ul>
+                                    <li><a href="#">Education Relationship Program (IERP)</a></li>
+                                    <li><a href="#">Need for Academia</a></li>
+                                    <li><a href="#">Avenues of Interfaces</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Self Help Group</a></li>
+                            <li><a href="#">Kaushal Vikas Yojana</a></li>
+                            <li><a href="#">MUDRA Bank Yojana</a></li>
+                            <li><a href="#">Standup India</a></li>
+                            <li><a href="#">Garib Kalyan Yojana</a></li>
+                            <li><a href="#">Make in India</a></li>
+                            <li><a href="#">Smart City</a></li>
+
+
+                    </ul> -->
+                </li>
+
+
+                <li style="font-size:18px;" class="{{nav3}}"><a href="{% url 'gallery' %}">Gallery</a></li>
+
+			    <li style="font-size:18px;" class="{{nav4}}"><a href="{% url 'blog' %}">Blog</a></li>
+
 
                 <li style="font-size:18px;" class="{{nav5}}"><a href="{% url 'contact' %}">Contact</a></li>
             </ul>
