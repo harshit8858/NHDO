@@ -8,7 +8,7 @@
 <!--<div>-->
     <!--<img style="width:1200px;height:100px; margin:0 auto;" src="https://i.imgur.com/mjW1oPJ.png"/>-->
 <!--</div>-->
-<div class="container" style="width:1200px;height:100px;">
+<div class="container" style="width:1500px;height:100px;">
   <div id="myCarousel" class="carousel slide col-sm-6" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -79,14 +79,8 @@
         <div class="col-sm-6" style="">
             <div class="panel panel-default">
   <div class="panel-heading" style="font-size:20px"><b>Upcoming Events</b></div>
-  <div class="panel-body">
-        {% if no %}
-            if
-        {% else %}
-           else
-      {% endif %}
-
-        {% for i in no %}
+  <div class="panel-body news" style="height:250px;overflow-y:scroll">
+       {% for i in no %}
             {{ i.news }}<br/>
       <small><span style="float:right;color:grey">-{{ i.date }}</span></small>
             <hr/>
@@ -97,7 +91,6 @@
     </div>
 </div>
 </div>
-
 
 <div class="container col-sm-12" style="background-color:#ffd11a;width:1100px">
     <div class="col-sm-4 " style="">

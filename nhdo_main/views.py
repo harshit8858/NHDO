@@ -15,8 +15,9 @@ amount = 500
 def index(request):
     home(request)
     nom = Profile.objects.all()
+    no = News.objects.all()
     nav1 = "active"
-    return render(request, 'nhdo_main/index.html', {'nom':nom, 'nav1':nav1})
+    return render(request, 'nhdo_main/index.html', {'nom':nom, 'nav1':nav1, 'no':no})
 
 
 def signup(request):
