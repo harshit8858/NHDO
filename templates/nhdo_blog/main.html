@@ -35,7 +35,7 @@
 {% for i in text %}
         <div class="panel panel-info">
             <div class="panel-heading"><h2><b>{{ i.title }}</b><small>({{ i.user.username }})</small></h2></div>
-            <div class="panel-body"><p>{{ i.content }}</p>
+            <div class="panel-body" style=""><p>{{ i.content }}</p>
             <center>
                 {% if i.pic %}
                     <img src="{{i.pic.url}}" width="600px" height="600px" /><br><br>
@@ -63,13 +63,14 @@
                     {% endif %}
                 </ul>
 
+                {% if user.is_authenticated %}
                 <form action="{% url 'blog_comment' %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <input type="hidden" name="take_id" value="{{ i.id }}" />
                     <input id="com" type="text" class="form-control" style="width:300px" placeholder="Comment" name="comment" />
                     <input type="submit" class="btn btn-default" value="Comment"/>
                 </form>
-
+                {% endif %}
                 <br>
             </div>
         </div>

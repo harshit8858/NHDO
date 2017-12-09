@@ -6,7 +6,7 @@
 <div class="panel panel-primary">
       <div class="panel-heading"><h1>Dashboard</h1></div>
       <div class="panel-body">
-        {% for i in  info %}
+        {% for i in info %}
             {% ifequal i.user request.user %}
             <table class="table" border="2px" style="font-size:20px">
                 <tr class="info" style=""><th>Username:</th><td>{{ i.user.username }}</td></tr>
